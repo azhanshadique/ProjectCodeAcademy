@@ -51,6 +51,22 @@ const firebaseConfig = {
         fetchProblems('Array', 'lec1-content');
     } else if (!dropdown.classList.contains('hidden') && id === 'lec2-content') {
         fetchProblems('Tree', 'lec2-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec3-content') {
+      fetchProblems('Linked List', 'lec3-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec4-content') {
+      fetchProblems('Stack & Queue', 'lec4-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec5-content') {
+      fetchProblems('Recursion', 'lec5-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec6-content') {
+      fetchProblems('BST', 'lec6-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec7-content') {
+      fetchProblems('Greedy Algo', 'lec7-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec8-content') {
+      fetchProblems('DP', 'lec8-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec9-content') {
+      fetchProblems('String', 'lec9-content');
+    } else if (!dropdown.classList.contains('hidden') && id === 'lec10-content') {
+      fetchProblems('Graph', 'lec10-content');
     }
   };
 //   function toggleDropdown(id) {
