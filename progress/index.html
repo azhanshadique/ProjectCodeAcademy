@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAcademy</title>
+    <link rel="stylesheet" href="/progress/style.css">
+    <link rel="shortcut icon" href="/assets/images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon-names=close" />
+
+</head>
+
+<body>
+
+    <!-- LOADER  -->
+    <!-- <div id="loader-about"> -->
+    <!-- <h1>CODE</h1>
+        <h1>LEARN</h1>
+        <h1>SUCCEED</h1> -->
+    <!-- </div> -->
+
+    <!-- <div id="fixed-image"></div> -->
+
+
+    <div id="main">
+
+        <!-- HEADER - NAVBAR -->
+        <header id="header" data-scroll data-scroll-sticky data-scroll-target="#main">
+            <nav class="header-content">
+                <div class="logo-text">CODEACADEMY</div>
+                <div class="nav-list1">
+                    <h4><a href="/index.html" class="">Home</a></h4>
+                    <h4><a href="/features/index.html" class="">Features</a></h4>
+                    <h4><a href="/about/index.html" class="">About</a></h4>
+                    <h4><a href="/contact/index.html" class="">Contact</a></h4>
+
+                </div>
+                
+                
+                
+                <div class="user-profile  button">
+                    <!-- <div id="medium-dot"></div> -->
+                    
+                     
+                    <!-- <h5 id="user-profile-name"></h5> -->
+                    <!-- <h5 class="user-profile-name"><input type="text" value="" id="user-profile-name" readonly></h5> -->
+                    <img src="/assets/images/user6.png" class="user-image" alt="User Image">
+                    <span class="material-symbols-outlined dropdown-profile-arrow">keyboard_arrow_down</span>
+                    
+                    
+                    <!-- <button id="logout" class="logout">Logout</button> -->
+
+                </div>
+                
+    
+                <!-- <button type="button" class="menu-button">
+                    <img src="./images/Hamburger.svg" alt="Menu Button" class="menu-icon">
+                </button> -->
+    
+                <h3>Menu</h3>
+            </nav>
+        </header>
+
+        <div class="user-profile-box" data-scroll data-scroll-sticky data-scroll-target="#main">
+            <h5 class="user-profile-name"><input type="text" value="" id="user-profile-name" readonly class="user-profile-name-input"></h5>
+            <h5 class="user-profile-email"><input type="text" value="" id="user-profile-email" readonly class="user-profile-email-input"></h5>
+            <div class="userprofile-signout-button button" id="hehe">
+                <!-- <a href="/progress/index.html">
+                    <h4 class="view-profile ">
+                        <span class="material-symbols-outlined user-profile-icon">person</span>
+                        <a href="/progress/index.html" class="">View Profile</a>
+                    </h4>k
+                </a> -->
+                <h4 class="view-profile">
+                    <a href="#" class="">
+                        <span class="material-symbols-outlined user-profile-icon">person</span>
+                        View Profile
+                    </a>
+                </h4>
+                <h4 class="view-profile" id="logout">
+                    <a href="/index.html" class="">
+                        <span class="material-symbols-outlined user-profile-icon">logout</span>
+                        Sign Out
+                    </a>
+                </h4>
+               
+                <!-- <h4 id="logout" class="signout-button">
+                    <span class="material-symbols-outlined user-profile-icon">logout</span>
+                    <a href="#" class="logout">Sign Out</a>
+                </h4>     -->
+            </div>
+        </div>
+
+        <!-- SECTION - 2 -->
+        <div class="section-profile-tracker">
+            <div class="left-profile-tracker">
+
+                <div class="section-contact">
+                    <div class="contact-heading">
+                        <h2 class="">Profile Tracker</h2>
+                        <p class="">Register your platforms username to get platform specific progress.</p>
+                    </div>
+                    <form class="form">
+                        <div class="gfg-div name-div">
+                            <label for="gfgUsername" class="">GeeksforGeeks</label>
+                            <div class="relative" data-placeholder="https://www.geeksforgeeks.org/user/">
+                                <input type="text" id="gfgUsername" class="gfg-input-field" placeholder="username">
+                            </div>
+                        </div>
+                        <div class="leetcode-div email-div">
+                            <label for="leetCodeUsername" class="">LeetCode</label>
+                            <div class="relative" data-placeholder="https://leetcode.com/u/">
+                                <input type="text" id="leetCodeUsername" class="leetcode-input-field"
+                                    placeholder="username" name="name" value="">
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        <div class="submit-div button" id="fetchDataButton">
+                            <!-- <button type="submit" class="">Submit</button> -->
+                            <h4><a href="#" class="nav_login_button">Submit</a></h4>
+                        </div>
+                    </form>
+                    
+                    <div id="moving-circle"></div>
+                </div>
+
+                <div id="totalProgress">
+                    <h2>Total Progress</h2>
+                    <div id="totalProgressData"></div>
+                </div>
+
+            </div>
+            
+            <div class="section-tracker">
+                <!-- <div id="container"> -->
+                    <div id="gfgOutput">
+                        <h2>GeeksforGeeks Data</h2>
+                        <div id="gfgData"></div>
+                    </div>
+                    <div id="leetCodeOutput">
+                        <h2>LeetCode Data</h2>
+                        <div id="leetCodeData"></div>
+                    </div>
+                    
+                    
+                <!-- </div> -->
+            </div>
+        </div>
+        
+       
+ 
+        <!-- SECTION - 5 -->
+        <div class="section-5">
+
+        </div>
+
+
+    </div>
+
+
+    <div id="footer">
+        <div id="shape1"></div>
+        <div id="shape2"></div>
+        <!-- <div id="shape3"></div> -->
+        <div id="footerupper">
+            <div>
+                <h2>Code.</h2>
+                <h2>Learn.</h2>
+                <h2>Succeed.</h2>
+            </div>
+            <div id="footer-email">
+                <p>Get in touch</p>
+                <h6>codeacademy.support@gmail.com</h6>
+            </div>
+        </div>
+        <div id="footerlower">
+            <h1>CodeAcademy</h1>
+            <!-- <img src="https://assets-global.website-files.com/64d3dd9edfb41666c35b15b7/64d3dd9edfb41666c35b15c6_Footer%20Logo.svg" alt=""> -->
+
+            <div>
+                <h5>Copyright © CodeAcademy</h5>
+                <h5>Kolkata, WB</h5>
+                <h5>Instagram</h5>
+                <h5>LinkedIn</h5>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="/progress/script.js"></script>
+</body>
+
+</html>

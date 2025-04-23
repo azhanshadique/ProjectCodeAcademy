@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 500;
+    src: url(/assets/fonts/NeueHaasDisplayBlack.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 400;
+    src: url(/assets/fonts/NeueHaasDisplayBold.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 300;
+    src: url(/assets/fonts/NeueHaasDisplayMediu.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 100;
+    src: url(/assets/fonts/NeueHaasDisplayLight.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 200;
+    src: url(/assets/fonts/NeueHaasDisplayRoman.ttf);
+}
+
+:root {
+    --primary-color: #6366F1;
+    --accent-color: #3f83f8;
+    --text-color: #333333;
+    --link-color: #2563eb;
+    --light-gray: #f0f0f0;
+    --gray: #808080;
+    --dark-gray: #555;
+
+    --background-color: #EFEAE3;
+    --nav-text-color: #000000bb;
+    --orange-dot: #FE320A;
+
+
+    /* background: linear-gradient(to left,orange,orangered); */
+    /* orange: #FE320A */
+
+    
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'neu' ,'DM Sans','Inter', sans-serif; */
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-weight: 300;
+    user-select: none;
+}
+.input{
+  font-weight: 700;
+}
+body {
+    /* font-family: 'neu' ,'DM Sans','Inter', sans-serif; */
+    font-family: 'Montserrat';
+
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input, select, button {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  #output {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+  }
+  

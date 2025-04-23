@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firestore Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <h1 class="input">Problem Input Form</h1>
+    <form id="problemForm">
+        <label for="id">Problem ID:</label>
+        <input type="text" id="id" name="id" placeholder="Enter problem ID (e.g., two-sum)" required />
+      
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter problem title" required />
+      
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" name="difficulty" required>
+          <option value="">Select difficulty</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" placeholder="Enter category (e.g., Array)" required />
+      
+        <label for="order">Order:</label>
+        <input type="number" id="order" name="order" placeholder="Enter order (e.g., 1)" required />
+      
+        <label for="link">Practice Link (optional):</label>
+        <input type="url" id="link" name="link" placeholder="Enter URL (optional)" />
+      
+        <button type="submit">Submit</button>
+      </form>
+      
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
