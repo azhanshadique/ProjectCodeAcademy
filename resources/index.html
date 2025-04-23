@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeAcademy</title>
-    <link rel="stylesheet" href="/contact/style.css">
+    <link rel="stylesheet" href="/resources/style.css">
     <link rel="shortcut icon" href="/assets/images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon-names=close" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
 
 </head>
 
@@ -33,13 +35,13 @@
                 <div class="logo-text">CODEACADEMY</div>
                 <div class="nav-list1">
                     <h4><a href="/" class="">Home</a></h4>
-                    <h4><a href="/resources/" class="">Resources</a></h4>
+                    <h4><a href="" class="current-nav">Resources</a></h4>
                     <!-- <h4><a href="/coursesAdder/" class="">Add Course</a></h4> -->
                     <!-- <h4><a href="/features/" class="">Features</a></h4> -->
                     <h4><a href="/about/" class="">About</a></h4>
-                    <h4><a href="" class="current-nav">Contact</a></h4>
+                    <h4><a href="/contact/" class="">Contact</a></h4>
+
                 </div>
-                
                 <div class="nav-list2 button">
                     <!-- <a href="./login/index.html" class="signup-button nav-login-button">Log In</a> -->
                     <!-- <button id="nav-login-button" class=" nav-login-button">Log In</button> -->
@@ -61,6 +63,10 @@
                     <!-- <button id="logout" class="logout">Logout</button> -->
 
                 </div>
+                
+                
+                
+    
                 <!-- <button type="button" class="menu-button">
                     <img src="./images/Hamburger.svg" alt="Menu Button" class="menu-icon">
                 </button> -->
@@ -97,52 +103,46 @@
                         <span class="material-symbols-outlined user-profile-icon">logout</span>
                         Sign Out
                     </a>
-                </h4>   
+                </h4>    
             </div>
         </div>
 
-        <!-- SECTION - 2 -->
-        <div class="section-contact">
-            <div class="contact-heading">
-                <h2 class="">Contact Us</h2>
-                <p class="">We value your feedback and are here to assist you. Please use the form below to drop your reviews, suggestions, or to ask for support.</p>
+        <!-- SECTION - 2 MQJAWED START-->
+        
+        
+        <div class="topics-display">
+            <div class="container">
+                <!-- Main Section -->
+                <div class="step-header" onclick="toggleDropdown('step1-content')">
+                    <pre class="step-title">Data Structure & Algorithm  </pre>
+                    <span class="progress"></span>
+                    <span class="dropdown-btn">▼</span>
+                </div>
+        
+                <!-- Subsection Array -->
+                <div class="dropdown-content hidden" id="step1-content">
+                    <div class="lecture-header" onclick="toggleDropdown('lec1-content')">
+                        <span class="lecture-title">Arrays</span>
+                        <span class="progress"></span>
+                        <span class="dropdown-btn">▼</span>
+                    </div>
+                    <div class="dropdown-content hidden" id="lec1-content"></div>
+        
+                    <!-- Subsection Tree -->
+                    <div class="lecture-header" onclick="toggleDropdown('lec2-content')">
+                        <span class="lecture-title">Tree</span>
+                        <span class="progress"></span>
+                        <span class="dropdown-btn">▼</span>
+                    </div>
+                    <div class="dropdown-content hidden" id="lec2-content"></div>
+                
+                </div>
             </div>
-            <form class="form">
-                <div class="name-div">
-                    <label for="name" class="">Name</label>
-                    <div class="relative">
-                        <input type="text" id="name" class=""
-                            placeholder="Enter your name" name="name" value="">
-                    </div>
-                </div>
-                <div class="email-div">
-                    <label for="email" class="">Email address<!-- --> </label>
-                    <div class="relative">
-                        <input type="email" id="contact-email" class="" placeholder="Enter email address" name="contact-email" value="">
-                    </div>
-                </div>
-                <div class="subject-div">
-                    <label for="subject" class="">Subject<!-- --> </label>
-                    <div class="relative">
-                        <input type="text" id="subject" class="" placeholder="Enter subject" name="subject" value="">
-                    </div>
-                </div>
-                <div class="message-div">
-                    <label for="message" class="">Message</label>
-                    <textarea
-                        id="message" name="message" rows="4"
-                        class="">
-                    </textarea>
-                </div>
-                <div class="submit-div button">
-                    <!-- <button type="submit" class="">Submit</button> -->
-                    <h4><a href="#" class="nav_login_button">Submit</a></h4>
-                </div>
-            </form>
-            
-            <div id="moving-circle"></div>
         </div>
-       
+        
+    <!--How to display more?Add subsection similarly and edit javascript "fetch problem if the dropdown is opened"-->   
+    <!--MQJAWED END-->
+        
  
         <!-- SECTION - 5 -->
         <div class="section-5">
@@ -181,8 +181,8 @@
         </div>
     </div>
 
-     <!-- SIGN IN PAGE  -->
-     <div class="user-form" id="user-form">
+    <!-- SIGN IN PAGE  -->
+    <div class="user-form" id="user-form">
         <!-- <div class="form-blur"></div> -->
         <div class="form-box" id="form-box">
             <span class="notify" id="notify"></span>
@@ -303,7 +303,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="module" src="/contact/script.js"></script>
+
+    <!-- Firebase SDK MQJAWED START-->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <!--  MQJAWED END-->
+
+    <script type="module" src="/resources/script.js"></script>
 </body>
 
 </html>

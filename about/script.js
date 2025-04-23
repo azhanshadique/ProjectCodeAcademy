@@ -192,11 +192,13 @@ function getUserData(uid, img_src){
           // console.log(childsnapShot.val());
           var uservalue = snapshot.val().firstname;
           uservalue = uservalue +" "+ snapshot.val().lastname;
-          document.getElementById('user-profile-name').style.width = ((uservalue.length + 3) * 8) + 'px';
+          // document.getElementById('user-profile-name').style.width = ((uservalue.length + 3) * 8) + 'px';
+          document.getElementById('user-profile-name').style.width = '250px';
           document.getElementById('user-profile-name').value = uservalue;
 
           var useremail = snapshot.val().email;
-          document.getElementById('user-profile-email').style.width = ((useremail.length + 1) * 8) + 'px';
+          // document.getElementById('user-profile-email').style.width = ((useremail.length + 1) * 7) + 'px';
+          document.getElementById('user-profile-email').style.width = '250px';
           document.getElementById('user-profile-email').value = useremail;
           
           
@@ -212,6 +214,9 @@ function getUserData(uid, img_src){
             // console.log(`${img_src}`);
             // console.log(document.querySelector('.user-image').src);
             // console.log(document.querySelector('.user-image').srcset);
+          }
+          if(useremail === "azhan.shadique@gmail.com" || useremail === "zainmallickiphone@gmail.com") {
+            document.querySelector('.course-adder').style.display = "flex";
           }
 
         // }

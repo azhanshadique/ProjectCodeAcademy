@@ -42,7 +42,7 @@
     --gray: #808080;
     --dark-gray: #555;
 
-    --background-color: #EFEAE3;
+    --background-color: #F9FAFB;
     --nav-text-color: #000000bb;
     --orange-dot: #FE320A;
 
@@ -253,7 +253,7 @@ header{
     overflow: hidden;
     margin-top: -0.5rem; */
 
-    padding: 2vw 0vw;
+    padding: 1vw 0vw;
     width: 100%;
     display: flex;
     align-items: center;
@@ -459,7 +459,7 @@ nav h3 {
     border-radius: 5px;
     border: 1px solid rgba(179, 179, 179, 0.65);
     /* position: absolute; */
-    top: 75px;
+    top: 70px;
     right: 40px;
     z-index: 100;
     position: fixed;
@@ -470,39 +470,38 @@ nav h3 {
     padding: 1rem 1rem;
     display: none;
     gap: 1rem;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .userprofile-signout-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
-.signout-button, .view-profile {
-    width: 100%;
-    text-align: center;
+.signout-button, .view-profile, .course-adder {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  
 }
 
-.user-profile-icon {
-    margin-left: -4px;
+.signout-button a, .view-profile a, .course-adder a {
+  /* background-color: gray; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 30px;
+
 }
-.user-profile-box .button .view-profile {
-    padding: 0;
-}
-.view-profile a {
-    /* background: red; */
-    padding: 10px 40px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-.view-profile a span {
-    padding-right: 5px;
-}
-.signout-button span {
-    padding-left: 20px;
+.course-adder {
+  display: none;
 }
 
 .show {display: block;}
@@ -516,7 +515,7 @@ nav h3 {
 .section-contact {
     min-height: 100vh;
     width: 100%;
-    background-color: #EFEAE3;
+    background-color: #F9FAFB;
     padding: 3vw 0;
     position: relative;
     z-index: 9;
@@ -855,7 +854,7 @@ nav h3 {
     border: 1px solid rgba(179, 179, 179, 0.65);
 
     /* backdrop-filter: blur(50px) !important; */
-    background-image: linear-gradient(135deg, #efeae3 0%, rgba(226, 209, 195, 0.8) 100%); /* #e2d1c3eb */
+    background-image: linear-gradient(135deg, #F9FAFB 0%, rgba(226, 209, 195, 0.8) 100%); /* #e2d1c3eb */
 }
 
   .user-form .form, .signup-form .form {
