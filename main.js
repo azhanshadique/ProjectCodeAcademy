@@ -191,11 +191,13 @@ function getUserData(uid, img_src){
     get(userRef).then((snapshot) =>{
           var uservalue = snapshot.val().firstname;
           uservalue = uservalue +" "+ snapshot.val().lastname;
-          document.getElementById('user-profile-name').style.width = ((uservalue.length + 3) * 8) + 'px';
+          // document.getElementById('user-profile-name').style.width = ((uservalue.length + 3) * 8) + 'px';
+          document.getElementById('user-profile-name').style.width = '250px';
           document.getElementById('user-profile-name').value = uservalue;
 
           var useremail = snapshot.val().email;
-          document.getElementById('user-profile-email').style.width = ((useremail.length + 1) * 8) + 'px';
+          // document.getElementById('user-profile-email').style.width = ((useremail.length + 1) * 7) + 'px';
+          document.getElementById('user-profile-email').style.width = '250px';
           document.getElementById('user-profile-email').value = useremail;
           if(img_src == null) {
             document.querySelector('.user-image').src = "/assets/images/user6.png";
@@ -204,6 +206,10 @@ function getUserData(uid, img_src){
           else {
             document.querySelector('.user-image').src = img_src; 
             document.querySelector('.user-image').srcset = img_src; 
+          }
+
+          if(useremail === "azhan.shadique@gmail.com" || useremail === "zainmallickiphone@gmail.com") {
+            document.querySelector('.course-adder').style.display = "flex";
           }
 
   }).catch((error)=>{
@@ -227,6 +233,7 @@ onAuthStateChanged(auth,(user)=>{
     document.querySelector('.nav-list2').style.display = "none";
     getUserData(user.uid, user.photoURL);
 
+   
   }
 })
 
@@ -244,7 +251,8 @@ function logoutUser(){
     document.querySelector('.user-image').src = null;  
     document.getElementById('user-profile-email').value = "";
     document.querySelector('.user-profile-box').style.display = "none";
-
+    document.querySelector('.course-adder').style.display = "none";
+    // document.querySelector('.user-image').src = "/assets/images/user6.png";
   }).catch((error)=>{
     console.log(error.message);
   })
@@ -303,6 +311,7 @@ function loginWithGoogle(){
           document.getElementById('user-profile-email').value = currentuser.email;
           document.querySelector('.user-image').src = currentuser.photoUrl;
 
+          
         }
         else
           getUserData(user.uid, currentuser.photoUrl);
@@ -482,3 +491,5 @@ window.onclick = function(event) {
     document.querySelector('.user-profile-box').style.display = "none";
   }
 }
+
+

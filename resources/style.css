@@ -42,7 +42,7 @@
     --gray: #808080;
     --dark-gray: #555;
 
-    --background-color: #EFEAE3;
+    --background-color: #F9FAFB;
     --nav-text-color: #000000bb;
     --orange-dot: #FE320A;
 
@@ -254,7 +254,7 @@ header{
     overflow: hidden;
     margin-top: -0.5rem; */
 
-    padding: 2vw 0vw;
+    padding: 1vw 0vw;
     width: 100%;
     display: flex;
     align-items: center;
@@ -317,7 +317,7 @@ header{
 }
 
 .nav-list2, .button {
-    display: none;
+    display: flex;
     align-items: center;
     gap: 0.91rem;
     cursor: pointer;
@@ -392,7 +392,7 @@ nav h3 {
 }
 
 .user-profile {
-    display: flex;
+    display: none;
     /* display: none; */
     justify-content: center;
     align-items: center;
@@ -460,7 +460,7 @@ nav h3 {
     border-radius: 5px;
     border: 1px solid rgba(179, 179, 179, 0.65);
     /* position: absolute; */
-    top: 75px;
+    top: 70px;
     right: 40px;
     z-index: 100;
     position: fixed;
@@ -471,6 +471,9 @@ nav h3 {
     padding: 1rem 1rem;
     display: none;
     gap: 1rem;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .userprofile-signout-button {
@@ -481,30 +484,25 @@ nav h3 {
     gap: 10px;
     width: 100%;
 }
-
-.signout-button, .view-profile {
+.signout-button, .view-profile, .course-adder {
     width: 100%;
     text-align: center;
-}
-
-.user-profile-icon {
-    margin-left: -4px;
-}
-.user-profile-box .button .view-profile {
-    padding: 0;
-}
-.view-profile a {
-    /* background: red; */
-    padding: 10px 40px;
     display: flex;
     justify-content: start;
     align-items: center;
+    
 }
-.view-profile a span {
-    padding-right: 5px;
+
+.signout-button a, .view-profile a, .course-adder a {
+    /* background-color: gray; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 30px;
+
 }
-.signout-button span {
-    padding-left: 20px;
+.course-adder {
+    display: none;
 }
 
 .show {display: block;}
@@ -637,7 +635,7 @@ nav h3 {
     margin-bottom: 3vw;
     height: 100%;
     width: 80%;
-    background-color: #EFEAE3;
+    background-color: #F9FAFB;
     padding: 5vw 0;
     position: relative;
     z-index: 9;
@@ -875,3 +873,519 @@ nav h3 {
     font-size: 1.1vw;
     font-weight: 200;
 }
+
+
+/* USER FORM  */
+
+.user-form, .signup-form {
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    /* background: rgba(0, 0, 255, 0.134); */
+    /* background-color: transparent; */
+    display: none;
+    position: absolute; 
+    top: 0;
+    animation: slideFromTop 1s ease forwards;
+    /* top: calc(50% - 175px);
+    left: calc(50% - 175px); */
+    /* background: #ffffff; */
+    
+}
+@keyframes slideFromTop {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+  .form-box, .signup-form-box{ 
+    width: 500px;
+    /* min-width: 500px; */
+
+    display: flex;
+    justify-content:left; 
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+
+    /* backdrop-filter: blur(50px) !important; */
+    background-image: linear-gradient(135deg, #F9FAFB 0%, rgba(226, 209, 195, 0.8) 100%); /* #e2d1c3eb */
+}
+
+  .user-form .form, .signup-form .form {
+    width: 100%;
+    padding: 25px 30px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+  
+  }
+
+  .form .login-div, .signup-form .signup-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 8px;
+
+  }
+  .form .login-text, .signup-form .signup-text{
+    font-family: 'Poppins';
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: -6px;
+  }
+  .form .login-text span, .signup-form .signup-text span{
+    color: var(--gray);
+    font-size: 1.5rem;
+    margin-left: 331px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .signup-form .signup-text span{
+    margin-left: 322px;
+  }
+  .form .login-text span:hover, .signup-form .signup-text span:hover{
+    color: black;
+
+  }
+  .form .login-acc-yet, .signup-form .signup-acc-yet{
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: -10px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(179, 179, 179, 0.5);
+  }
+  .form .login-acc-yet span, .signup-form .signup-acc-yet span{
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: orangered;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  /* .form .login-line, .signup-form .signup-line{
+    color: #F9FAFB;
+    background: rgba(179, 179, 179, 0.5);
+    width: 420px;
+    height: 1px;
+  } */
+  .form .email-div input, .form .password-div input, .signup-form input {
+    font-family: 'Poppins';
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgba(179, 179, 179, 0.5);
+    border-radius: 6px;
+    height: 3rem;
+    background: #F9FAFB;
+    font-size: 0.8rem;
+  }
+
+  .signup-form input {
+    height: 2.8rem;
+  }
+
+  .form .email-div input:focus, .form .password-div input:focus, .signup-form input:focus{
+    border: 2px solid orangered;
+    padding: 9px;
+  }
+
+  .signup-form .signup-name {
+    display: flex;
+    gap: 10px;
+  }
+
+  .email-text, .password-text, .name-text, .username-text, .confirm-password-text {
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+    margin-bottom: -2px;
+    font-weight: 400;
+    
+  }
+  .user-form .email-div {
+    margin-top: 15px;
+  }
+  .user-form .password-div {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  } 
+  
+  .signup-form .name-div {
+    margin-top: 10px;
+  }
+
+  .signup-form .confirm-password-div {
+    margin-bottom: 10px;
+  }
+  .password-text span{
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: orangered;
+    font-weight: 500;
+    margin-left: 258px;
+  }
+  .password-text span:hover, .login-acc-yet span:hover, .signup-acc-yet span:hover {
+    text-decoration: underline;
+    
+  }
+  .email-div, .password-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .form .form-button h4 {
+    width: 100%;
+    text-align: center;
+
+  }
+
+
+  .or-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: -15px;
+    padding: 15px 0;
+
+  }
+  .or-line span{
+    color: #F9FAFB;
+    background: rgba(179, 179, 179, 0.5);
+    width: 180px;
+    height: 1px;
+  }
+
+  .or-line div{
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+
+  .form .google-fb-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+  }
+
+  .signup-form .google-fb-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+  }
+
+  .form .google-fb-button p{
+    font-size: 0.75rem;
+    font-family: 'Poppins';
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .form .google-fb-button p span{
+    font-size: 0.75rem;
+    font-family: 'Poppins';
+    color: var(--link-color);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .form .form-button .form-sigin-button::after {
+    /* background-color: orange; */
+  }
+
+  .form .form-button .form-gmail-button::after {
+    background-color: #34A853;
+    /* background-color: #55883B; */
+    
+  }
+  .form .form-button .form-fb-button::after {
+    background-color: #1877F2;
+  }
+  .form button.login-btn:hover{
+    background: transparent;
+    color: orangered;
+    border: 1px solid orangered;
+  }
+  
+  .form .google-fb-button h4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .signup-form .button h4 {
+    padding: 10px;
+  }
+
+  .form .button h4 a {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .signup-form .button h4 a {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  
+  .form .google-fb-button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .form .google-fb-button .form-fb-button img{
+    width: 23px;
+    height: 23px;
+  }
+
+  .user-form .google-fb-button .form-gmail-button a {
+    margin-left: -20px;
+  }
+
+/* ----------------------------- */
+
+  .notify{
+    display: block;
+    width: 300px;
+    position: absolute;
+    margin: 0 auto;
+    top: 20%;
+    text-align: center;
+    background-color: green;
+    font-size: 18px;
+  }
+  
+  .hide{
+    display: none;
+  }
+  
+  .show{
+    display: block;
+    /* background: blue; */
+    /* position: fixed; */
+  }
+  
+  .visibleOff{
+    visibility: hidden;
+  }
+  
+  .visibleOn{
+    visibility: visible;
+  }
+  .admin-page{
+    /* display: block;
+    background: red; */
+    /* visibility: hidden; */
+  }
+
+  .admin-section{
+    display: none;
+    justify-content: space-around;
+    padding: 50px 0;
+  }
+  .admin-section button.logout{
+    padding: 5px 20px;
+    background: #111;
+    color: #ffff;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: 0.2s ease-in-out;
+  }
+  
+
+
+  .showLoginBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* animation: slideFromTop 1s ease forwards; */
+    /* backdrop-filter: blur(4px); */
+    /* filter: blur(10px); */
+   
+  }
+  .showLoginBoxMain{
+    /* background: #bb4444; */
+    filter: blur(3px);
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* background: rgba(0, 0, 255, 0.134); */
+    overflow-x: hidden;
+  }
+  @keyframes slideFromTop {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+  .hideLoginBox{
+    display: none;
+    /* animation: slideToDown 1s ease forwards; */
+  }
+  @keyframes slideToDown {
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    
+}
+
+  .hideLoginBoxMain{
+    /* background: #bb4444; */
+    filter: blur(0);
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* background: rgba(0, 0, 255, 0.134); */
+    overflow-x: hidden;
+  }
+  /*  FORGET PASSWORD */
+  
+  .forget-link{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .forget-password{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    background: #f1f1f1;
+    visibility: hidden;
+    /* display: none; */
+  }
+  
+  .forget-password input, .forget-password button{
+    display: block;
+    width: 300px;
+    margin: 10px 0;
+    padding: 5px 2px;
+    border: 1px solid black;
+    outline: none;
+    transition: .2s ease-in;
+  }
+  
+  .forget-password button{
+    background-color: #330169;
+    cursor: pointer;
+    color: #fff;
+  
+  }
+  
+  .forget-password button:hover{
+    background: transparent;
+    color: black;
+    border: 1px solid;
+  }
+  
+  .notify2{
+    display: block;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+  }
+  
+  
+  .forget-password a{
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid black;
+    transition: .2s ease-in;
+  }
+  
+  .forget-password a:hover{
+    background-color: transparent;
+    color: black;
+  }
+  
+  /* .form .signup{
+    display: none;
+  } */
+
+  /* GMAIL BUTTON  */
+  
+
+
+  /* .form .gmail-login-btn{
+    font-family: 'Poppins';
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: #34A853;
+    background-color: #0F9D58;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  } */
+  
+  .form button.gmail-login-btn:hover{
+    background: transparent;
+    border: 1px solid #0F9D58;
+    color: #0F9D58;
+  }
+  
+  .form .google-fb-btn p span{
+    font-family: 'Poppins';
+  }
+  /* FACEBOOK */
+  
+  .fb-login-btn{
+    font-family: 'Poppins';
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--link-color);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .form button.fb-login-btn:hover{
+    background: transparent;
+    border: 1px solid var(--link-color);
+    color: var(--link-color);
+  }
+
+ 
