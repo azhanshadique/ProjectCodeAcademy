@@ -802,3 +802,62 @@ const firebaseConfig = {
       document.querySelector('.user-profile-box').style.display = "none";
     }
   }
+
+  function showSubCourse() {
+    if( document.querySelector('.sub-course').style.display == "flex") {
+      document.querySelector('.sub-course').style.display = "none";
+      document.querySelector('.course-header-icon').style.color = "#333333";
+
+      document.querySelector('.sub-course-content').style.display = "none";
+      document.querySelector('.sub-course-forward-icon').style.display = "flex";
+      document.querySelector('.sub-course-downward-icon').style.display = "none";
+    }
+    else {
+      document.querySelector('.sub-course').style.display = "flex";
+      document.querySelector('.course-header-icon').style.color = "#FE320A";
+    }
+   
+
+  }
+
+  const sub_course = document.querySelector('.course-header');
+  sub_course.addEventListener('click',showSubCourse);
+
+  function showSubCourseArrow() {
+    
+    if( document.querySelector('.sub-course-content').style.display == "flex") {
+      document.querySelector('.sub-course-content').style.display = "none";
+      document.querySelector('.sub-course-forward-icon').style.display = "flex";
+      document.querySelector('.sub-course-downward-icon').style.display = "none";
+      // document.querySelector('.sub-course-forward-icon').style.color = "#333333";
+    }
+    else {
+      document.querySelector('.sub-course-content').style.display = "flex";
+      document.querySelector('.sub-course-forward-icon').style.display = "none";
+      document.querySelector('.sub-course-downward-icon').style.display = "flex";
+      document.querySelector('.sub-course-downward-icon').style.color = "#FE320A";
+      
+    }
+
+  }
+
+  const sub_course_arrow = document.querySelector('.sub-course');
+  sub_course_arrow.addEventListener('click',showSubCourseArrow);
+
+
+  function courseBox() {
+    document.querySelector('.course-box').style.display = "none";
+    document.querySelector('.resource-title').style.display = "none";
+
+    document.querySelector('.sub-course').style.display = "flex";
+    document.querySelector('.course-header-icon').style.color = "#FE320A";
+    
+    document.querySelector('.sub-course-content').style.display = "flex";
+    document.querySelector('.sub-course-forward-icon').style.display = "none";
+    document.querySelector('.sub-course-downward-icon').style.display = "flex";
+    document.querySelector('.sub-course-downward-icon').style.color = "#FE320A";
+
+  }
+
+  const course_box = document.querySelector('.course-box');
+  course_box.addEventListener('click',courseBox);
