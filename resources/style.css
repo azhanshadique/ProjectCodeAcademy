@@ -546,6 +546,7 @@ nav h3 {
   cursor: pointer;
   padding: 8px 10px;
   border-radius: 8px;
+  /* background: yellow; */
 }
 .left-container .course-header:hover {
   background: #F3F4F6;
@@ -562,7 +563,7 @@ nav h3 {
 .left-container .sub-course {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   background: var(--background-color);
   color: var(--text-color);
@@ -571,8 +572,11 @@ nav h3 {
   margin: 0 1.5vw;
   margin-left: 2.5vw;
   padding: 9px 10px;
+  /* padding-left: 0; */
   border-radius: 8px;
   display: none;
+  /* background: yellow; */
+
 }
 
 .left-container .sub-course .sub-course-forward-icon {
@@ -583,6 +587,8 @@ nav h3 {
   font-size: 0.95rem;
   font-family: "Poppins";
   font-weight: 500;
+  /* background: green; */
+
 }
 
 .left-container .sub-course:hover {
@@ -595,7 +601,7 @@ nav h3 {
 }
 .sub-course-content {
 
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -604,12 +610,12 @@ nav h3 {
   cursor: pointer;
   gap: 1rem;
   margin: 0 1.5vw;
-  margin-left: 5vw;
+  margin-left: 4.15vw;
   /* margin-top: 5px; */
   padding: 9px 0px;
   border-radius: 8px;
   display: none;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: start;
   align-items: start;
@@ -621,14 +627,23 @@ nav h3 {
   font-size: 0.9rem;
   font-family: "Poppins";
   font-weight: 500;
-  /* margin-left: -10rem ; */
+  
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  
+}
+.left-container .sub-course-content div:hover {
+  color: var(--orange-dot);
 }
 .sub-course-content .sub-course-folder-icon{
   font-size: 1.3rem;
   font-weight: 400;
+}
+.sub-course-content .sub-course-openfolder-icon{
+  font-size: 1.3rem;
+  font-weight: 400;
+  display: none;
 }
 .right-container {
   padding: 2rem;

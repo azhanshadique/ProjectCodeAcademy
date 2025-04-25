@@ -861,3 +861,25 @@ const firebaseConfig = {
 
   const course_box = document.querySelector('.course-box');
   course_box.addEventListener('click',courseBox);
+
+
+  const subCourseItems = document.querySelectorAll('.sub-course-content-list');
+
+  subCourseItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Reset all items
+      subCourseItems.forEach(el => {
+        el.style.color = ""; // Reset color
+        el.querySelector('.sub-course-folder-icon').style.display = "flex";
+        el.querySelector('.sub-course-openfolder-icon').style.display = "none";
+      });
+
+      // Activate the clicked item
+      item.style.color = "#FE320A";
+      item.querySelector('.sub-course-folder-icon').style.display = "none";
+      item.querySelector('.sub-course-openfolder-icon').style.display = "flex";
+      document.querySelector('.course-box').style.display = "none";
+      document.querySelector('.resource-title').style.display = "none";
+
+    });
+  });
