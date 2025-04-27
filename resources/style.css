@@ -769,7 +769,26 @@ nav h3 {
 
 }
 
+
+
+
+
 /* Topics Section */
+
+
+
+.dropdown-btn {
+  /* opacity: 0%; */
+  /* position: relative; */
+}
+.new-forward-dropdown {
+  /* display: block; */
+  /* display: none; */
+  /* opacity: 0%; */
+}
+
+
+
 .dropdown-content {
   padding-left: 20px;
   transition: all 0.3s ease-in-out;
@@ -971,7 +990,6 @@ nav h3 {
 
 
 /* SECTION TRACKER  */
-
 
 
 
