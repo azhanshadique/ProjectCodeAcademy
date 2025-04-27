@@ -44,7 +44,8 @@ const firebaseConfig = {
   
     // Update the dropdown arrow for the clicked header
     const button = dropdown.previousElementSibling.querySelector('.dropdown-btn');
-    button.textContent = button.textContent === "▼" ? "▶" : "▼";
+    // button.textContent = button.textContent === "▼" ? "▼" : "▼";
+    button.textContent = button.textContent === "▶" ? "▼" : "▶";
   
     
 
@@ -82,7 +83,7 @@ const firebaseConfig = {
   
 //     // Update the dropdown arrow for the clicked header
 //     const button = dropdown.previousElementSibling.querySelector('.dropdown-btn');
-//     button.textContent = button.textContent === "▼" ? "▶" : "▼";
+//     button.textContent = button.textContent === "▼" ? "▼" : "▼";
   
 //     // Fetch problems if the dropdown is opened
 //     if (!dropdown.classList.contains('hidden') && id === 'lec1-content') {
@@ -143,7 +144,7 @@ const firebaseConfig = {
   function createTopicElement(problemData, solvedProblems) {
       const topic = document.createElement('div');
       topic.classList.add('topic');
-  
+      // topic.style.position = "relative";
       const user = firebase.auth().currentUser;
   
       // Checkbox
