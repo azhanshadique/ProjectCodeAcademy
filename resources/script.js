@@ -46,11 +46,15 @@ const firebaseConfig = {
     const button = dropdown.previousElementSibling.querySelector('.dropdown-btn');
     button.textContent = button.textContent === "▼" ? "▶" : "▼";
   
+    
+
     // Fetch problems if the dropdown is opened
     if (!dropdown.classList.contains('hidden') && id === 'lec1-content') {
         fetchProblems('Array', 'lec1-content');
+
     } else if (!dropdown.classList.contains('hidden') && id === 'lec2-content') {
         fetchProblems('Tree', 'lec2-content');
+
     } else if (!dropdown.classList.contains('hidden') && id === 'lec3-content') {
       fetchProblems('Linked List', 'lec3-content');
     } else if (!dropdown.classList.contains('hidden') && id === 'lec4-content') {
@@ -69,6 +73,9 @@ const firebaseConfig = {
       fetchProblems('Graph', 'lec10-content');
     }
   };
+
+
+
 //   function toggleDropdown(id) {
 //     const dropdown = document.getElementById(id);
 //     dropdown.classList.toggle('hidden'); // Toggle hidden class
@@ -117,6 +124,12 @@ const firebaseConfig = {
               const data = doc.data();
               data.id = doc.id; // Ensure problemData.id is always available
               const topicElement = createTopicElement(data, solvedProblems);
+
+              
+
+              // newSection.style.width: "100vh";
+
+
               container.appendChild(topicElement);
           });
       } catch (error) {
@@ -124,6 +137,8 @@ const firebaseConfig = {
       }
   }
   
+  
+
   // Create Topic Element with Difficulty
   function createTopicElement(problemData, solvedProblems) {
       const topic = document.createElement('div');
@@ -174,12 +189,17 @@ const firebaseConfig = {
   
       // Label
       const label = document.createElement('label');
+      
       label.htmlFor = `topic-${problemData.id}`;
       label.textContent = problemData.title;
       topic.appendChild(label);
   
       // Difficulty
       const difficulty = document.createElement('span');
+      difficulty.style.textAlign = "center";
+
+      // difficulty.style.cssText = " text-align: center;padding-right: 50px; ";
+
       difficulty.classList.add('difficulty');
       difficulty.textContent = problemData.difficulty || 'Unknown';
       if (problemData.difficulty === 'Easy') {
@@ -195,26 +215,47 @@ const firebaseConfig = {
       const links = document.createElement('div');
       links.classList.add('links');
   
-      // Article link
-      const articleLink = document.createElement('a');
-      articleLink.href = '#';
-      articleLink.textContent = '📄 Article';
-      articleLink.onclick = () => generateArticle(problemData.title);
-      links.appendChild(articleLink);
+
+      // Practice link
+      const practiceLink = document.createElement('a');
+      // practiceLink.style = "padding-right: 20px, padding-left: 50px"
+      practiceLink.style.paddingLeft = "50px";
+      practiceLink.style.paddingRight = "20px";
+      practiceLink.href = problemData.link || '#';
+      practiceLink.target = '_blank';
+      // practiceLink.textContent = '📝 Practice';
+      practiceLink.innerHTML = '<img alt="leetcode" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" class="w-6" src="/assets/images/leetcode_light.png" style="color: transparent; vertical-align: middle;""></img>';
+      links.appendChild(practiceLink);
   
+
+
+
+      // 
       // YouTube search link
       const youtubeLink = document.createElement('a');
       youtubeLink.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(problemData.title)}`;
-      youtubeLink.textContent = '📹 YouTube';
+      // youtubeLink.textContent = '📹 YouTube';
+      youtubeLink.style = "padding-right: 20px";
+
+      youtubeLink.innerHTML = '<svg width="24" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg alt="YouTube" style="height: 16px; vertical-align: middle;"><path d="M10.4 14.403L17.147 10.3651L10.4 6.3272V14.403ZM25.428 3.86409C25.597 4.49669 25.714 5.34465 25.792 6.42142C25.883 7.49819 25.922 8.4269 25.922 9.23448L26 10.3651C26 13.3127 25.792 15.4797 25.428 16.8661C25.103 18.0774 24.349 18.8581 23.179 19.1946C22.568 19.3696 21.45 19.4907 19.734 19.5715C18.044 19.6657 16.497 19.706 15.067 19.706L13 19.7868C7.553 19.7868 4.16 19.5715 2.821 19.1946C1.651 18.8581 0.897 18.0774 0.572 16.8661C0.403 16.2335 0.286 15.3855 0.208 14.3087C0.117 13.232 0.0779999 12.3033 0.0779999 11.4957L0 10.3651C0 7.41743 0.208 5.25043 0.572 3.86409C0.897 2.65273 1.651 1.87207 2.821 1.53558C3.432 1.36061 4.55 1.23947 6.266 1.15871C7.956 1.0645 9.503 1.02412 10.933 1.02412L13 0.943359C18.447 0.943359 21.84 1.15871 23.179 1.53558C24.349 1.87207 25.103 2.65273 25.428 3.86409Z" fill="#FF0000"></path></svg> ';
       youtubeLink.target = '_blank';
       links.appendChild(youtubeLink);
   
-      // Practice link
-      const practiceLink = document.createElement('a');
-      practiceLink.href = problemData.link || '#';
-      practiceLink.textContent = '📝 Practice';
-      links.appendChild(practiceLink);
+      
+      // Article link
+      const articleLink = document.createElement('a');
+      articleLink.href = '#';
+      articleLink.style = "padding-right: 20px"
+      // articleLink.textContent = '📄 Article';l
+      articleLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="gray" viewBox="0 0 256 256" alt="YouTube" style="height: 20px; vertical-align: middle;"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H156.69A15.86,15.86,0,0,0,168,219.31L219.31,168A15.86,15.86,0,0,0,224,156.69V48A16,16,0,0,0,208,32ZM48,48H208V152H160a8,8,0,0,0-8,8v48H48ZM196.69,168,168,196.69V168Z"></path></svg>';
+      // articleLink.target = '_blank';
+      
+      articleLink.onclick = () => generateArticle(problemData.title);
+      links.appendChild(articleLink);
+      
+      
   
+
       topic.appendChild(links);
       return topic;
   }
@@ -857,6 +898,9 @@ const firebaseConfig = {
     document.querySelector('.sub-course-downward-icon').style.display = "flex";
     document.querySelector('.sub-course-downward-icon').style.color = "#FE320A";
 
+    document.querySelector('.dropdown-content').classList.toggle('hidden');
+
+
   }
 
   const course_box = document.querySelector('.course-box');
@@ -872,14 +916,21 @@ const firebaseConfig = {
         el.style.color = ""; // Reset color
         el.querySelector('.sub-course-folder-icon').style.display = "flex";
         el.querySelector('.sub-course-openfolder-icon').style.display = "none";
+        document.querySelector('.dropdown-content').classList.add('hidden');
+
       });
 
       // Activate the clicked item
+      toggleDropdown('lec1-content');
       item.style.color = "#FE320A";
       item.querySelector('.sub-course-folder-icon').style.display = "none";
       item.querySelector('.sub-course-openfolder-icon').style.display = "flex";
       document.querySelector('.course-box').style.display = "none";
       document.querySelector('.resource-title').style.display = "none";
+
+      document.querySelector('.dropdown-content').classList.toggle('hidden');
+      
+
 
     });
   });

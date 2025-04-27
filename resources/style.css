@@ -736,16 +736,25 @@ nav h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #2a2a2a;
+  /* background-color: #2a2a2a; */
+  background-color: #ffff;
+  border: 1px solid #e5e7eb;
   padding: 10px;
   margin-bottom: 5px;
   cursor: pointer;
   border-radius: 5px;
+  
 }
 
 .step-title, .lecture-title {
   color: #ff9800;
-  font-weight: bold;
+  font-weight: 600;
+  font-family: 'DM Sans';
+  font-family: 'Poppins';
+  color: #1e1e1e;
+  padding-left: 5px;
+  font-size: 1em;
+
 }
 
 .progress {
@@ -756,40 +765,55 @@ nav h3 {
 .dropdown-btn {
   font-size: 1.2em;
   color: white;
+  color: #1e1e1e;
+
 }
 
 /* Topics Section */
 .dropdown-content {
   padding-left: 20px;
   transition: all 0.3s ease-in-out;
+  font-family: 'Poppins';
 }
 
 .topic {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1e1e1e;
+  color: #1e1e1e;
+  background-color: #ffff;
+  border: 1px solid #e5e7eb;
   margin: 5px 0;
   padding: 10px;
   border-radius: 4px;
+  padding-left: 20px;
 }
 
 .topic input[type="checkbox"] {
   transform: scale(1.2);
   cursor: pointer;
+  
+  
 }
 
 .topic label {
   flex: 1;
   margin-left: 10px;
-  color: white;
+  color: #1e1e1e;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 0.9em;
+  padding-left: 5px;
+
 }
 
 .links a {
   text-decoration: none;
   color: #00bcd4;
   margin-left: 10px;
-  font-size: 0.9em;
+  font-size: 0.8em;
+  font-family: 'Poppins';
+  font-weight: 400;
 }
 
 .links a:hover {
@@ -807,6 +831,8 @@ nav h3 {
   justify-content: center; /* Centers text horizontally */
   align-items: center; /* Centers text vertically */
   white-space: nowrap; /* Prevents text from breaking */
+  font-family: 'Poppins';
+  font-size: 0.8em;
 }
 
 
