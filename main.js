@@ -493,3 +493,6 @@ window.onclick = function(event) {
 }
 
 
+window.addEventListener("scroll", () => {
+  console.log("kk");
+});

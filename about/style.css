@@ -41,8 +41,8 @@
     --gray: #808080;
     --dark-gray: #555;
 
-    --background-color: #F9FAFB;
-    --background-color: #F9FAFB;
+    --background-color: #ffff;
+    --background-color: #ffff;
     --nav-text-color: #000000bb;
     --orange-dot: #FE320A;
 
@@ -513,7 +513,7 @@ nav h3 {
 .section-2 {
     min-height: 100vh;
     width: 100%;
-    background-color: #F9FAFB;
+    background-color: #ffff;
     padding: 4vw 0;
     position: relative;
 }
@@ -799,7 +799,7 @@ nav h3 {
     border: 1px solid rgba(179, 179, 179, 0.65);
 
     /* backdrop-filter: blur(50px) !important; */
-    background-image: linear-gradient(135deg, #F9FAFB 0%, rgba(226, 209, 195, 0.8) 100%); /* #e2d1c3eb */
+    background-image: linear-gradient(135deg, #ffff 0%, rgba(226, 209, 195, 0.8) 100%); /* #e2d1c3eb */
 }
 
   .user-form .form, .signup-form .form {
@@ -859,7 +859,7 @@ nav h3 {
     cursor: pointer;
   }
   /* .form .login-line, .signup-form .signup-line{
-    color: #F9FAFB;
+    color: #ffff;
     background: rgba(179, 179, 179, 0.5);
     width: 420px;
     height: 1px;
@@ -874,7 +874,7 @@ nav h3 {
     border: 1px solid rgba(179, 179, 179, 0.5);
     border-radius: 6px;
     height: 3rem;
-    background: #F9FAFB;
+    background: #ffff;
     font-size: 0.8rem;
   }
 
@@ -950,7 +950,7 @@ nav h3 {
 
   }
   .or-line span{
-    color: #F9FAFB;
+    color: #ffff;
     background: rgba(179, 179, 179, 0.5);
     width: 180px;
     height: 1px;
