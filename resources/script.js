@@ -45,6 +45,7 @@ const firebaseConfig = {
     // Update the dropdown arrow for the clicked header
     const button = dropdown.previousElementSibling.querySelector('.dropdown-btn');
     // button.textContent = button.textContent === "▼" ? "▼" : "▼";
+
     button.textContent = button.textContent === "▶" ? "▼" : "▶";
   
     
