@@ -140,7 +140,7 @@ const firebaseConfig = {
   }
   
   
-
+  // var checkbox;
   // Create Topic Element with Difficulty
   function createTopicElement(problemData, solvedProblems) {
       const topic = document.createElement('div');
@@ -154,7 +154,7 @@ const firebaseConfig = {
       checkbox.id = `topic-${problemData.id}`;
       checkbox.checked = solvedProblems.includes(problemData.id); // Mark if solved
       checkbox.disabled = !user; // Disable if no user is logged in
-  
+      
       checkbox.addEventListener('change', async (event) => {
           if (!user) {
               alert('You must be logged in to track progress.');
@@ -163,6 +163,8 @@ const firebaseConfig = {
   
           const userId = user.uid;
           const userDocRef = db.collection('users').doc(userId);
+
+
   
           try {
               if (!problemData.id) {
@@ -172,16 +174,15 @@ const firebaseConfig = {
               }
   
               if (event.target.checked) {
-                  // Add the problem ID to the solvedProblems array
-                  await userDocRef.update({
-                      solvedProblems: firebase.firestore.FieldValue.arrayUnion(problemData.id),
-                  });
-              } else {
-                  // Remove the problem ID from the solvedProblems array
-                  await userDocRef.update({
-                      solvedProblems: firebase.firestore.FieldValue.arrayRemove(problemData.id),
-                  });
-              }
+                await userDocRef.set({
+                    solvedProblems: firebase.firestore.FieldValue.arrayUnion(problemData.id),
+                }, { merge: true });
+            } else {
+                await userDocRef.set({
+                    solvedProblems: firebase.firestore.FieldValue.arrayRemove(problemData.id),
+                }, { merge: true });
+            }
+            
           } catch (error) {
               console.error('Error updating solved problems:', error);
           }
@@ -563,6 +564,7 @@ const firebaseConfig = {
       // console.log(user.photoURL);
       getUserData(user.uid, user.photoURL);
   
+      // checkbox.disabled = false;
     }
   })
   
@@ -599,6 +601,8 @@ const firebaseConfig = {
       document.querySelector('.user-image').src = null;  
       document.getElementById('user-profile-email').value = "";
       document.querySelector('.user-profile-box').style.display = "none";
+
+      checkbox.disabled = true;
   
     }).catch((error)=>{
       console.log(error.message);
