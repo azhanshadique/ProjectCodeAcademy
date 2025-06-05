@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Compiler</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="editor.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="editor-page">
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">
+          <!-- <a href="../index.html"> -->
+            <span class="logo-icon">&#60;/&#62;</span>
+            <span class="logo-text">CodeAcademy</span>
+          </a>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <h4><a href="/" class="current-nav">Home</a></h4>
+                    <h4><a href="/resources/" class="">Resources</a></h4>
+                    <!-- <h4><a href="/coursesAdder/" class="courseAdder">Add Course</a></h4> -->
+                    <h4><a href="/OnlineCompiler/editor.html">Compiler</a></h4>
+                    <h4><a href="/about/" class="">About</a></h4>
+                    <h4><a href="/contact/" class="">Contact</a></h4>
+        </ul>
+        <div class="auth-buttons">
+          <button id="login-btn" class="btn btn-secondary auth-not-required">Log In</button>
+          <button id="signup-btn" class="btn btn-primary auth-not-required">Sign Up</button>
+          <button id="logout-btn" class="btn btn-outline auth-required hidden">Log Out</button>
+        </div>
+        <button class="mobile-menu-btn" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="editor-container">
+    <div class="container editor-content">
+      <!-- <div id="problem-description" class="problem-description hidden">
+        <div class="problem-header">
+          <div class="problem-title">
+            <h3 id="problem-title">Problem Title</h3>
+            <span id="problem-difficulty" class="difficulty-tag difficulty-easy">Easy</span>
+          </div>
+        </div>
+        <div class="problem-body" id="problem-body">
+          Problem description will be dynamically loaded here
+        </div>
+        <div class="problem-examples">
+          <div class="example">
+            <h4>Example Input:</h4>
+            <pre id="example-input"></pre>
+          </div>
+          <div class="example">
+            <h4>Expected Output:</h4>
+            <pre id="example-output"></pre>
+          </div>
+        </div>
+      </div> -->
+      
+      <div class="editor-header">
+        <h2 class="editor-title" id="editorTitle">Interactive Code Editor</h2>
+        <div class="editor-controls">
+          <button id="saveCode" class="btn btn-outline auth-required hidden">Save Code</button>
+          <button id="loadCode" class="btn btn-outline auth-required hidden">Load Saved</button>
+          <span id="saveStatus" class="save-status"></span>
+        </div>
+      </div>
+      
+      <div class="editor-wrapper" id="editorWrapper">
+        <div class="editor-toolbar">
+          <select id="languageSelect" class="toolbar-select">
+            <option value="c">C</option>
+            <option value="cpp">C++</option>
+            <option value="java">Java</option>
+            <option value="javascript" selected>JavaScript</option>
+            <option value="python">Python</option>
+          </select>
+          <button class="toolbar-item" id="formatCode">Format Code</button>
+          <button class="toolbar-item" id="clearCode">Clear</button>
+          <button id="fullscreenBtn" class="fullscreen-btn"></button>
+        </div>
+        <textarea class="code-editor" id="codeEditor" spellcheck="false"></textarea>
+      </div>
+      
+      <div class="input-section">
+        <div class="input-header">
+          <h3>Custom Input</h3>
+          <button id="clearInput" class="toolbar-item">Clear</button>
+        </div>
+        <textarea id="customInput" class="custom-input" placeholder="Enter your input here..."></textarea>
+      </div>
+      
+      <div class="execute-controls">
+        <div>
+          <button id="runCode" class="btn btn-primary btn-run">Run Code</button>
+        </div>
+        <div class="auth-required hidden">
+          <span class="save-status" id="autoSaveStatus"></span>
+        </div>
+      </div>
+      
+      <div class="output-section">
+        <div class="output-header">
+          <h3>Output</h3>
+          <span class="output-clear" id="clearOutput">Clear output</span>
+        </div>
+        <div id="outputContent" class="output-content"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 CodeAcademy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Auth modal -->
+  <!-- <div class="modal" id="authModal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Login</button>
+        <button class="auth-tab" data-tab="signup">Sign Up</button>
+      </div>
+      <div class="auth-forms">
+        <form id="login-form" class="auth-form active">
+          <h2>Welcome Back</h2>
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </div>
+          <p class="auth-error" id="login-error"></p>
+        </form>
+        
+        <form id="signup-form" class="auth-form">
+          <h2>Create Account</h2>
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required>
+            <small>Password must be at least 6 characters long</small>
+          </div>
+          <div class="form-group">
+            <label for="signup-password-confirm">Confirm Password</label>
+            <input type="password" id="signup-password-confirm" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          </div>
+          <p class="auth-error" id="signup-error"></p>
+        </form>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="loader-container" id="editorLoader">
+    <div class="loader"></div>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <!-- <script src="/auth.js"></script> -->
+  <script src="editor.js"></script>
+  <script src="judge0.js"></script>
+</body>
+</html>
