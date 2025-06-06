@@ -5,32 +5,33 @@
 @font-face {
     font-family: 'neu';
     font-weight: 500;
-    src: url(/assets/fonts/NeueHaasDisplayBlack.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayBlack.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 400;
-    src: url(/assets/fonts/NeueHaasDisplayBold.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayBold.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 300;
-    src: url(/assets/fonts/NeueHaasDisplayMediu.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayMediu.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 100;
-    src: url(/assets/fonts/NeueHaasDisplayLight.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayLight.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 200;
-    src: url(/assets/fonts/NeueHaasDisplayRoman.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayRoman.ttf);
 }
+
 
 :root {
     --primary-color: #6366F1;
@@ -314,7 +315,9 @@ header{
     color: orangered;
     /* color: var(--orange-dot); */
 }
-
+.current-nav-demo {
+  color: #000000bb;
+}
 .nav-list2, .button {
     display: flex;
     align-items: center;
@@ -508,9 +511,9 @@ nav h3 {
 
 
 
-/* SECTION-2 STARTS */
+/* section-about STARTS */
 
-.section-2 {
+.section-about {
     min-height: 100vh;
     width: 100%;
     background-color: #ffff;
@@ -563,7 +566,7 @@ nav h3 {
 }
 
 
-.section2-bottom {
+.section-about-bottom {
     height: 80vh;
     width: 100%;
     padding: 4.5vw;
@@ -576,28 +579,28 @@ nav h3 {
     margin-bottom: 10vw;
 }
 
-.section2-bottom h1 {
+.section-about-bottom h1 {
     font-size: 4vw;
     width: 65%;
     line-height: 4vw;
 }
 
-.section2-bottom-part2 {
+.section-about-bottom-part2 {
     width: 20%;
 }
 
-.section2-bottom-part2 img {
+.section-about-bottom-part2 img {
     width: 100%;
     border-radius: 15px;
 }
 
-.section2-bottom-part2 p {
+.section-about-bottom-part2 p {
     font-weight: 200;
     margin-top: 2vw;
     font-size: 1vw;
 }
 
-.section-2 #moving-circle {
+.section-about #moving-circle {
     height: 32vw;
     width: 32vw;
     position: absolute;
