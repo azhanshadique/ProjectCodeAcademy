@@ -20,31 +20,31 @@
 @font-face {
     font-family: 'neu';
     font-weight: 500;
-    src: url(/assets/fonts/NeueHaasDisplayBlack.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayBlack.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 400;
-    src: url(/assets/fonts/NeueHaasDisplayBold.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayBold.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 300;
-    src: url(./assets/fonts/NeueHaasDisplayMediu.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayMediu.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 100;
-    src: url(./assets/fonts/NeueHaasDisplayLight.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayLight.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 200;
-    src: url(./assets/fonts/NeueHaasDisplayRoman.ttf);
+    src: url(/src/assets/fonts/NeueHaasDisplayRoman.ttf);
 }
 
 :root {
@@ -201,13 +201,13 @@ html, body {
     animation-timing-function: linear; */
 }
 
-#loader-2 h1:nth-child(2){
-    /* animation-delay: 2s; */
+/* #loader-2 h1:nth-child(2){
+    animation-delay: 2s;
 }
 
 #loader-2 h1:nth-child(3){
-    /* animation-delay: 3s; */
-}
+    animation-delay: 3s;
+} */
 
 @keyframes load {
     0%{
@@ -1831,7 +1831,7 @@ nav h3 {
 
 /* USER FORM  */
 
-.user-form, .signup-form {
+.signin-form, .signup-form {
     z-index: 100;
     height: 100vh;
     width: 100vw;
@@ -1840,13 +1840,13 @@ nav h3 {
     display: none;
     position: absolute; 
     top: 0;
-    animation: slideFromTop 1s ease forwards;
+    animation: slideFromTopToDown 1s ease forwards;
     /* top: calc(50% - 175px);
     left: calc(50% - 175px); */
     /* background: #ffffff; */
     
 }
-@keyframes slideFromTop {
+@keyframes slideFromTopToDown {
     0%{
         opacity: 0;
         transform: translateY(-100%);
@@ -1868,10 +1868,12 @@ nav h3 {
     border: 1px solid rgba(179, 179, 179, 0.65);
 
     /* backdrop-filter: blur(50px) !important; */
-    background-image: linear-gradient(135deg, #efeae3 0%, rgba(226, 209, 195, 0.8) 100%); /* #e2d1c3eb */
+    background-image: linear-gradient(135deg, #efeae3 0%, rgba(226, 209, 195, 0.8) 100%); 
+    background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%); 
+    /* #e2d1c3eb #efeae3*/
 }
 
-  .user-form .form, .signup-form .form {
+  .signin-form .form, .signup-form .form {
     width: 100%;
     padding: 25px 30px;
     margin: 0 auto;
@@ -1968,10 +1970,10 @@ nav h3 {
     font-weight: 400;
     
   }
-  .user-form .email-div {
+  .signin-form .email-div {
     margin-top: 15px;
   }
-  .user-form .password-div {
+  .signin-form .password-div {
     margin-top: 10px;
     margin-bottom: 15px;
   } 
@@ -2063,9 +2065,9 @@ nav h3 {
     cursor: pointer;
   }
 
-  .form .form-button .form-sigin-button::after {
-    /* background-color: orange; */
-  }
+  /* .form .form-button .form-sigin-button::after {
+    background-color: orange;
+  } */
 
   .form .form-button .form-gmail-button::after {
     background-color: #34A853;
@@ -2125,7 +2127,7 @@ nav h3 {
     height: 23px;
   }
 
-  .user-form .google-fb-button .form-gmail-button a {
+  .signin-form .google-fb-button .form-gmail-button a {
     margin-left: -20px;
   }
 
@@ -2159,11 +2161,11 @@ nav h3 {
   .visibleOn{
     visibility: visible;
   }
-  .admin-page{
-    /* display: block;
-    background: red; */
-    /* visibility: hidden; */
-  }
+  /* .admin-page{
+    display: block;
+    background: red;
+    visibility: hidden;
+  } */
 
   .admin-section{
     display: none;
@@ -2186,7 +2188,7 @@ nav h3 {
     justify-content: center;
     align-items: center;
     position: fixed;
-    /* animation: slideFromTop 1s ease forwards; */
+    /* animation: slideFromTopToDown 1s ease forwards; */
     /* backdrop-filter: blur(4px); */
     /* filter: blur(10px); */
    
@@ -2198,7 +2200,7 @@ nav h3 {
     /* background: rgba(0, 0, 255, 0.134); */
     overflow-x: hidden;
   }
-  @keyframes slideFromTop {
+  @keyframes slideFromTopToDown {
     0%{
         opacity: 0;
         transform: translateY(-100%);
@@ -2212,9 +2214,9 @@ nav h3 {
 
   .hideLoginBox{
     display: none;
-    /* animation: slideToDown 1s ease forwards; */
+    /* animation: slideFromDownToTop 1s ease forwards; */
   }
-  @keyframes slideToDown {
+  @keyframes slideFromDownToTop {
     0%{
         opacity: 1;
         transform: translateY(0);

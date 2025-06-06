@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeAcademy</title>
+    <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../src/styles/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <!-- <div id="loader">
+        <h1 class="loader-content1">CODE</h1>
+        <h1 class="loader-content2">LEARN</h1>
+        <h1 class="loader-content3">SUCCEED</h1>
+    </div> -->
+
+    <div id="main">
+        <div data-include="../src/components/navbar.html"></div>
+
+        <!-- Homepage Sections -->
+        <section class="section-1">
+            <div id="center">
+                <div id="left">
+                    <h3>
+                        Learn coding at your own pace, from anywhere, with access to quizzes and a personalized progress
+                        tracker.
+                    </h3>
+                </div>
+                <div id="right">
+                    <h1>
+                        <div id="change-text">
+                            <h1></h1>
+                        </div>
+                        YOUR<br />
+                        FUTURE
+                    </h1>
+                </div>
+            </div>
+
+            <div id="hero-shape">
+                <div id="hero-1"></div>
+                <div id="hero-2"></div>
+                <div id="hero-3"></div>
+            </div>
+            <!-- <video autoplay loop muted src="./assets/videos/video1.mp4"></video> -->
+        </section>
+        <section class="section-2">
+            <div class="moving-text">
+                <div class="cls">
+                    <h1>CODE</h1>
+                    <div id="dot"></div>
+                    <h1>LEARN</h1>
+                    <div id="dot"></div>
+                    <h1>SUCCEED</h1>
+                    <div id="dot"></div>
+                </div>
+                <div class="cls">
+                    <h1>CODE</h1>
+                    <div id="dot"></div>
+                    <h1>LEARN</h1>
+                    <div id="dot"></div>
+                    <h1>SUCCEED</h1>
+                    <div id="dot"></div>
+                </div>
+            </div>
+
+            <div class="section2-bottom">
+                <h1>
+                    We are a team of developers committed to creating a platform that makes coding accessible,
+                    engaging, and focused on practical skill development.
+                </h1>
+
+                <div class="section2-bottom-part2">
+                    <img src="/src/assets/images/img.png" alt="Team working on projects" />
+                    <p>
+                        We love to create, we love to solve, and we love to turn amazing ideas into reality. Our mission
+                        is to
+                        empower learners by providing a platform that fosters skill development and growth in the tech
+                        world.
+                    </p>
+                </div>
+            </div>
+
+            <div id="moving-circle"></div>
+        </section>
+        <section class="section-3">
+            <div class="element-heading">
+                <div id="small-dot"></div>
+                <h2>FEATURES</h2>
+            </div>
+
+            <div class="element-container">
+                <div class="element"
+                    data-image="https://images.unsplash.com/photo-1701001308648-7b731a52b8d7?w=500&auto=format&fit=crop&q=60">
+                    <div class="overlay"></div>
+                    <h2>Personalized Learning</h2>
+                </div>
+
+                <div class="element"
+                    data-image="https://images.unsplash.com/photo-1700975928909-da4a46227a47?w=500&auto=format&fit=crop&q=60">
+                    <div class="overlay"></div>
+                    <h2>Affordability</h2>
+                </div>
+
+                <div class="element"
+                    data-image="https://images.unsplash.com/photo-1701077137611-9be394bf62f0?w=500&auto=format&fit=crop&q=60">
+                    <div class="overlay"></div>
+                    <h2>Industry Partnerships</h2>
+                </div>
+
+                <div class="element"
+                    data-image="https://images.unsplash.com/photo-1701014159309-4a8b84faadfe?w=500&auto=format&fit=crop&q=60">
+                    <div class="overlay"></div>
+                    <h2>Innovative Technology</h2>
+                </div>
+
+                <div class="element"
+                    data-image="https://images.unsplash.com/photo-1700924546093-f914fd5b8814?w=500&auto=format&fit=crop&q=60">
+                    <div class="overlay"></div>
+                    <h2>Responsive Support</h2>
+                </div>
+
+                <div class="element"
+                    data-image="https://images.unsplash.com/photo-1700601437860-e66da79cf6d2?w=500&auto=format&fit=crop&q=60">
+                    <div class="overlay"></div>
+                    <h2>Analytics and Insights</h2>
+                </div>
+
+                <div class="element"
+                    data-image="https://images.unsplash.com/photo-1700769025506-6c3dcb9ec9b7?w=500&auto=format&fit=crop&q=60">
+                    <div class="overlay"></div>
+                    <h2>One Platform for All</h2>
+                </div>
+            </div>
+        </section>
+        <section class="section-4"></section>
+        <section class="section-5"></section>
+
+        <div data-include="../src/components/footer.html"></div>
+    </div>
+
+    <!-- Auth Modals -->
+    <div data-include="../src/components/auth-forms.html"></div>
+
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="../src/scripts/main.js"></script>
+    <script>
+        document.querySelectorAll('[data-include]').forEach(el => {
+            fetch(el.getAttribute('data-include'))
+                .then(res => res.text())
+                .then(data => el.innerHTML = data);
+        });
+    </script>
+</body>
+
+</html>
