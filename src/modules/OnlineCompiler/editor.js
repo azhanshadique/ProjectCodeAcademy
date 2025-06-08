@@ -1,10 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if Firebase is initialized
-  if (!firebase || !firebase.apps.length) {
-    console.error('Firebase is not initialized');
+// import { getApps } from "firebase/app";
+import { getApps } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { codeTemplates, executeCodeUsingJudge0,  judge0LanguageIds } from "./judge0.js";
+import { auth } from "/src/scripts/auth.js";
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (getApps().length === 0) {
+    console.error("Firebase is not initialized");
     return;
   }
-
   // DOM Elements
   const codeEditor = document.getElementById('codeEditor');
   const languageSelect = document.getElementById('languageSelect');
@@ -184,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (fullscreenBtn) {
     fullscreenBtn.addEventListener('click', function() {
       editorWrapper.classList.toggle('fullscreen');
+
       this.classList.toggle('exit');
       
       // Focus on editor
@@ -446,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const user = auth.currentUser;
           if (snippet.userId && user && snippet.userId !== user.uid) {
             alert('You do not have permission to view this snippet.');
-            window.location.href = 'editor.html';
+            window.location.href = 'index.html';
             return;
           }
           
@@ -457,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           console.error('No snippet found with ID:', snippetId);
           alert('Snippet not found.');
-          window.location.href = 'editor.html';
+          window.location.href = 'index.html';
         }
         
         // Hide loader

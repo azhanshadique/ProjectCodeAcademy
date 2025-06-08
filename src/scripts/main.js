@@ -17,10 +17,13 @@ import {
   get
 } from "./auth.js";
 
-import { closeSignupBox, openSigninBox, closeSigninBox } from "./ui.js";
-const scroll = new LocomotiveScroll({
-  el: document.querySelector('#main'),
-  smooth: true
+import { closeSignupBox, openSigninBox, closeSigninBox, closeForgetBox } from "./ui.js";
+
+document.addEventListener('DOMContentLoaded', function() {
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector('#main'),
+    smooth: true
+  });
 });
 
 
@@ -32,6 +35,9 @@ const fbBtn = document.getElementById("fb-login-btn");
 
 const forgetBtn = document.getElementById("forget-btn");
 const logoutBtn = document.getElementById("logout");
+
+const courseAdder = document.querySelector('.course-adder');
+const viewProfile = document.querySelector('.view-profile');
 
 // SIGNIN
 signinBtn?.addEventListener("click", () => {
@@ -62,7 +68,6 @@ signinBtn?.addEventListener("click", () => {
       });
   }
 });
-
 
 
 // SIGNUP
@@ -127,7 +132,6 @@ signupBtn?.addEventListener("click", () => {
 });
 
 
-
 // GOOGLE
 function GoogleSignIn() {
   const provider = new GoogleAuthProvider();
@@ -190,30 +194,35 @@ function FacebookSignIn() {
       else
         getUserData(user.uid, currentuser.photoUrl);
     })
-  }).catch((error) => {
+  })
+  .then(() => alert("Signed up with Facebook!"))
+  .catch((error) => {
     console.log(error.message);
     alert("Facebook Sign-in failed: " + error.message);
   })
 }
+
 document.getElementById("fb-login-btn")?.addEventListener("click", FacebookSignIn);
 document.getElementById("signup-fb-login-btn")?.addEventListener("click", FacebookSignIn);
 
-fbBtn?.addEventListener("click", () => {
-  const provider = new FacebookAuthProvider();
-  signInWithPopup(auth, provider)
-    .then(() => alert("Signed up with Facebook!"))
-    .catch((error) => alert("Facebook Sign-up failed: " + error.message));
-});
-signupFbBtn?.addEventListener("click", () => {
-  const provider = new FacebookAuthProvider();
-  signInWithPopup(auth, provider)
-    .then(() => alert("Signed up with Facebook!"))
-    .catch((error) => alert("Facebook Sign-up failed: " + error.message));
-});
+// fbBtn?.addEventListener("click", () => {
+//   const provider = new FacebookAuthProvider();
+//   signInWithPopup(auth, provider)
+//     .then(() => alert("Signed up with Facebook!"))
+//     .catch((error) => alert("Facebook Sign-up failed: " + error.message));
+// });
+// signupFbBtn?.addEventListener("click", () => {
+//   const provider = new FacebookAuthProvider();
+//   signInWithPopup(auth, provider)
+//     .then(() => alert("Signed up with Facebook!"))
+//     .catch((error) => alert("Facebook Sign-up failed: " + error.message));
+// });
 
-// FORGET
+
+// FORGET PASSWORD
 forgetBtn?.addEventListener("click", () => {
   const email = document.getElementById("forget-email").value;
+  closeForgetBox();
   sendPasswordResetEmail(auth, email)
     .then(() => alert("Reset email sent!"))
     .catch((error) => alert(error.message));
@@ -230,6 +239,7 @@ logoutBtn?.addEventListener("click", () => {
     document.getElementById('user-profile-email').value = "";
     document.querySelector('.user-profile-box').style.display = "none";
     document.querySelector('.course-adder').style.display = "none";
+    window.location.href = "/public/index.html";
   })
     .then(() => alert("Signed Out Successfully."))
     .catch((error) => {
@@ -248,6 +258,8 @@ function logoutUser() {
     document.getElementById('user-profile-email').value = "";
     document.querySelector('.user-profile-box').style.display = "none";
     document.querySelector('.course-adder').style.display = "none";
+    window.history.go(-10);
+
   })
     .catch((error) => {
       console.log(error.message);
@@ -270,3 +282,22 @@ onAuthStateChanged(auth, (user) => {
     document.querySelector(".nav-list2").style.display = "flex";
   }
 });
+
+courseAdder?.addEventListener("click", () => {
+  window.location.href = "/src/modules/coursesAdder/index.html";
+});
+
+viewProfile?.addEventListener("click", () => {
+  window.location.href = "/src/modules/progress/index.html";
+});
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   var loader = document.querySelector("#loader")
+//   setTimeout(function () {
+//       loader.style.top = "-100%"
+//   }, 4200)
+// });
+
+// document.addEventListener('DOMContentLoaded', async function (event) {
+//   event.preventDefault();
+// });

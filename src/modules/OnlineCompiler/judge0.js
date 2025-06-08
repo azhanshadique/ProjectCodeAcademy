@@ -7,7 +7,7 @@ const JUDGE0_API_CONFIG = {
 };
 
 // Function to execute code using Judge0 API
-function executeCodeUsingJudge0(code, languageId, input, callback) {
+export function executeCodeUsingJudge0(code, languageId, input, callback) {
   // Create payload for Judge0 API
   const payload = {
     source_code: code,
@@ -136,7 +136,7 @@ function processExecutionResult(data) {
 }
 
 // Language IDs for Judge0 API
-const judge0LanguageIds = {
+export const judge0LanguageIds = {
   c: 50,        // C (GCC 9.2.0)
   cpp: 54,      // C++ (GCC 9.2.0)
   java: 62,     // Java (OpenJDK 13.0.1)
@@ -145,7 +145,7 @@ const judge0LanguageIds = {
 };
 
 // Default code templates for different languages
-const codeTemplates = {
+export const codeTemplates = {
   c: '#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    return 0;\n}',
   cpp: '#include <iostream>\n\nint main() {\n    std::cout << "Hello, World!" << std::endl;\n    return 0;\n}',
   java: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}',

@@ -1,18 +1,14 @@
 /* Code Editor Styles */
-@import 'styles.css';
+@import './styles.css';
 
-.editor-page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding-bottom: 0;
-}
 
 .editor-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: var(--space-6) var(--space-4);
+  padding-top: 100px; /* Account for fixed header */
+  background-color: var(--background-color);
 }
 
 .editor-content {
@@ -29,10 +25,19 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(179, 179, 179, 0.65);
 }
 
 .editor-title {
   margin-bottom: 0;
+  font-size: 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  color: var(--text-color);
 }
 
 .editor-controls {
@@ -47,17 +52,19 @@
   gap: var(--space-4);
   background-color: var(--white);
   padding: var(--space-4);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(179, 179, 179, 0.65);
 }
 
 .editor-wrapper.fullscreen {
   position: fixed;
-  top: 0;
+  top: 4vw;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: var(--z-maximum);
+  z-index: 90;
   border-radius: 0;
   padding: var(--space-6);
 }
@@ -65,8 +72,8 @@
 .code-editor {
   width: 100%;
   height: 400px;
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(179, 179, 179, 0.5);
+  border-radius: 7px;
   font-family: 'Courier New', monospace;
   font-size: var(--font-size-sm);
   line-height: 1.5;
@@ -75,6 +82,13 @@
   background-color: var(--gray-900);
   color: var(--gray-100);
   overflow: auto;
+  transition: border-color var(--transition-fast);
+}
+
+.code-editor:focus {
+  outline: none;
+  border: 2px solid var(--orange-dot);
+  padding: calc(var(--space-4) - 1px);
 }
 
 .editor-toolbar {
@@ -82,42 +96,53 @@
   gap: var(--space-2);
   flex-wrap: wrap;
   padding: var(--space-2);
-  background-color: var(--gray-100);
-  border-radius: var(--radius-lg);
+  background-color: #F3F4F6;
+  border-radius: 7px;
+  border: 1px solid rgba(179, 179, 179, 0.5);
 }
 
 .toolbar-item {
   padding: var(--space-2) var(--space-3);
   background: var(--white);
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-md);
+  border: 1px solid rgba(179, 179, 179, 0.5);
+  border-radius: 7px;
   cursor: pointer;
   transition: all var(--transition-fast);
   font-size: var(--font-size-sm);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: var(--text-color);
 }
 
 .toolbar-item:hover {
-  background-color: var(--gray-200);
+  background-color: #F3F4F6;
+  border-color: var(--orange-dot);
+  color: var(--orange-dot);
 }
 
 .toolbar-select {
   padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-md);
+  border: 1px solid rgba(179, 179, 179, 0.5);
+  border-radius: 7px;
   background-color: var(--white);
   font-size: var(--font-size-sm);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  transition: border-color var(--transition-fast);
 }
 
 .toolbar-select:focus {
-  border-color: var(--primary-color);
+  border: 2px solid var(--orange-dot);
   outline: none;
+  padding: calc(var(--space-2) - 1px) calc(var(--space-3) - 1px);
 }
 
 .output-section {
   background-color: var(--white);
-  border-radius: var(--radius-xl);
+  border-radius: 15px;
   padding: var(--space-4);
-  box-shadow: var(--shadow-md);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(179, 179, 179, 0.65);
   margin-top: var(--space-4);
 }
 
@@ -127,30 +152,40 @@
   align-items: center;
   margin-bottom: var(--space-4);
   padding-bottom: var(--space-2);
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid rgba(179, 179, 179, 0.5);
 }
 
 .output-header h3 {
   margin-bottom: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .output-clear {
-  color: var(--gray-500);
+  color: var(--gray);
   cursor: pointer;
   font-size: var(--font-size-sm);
   text-decoration: underline;
+  font-family: 'Poppins', sans-serif;
+  transition: color var(--transition-fast);
+}
+
+.output-clear:hover {
+  color: var(--orange-dot);
 }
 
 .output-content {
-  background-color: var(--gray-100);
+  background-color: #F3F4F6;
   padding: var(--space-4);
-  border-radius: var(--radius-lg);
+  border-radius: 7px;
   font-family: 'Courier New', monospace;
   min-height: 150px;
   max-height: 300px;
   overflow-y: auto;
   white-space: pre-wrap;
-  color: var(--gray-800);
+  color: var(--text-color);
+  border: 1px solid rgba(179, 179, 179, 0.5);
 }
 
 .output-content.error {
@@ -159,9 +194,10 @@
 
 .input-section {
   background-color: var(--white);
-  border-radius: var(--radius-xl);
+  border-radius: 15px;
   padding: var(--space-4);
-  box-shadow: var(--shadow-md);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(179, 179, 179, 0.65);
   margin-top: var(--space-4);
 }
 
@@ -171,40 +207,53 @@
   align-items: center;
   margin-bottom: var(--space-4);
   padding-bottom: var(--space-2);
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid rgba(179, 179, 179, 0.5);
 }
 
 .input-header h3 {
   margin-bottom: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .custom-input {
   width: 100%;
   height: 100px;
   padding: var(--space-3);
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(179, 179, 179, 0.5);
+  border-radius: 7px;
   font-family: 'Courier New', monospace;
   resize: vertical;
+  background: var(--white);
+  color: var(--text-color);
+  transition: border-color var(--transition-fast);
 }
 
 .custom-input:focus {
   outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(53, 99, 233, 0.2);
+  border: 2px solid var(--orange-dot);
+  padding: calc(var(--space-3) - 1px);
 }
 
 .execute-controls {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(179, 179, 179, 0.65);
 }
 
 .problem-description {
   background-color: var(--white);
-  border-radius: var(--radius-xl);
+  border-radius: 15px;
   padding: var(--space-4);
-  box-shadow: var(--shadow-md);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(179, 179, 179, 0.65);
   margin-bottom: var(--space-4);
 }
 
@@ -214,7 +263,7 @@
   align-items: center;
   margin-bottom: var(--space-4);
   padding-bottom: var(--space-2);
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid rgba(179, 179, 179, 0.5);
 }
 
 .problem-title {
@@ -228,6 +277,7 @@
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-full);
   font-weight: 500;
+  font-family: 'Poppins', sans-serif;
 }
 
 .difficulty-easy {
@@ -246,7 +296,8 @@
 }
 
 .problem-body {
-  color: var(--gray-700);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
 }
 
 .problem-examples {
@@ -254,28 +305,39 @@
 }
 
 .example {
-  background-color: var(--gray-100);
+  background-color: #F3F4F6;
   padding: var(--space-4);
-  border-radius: var(--radius-lg);
+  border-radius: 7px;
   margin-bottom: var(--space-4);
+  border: 1px solid rgba(179, 179, 179, 0.5);
 }
 
 .example h4 {
   font-size: var(--font-size-sm);
   margin-bottom: var(--space-2);
-  color: var(--gray-700);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
 .example pre {
   font-family: 'Courier New', monospace;
   margin: 0;
   white-space: pre-wrap;
+  color: var(--text-color);
 }
 
 /* Loading indicator for run button */
 .btn-run {
   position: relative;
   min-width: 100px;
+  background: linear-gradient(to left, orange, orangered);
+  color: white;
+  border: none;
+}
+
+.btn-run::after {
+  background: linear-gradient(to left, #ff4500, #ff6500);
 }
 
 .btn-run.loading {
@@ -303,7 +365,8 @@
 
 .save-status {
   font-size: var(--font-size-xs);
-  color: var(--gray-500);
+  color: var(--gray);
+  font-family: 'Poppins', sans-serif;
 }
 
 .save-status.saving {
@@ -316,19 +379,23 @@
 
 .fullscreen-btn {
   background: none;
-  border: none;
+  border: 1px solid rgba(179, 179, 179, 0.5);
   cursor: pointer;
-  color: var(--gray-500);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  border-radius: 7px;
   transition: all var(--transition-fast);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
 }
 
 .fullscreen-btn:hover {
-  background-color: var(--gray-200);
+  background-color: #F3F4F6;
+  border-color: var(--orange-dot);
+  color: var(--orange-dot);
 }
 
 .fullscreen-btn::before {
@@ -337,4 +404,60 @@
 
 .fullscreen-btn.exit::before {
   content: '⮾';
+}
+
+/* Auth required elements */
+.auth-required {
+  display: none;
+}
+
+.auth-not-required {
+  display: inline-flex;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .editor-container {
+    padding: var(--space-4) var(--space-2);
+    padding-top: 80px;
+  }
+  
+  .editor-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .editor-title {
+    font-size: 1.5rem;
+  }
+  
+  .editor-controls {
+    justify-content: center;
+  }
+  
+  .execute-controls {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .code-editor {
+    height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .editor-title {
+    font-size: 1.5rem;
+  }
+  
+  .toolbar-item, .toolbar-select {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .editor-wrapper, .output-section, .input-section, .execute-controls {
+    border-radius: 10px;
+    padding: var(--space-3);
+  }
 }

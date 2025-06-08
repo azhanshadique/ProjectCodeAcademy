@@ -6,8 +6,8 @@
   <title>CodeAcademy</title>
 
   <!-- Global Styles & Fonts -->
-  <!-- <link rel="stylesheet" href="/src/modules/about/style.css" /> -->
-  <link rel="stylesheet" href="/src/styles/style.css" />
+  <link rel="stylesheet" href="/src/styles/main.css" />
+
   <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -20,9 +20,9 @@
     <div data-include="/src/components/navbar.html"></div>
 
     <!-- Profile Box -->
-    <!-- <div data-include="/src/components/profilebox.html"></div> -->
+    <div data-include="/src/components/profilebox.html"></div>
 
-    <!-- About Content Section -->
+    <!-- About Section -->
     <section class="section-about">
       <div class="section-about-bottom">
         <h1>
@@ -55,9 +55,12 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <!-- <div data-include="/src/components/footer.html"></div> -->
+    <section class="section-5"></section>
+    
   </div>
+
+  <!-- Footer -->
+  <div data-include="/src/components/footer.html"></div>
 
   <!-- Auth Forms (Signin / Signup) -->
   <div data-include="/src/components/auth-forms.html"></div>
@@ -66,7 +69,6 @@
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/src/scripts/main.js"></script>
-  <!-- <script src="./src/scripts/includeLoader.js"></script> This will auto-load include tags -->
   <script>
     
     document.querySelectorAll('[data-include]').forEach(el => {

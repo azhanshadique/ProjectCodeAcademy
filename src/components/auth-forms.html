@@ -1,7 +1,6 @@
 <!-- Sign In Form -->
 <div class="signin-form" id="signin-form">
   <div class="form-box">
-    <!-- <span class="notify" id="notify"></span> -->
     <div class="form">
       <div class="login-div">
         <div class="login-text">Sign in<span class="material-symbols-outlined signin-form-close">close</span></div>
@@ -22,19 +21,34 @@
       <div class="button form-button google-fb-button">
         <h4 class="form-gmail-button" id="gmail-login-btn"><a href="#"><img src="/src/assets/images/google.png" alt="Google">Sign in with Google</a></h4>
         <h4 class="form-fb-button" id="fb-login-btn"><a href="#"><img src="/src/assets/images/facebook.png" alt="Facebook">Sign in with Facebook</a></h4>
-        <p>By signing in, you agree to our <span>Terms & Conditions</span> and <span>Privacy Policy</span>.</p>
-      </div>
-    </div>
-    <div class="forget-password">
-      <div>
-        <div class="notify2"></div>
-        <input type="email" placeholder="enter your email" id="forget-email" />
-        <button id="forget-btn">Forget Password</button>
-        <a href="./index.html">Login Now</a>
+        <p>By signing in or creating an account, you are agreeing to our <span>Terms & Conditions</span> and <span>Privacy Policy</span>.</p>
       </div>
     </div>
   </div>
 </div>
+
+
+<!-- Forget Password Form -->
+<div class="forget-form" id="forget-form">
+  <div class="forget-form-box">
+    <div class="form">
+      <div class="forget-div">
+        <div class="forget-text">Forget Password<span class="material-symbols-outlined forget-form-close">close</span></div>
+        <div class="forget-acc-yet">Return to <span id="forget-signin-here">Sign in</span></div>
+      </div>
+      <div class="email-div">
+        <div class="email-text">If the account exists, we will email you instructions to reset the password.</div>
+        <input type="forget-email" placeholder="Enter your email address" id="forget-email" />
+      </div>
+
+      <div class="button form-button">
+        <h4 class="form-sigup-button forget" id="forget-btn"><a href="#">Send Reset Link</a></h4>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <!-- Sign Up Form -->
 <div class="signup-form" id="signup-form">

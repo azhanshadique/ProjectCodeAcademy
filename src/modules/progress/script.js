@@ -1,156 +1,3 @@
-const scroll = new LocomotiveScroll({
-  el: document.querySelector('#main'),
-  smooth: true
-});
-
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import {getAuth, 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword, 
-    onAuthStateChanged, 
-    signOut,
-    sendPasswordResetEmail,
-    GoogleAuthProvider,
-    signInWithPopup,
-    FacebookAuthProvider} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-
-import { getDatabase, set, get, ref } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-import {} from "https://apis.google.com/js/platform.js?onload=init";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBPACURk0fECwcx7mdnvgKvzoAwFIZ-wfc",
-    authDomain: "authlearn-c0620.firebaseapp.com",
-    projectId: "authlearn-c0620",
-    storageBucket: "authlearn-c0620.appspot.com",
-    messagingSenderId: "1057467852931",
-    appId: "1:1057467852931:web:6b68ef4f55754653c753b6"
-  };
-
-  // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// console.log(app);
-const auth = getAuth(app);
-
-const db = getDatabase(app);
-
-// console.log(db);
-
-function writeUserData(userID, firstname, lastname, username, email){
-  set(ref(db,'users/' + userID), {
-      firstname: firstname,
-      lastname: lastname,
-      username: username,
-      email: email
-  })
-}
-
-
-
-function getUserData(uid, img_src){
-  const userRef = ref(db, 'users/' + uid);
-    // console.log(uid);
-    get(userRef).then((snapshot) =>{
-      // snapshot.forEach((childsnapShot)=>{
-        // if(snapshot.exists()) {
-          // console.log("inside-getuserdata ");
-          // console.log(childsnapShot.val());
-          var uservalue = snapshot.val().firstname;
-          uservalue = uservalue +" "+ snapshot.val().lastname;
-          document.getElementById('user-profile-name').style.width = ((uservalue.length + 3) * 8) + 'px';
-          document.getElementById('user-profile-name').value = uservalue;
-
-          var useremail = snapshot.val().email;
-          document.getElementById('user-profile-email').style.width = ((useremail.length + 1) * 8) + 'px';
-          document.getElementById('user-profile-email').value = useremail;
-          
-          
-          // console.log(img_src);
-          if(img_src == null) {
-            // console.log('nullhheheh');
-            document.querySelector('.user-image').src = "/assets/images/user6.png";
-            
-          }
-          else {
-            document.querySelector('.user-image').src = img_src; 
-            document.querySelector('.user-image').srcset = img_src; 
-            // console.log(`${img_src}`);
-            // console.log(document.querySelector('.user-image').src);
-            // console.log(document.querySelector('.user-image').srcset);
-          }
-
-  }).catch((error)=>{
-    console.log(error.message);
-  })
-}
-
-
-onAuthStateChanged(auth,(user)=>{
-  if(user){
-
-  //   document.getElementById("user-form").style.animation = "slideToDown 1s ease forwards";
-  //   document.querySelector('#main').classList.remove('showLoginBoxMain');
-  //   document.querySelector('#email').value = "";
-  //   document.querySelector('#password').value = "";
-    
-  //   document.getElementById("signup-form").style.animation = "slideToDown 1s ease forwards";
-  //   document.querySelector('#main').classList.remove('showLoginBoxMain');
-  //   document.querySelector('#email').value = "";
-  //   document.querySelector('#password').value = "";
-    
-  //   document.querySelector('.user-profile').style.display = "flex";
-  //   document.querySelector('.nav-list2').style.display = "none";
-
-    // console.log(user.photoURL);
-    getUserData(user.uid, user.photoURL);
-
-  }
-})
-
-// LOGOUT
-
-function logoutUser(){
-
-  signOut(auth).then(()=>{
-      // window.history.back();
-      window.history.go(-10);
-
-  }).catch((error)=>{
-    console.log(error.message);
-  })
-}
-const logout_btn = document.querySelector('#logout');
-logout_btn.addEventListener('click', logoutUser);
-
-
-
-
-  
-
-
-// ---------------------------------
-function showUserProfileBox() {
-  if(document.querySelector('.user-profile-box').style.display == "flex") {
-    document.querySelector('.user-profile-box').style.display = "none";
-  }
-  else {
-    document.querySelector('.user-profile-box').style.display = "flex";
-    const user = auth.currentUser;
-    getUserData(user.uid, user.photoURL);
-  }
-}
-const user_profile_box = document.querySelector('.dropdown-profile-arrow');
-user_profile_box.addEventListener('click',showUserProfileBox);
-
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropdown-profile-arrow') && !event.target.matches('.user-profile-box') && !event.target.matches('.user-profile-name-input') && !event.target.matches('.user-profile-email-input')  && !event.target.matches('.user-profile-box') && !event.target.matches('.userprofile-signout-button') && !event.target.matches('.logout-icon')) {
-    document.querySelector('.user-profile-box').style.display = "none";
-  }
-}
-
-
-
 // API FETCH DATA 
 
 // Alternate proxy url
@@ -209,7 +56,6 @@ function fetchData() {
           document.getElementById("leetCodeData").innerHTML = "<p style='color: red;'>Error fetching LeetCode data. Please try again later.</p>";
       }
     }
-    
 
     if(gfgUsername) {
       document.getElementById("gfgOutput").style.display = "flex";
@@ -273,8 +119,7 @@ function fetchData() {
       fetch(leetCodeJsonUrl)
       .then(response => response.json())
       .then(data => {
-          // console.log("LeetCode JSON Data:", data);
-
+        // console.log("LeetCode JSON Data:", data);
 
           // Calculate totals from LeetCode data
           totalEasySolved += data.easySolved;
@@ -298,5 +143,4 @@ function fetchData() {
           document.getElementById("leetCodeData").innerHTML = "<p style='color: red;'>Error fetching LeetCode JSON data. Please try again later.</p>";
       });
     }
-    
 }

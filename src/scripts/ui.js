@@ -1,33 +1,42 @@
 import { auth } from "./init.js";
 import { getUserData } from "./auth.js";
 
-const signInform = document.getElementById("signin-form");
+const signInForm = document.getElementById("signin-form");
 const signUpForm = document.getElementById("signup-form");
+const forgetForm = document.getElementById("forget-form");
 const mainContainer = document.getElementById("main");
 
 const closeSigninBtn = document.querySelector(".signin-form-close");
 const closeSignupBtn = document.querySelector(".signup-form-close");
+const closeForgetBtn = document.querySelector(".forget-form-close");
 
 const signupBtn = document.getElementById("signup-button");
 const signinBtn = document.getElementById("signin-button");
 
 const signupHereBtn = document.getElementById("signup-here");
 const signinHereBtn = document.getElementById("signin-here");
+const forgetSigninHereBtn = document.getElementById("forget-signin-here");
 
 const userProfileBox = document.querySelector('.dropdown-profile-arrow');
+const forgetBtn = document.getElementById("forget-link");
 
 
 // OPEN SIGNIN
 signinBtn?.addEventListener("click", openSigninBox);
 export async function openSigninBox() {
-    signInform.style.display = "flex";
-    signInform.style.animation = "slideFromTopToDown 0.5s ease forwards";
+    signInForm.style.display = "flex";
+    signInForm.style.animation = "slideFromTopToDown 0.5s ease forwards";
     mainContainer?.classList.add("showLoginBoxMain");
-    signInform?.classList.add("showLoginBox");
+    signInForm?.classList.add("showLoginBox");
 }
 
 signinHereBtn?.addEventListener("click", () => {
     closeSignupBox();
+    openSigninBox();
+});
+
+forgetSigninHereBtn?.addEventListener("click", () => {
+    closeForgetBox();
     openSigninBox();
 });
 
@@ -51,10 +60,10 @@ export async function closeSigninBox() {
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
 
-    if(signInform) signInform.style.animation = "slideFromDownToTop 0.5s ease forwards";
+    if(signInForm) signInForm.style.animation = "slideFromDownToTop 0.5s ease forwards";
     mainContainer?.classList.remove("showLoginBoxMain");
     setTimeout(() => {
-      signInform.style.display = "none";
+      if(signInForm) signInForm.style.display = "none";
     }, 300);
 }
 
@@ -67,14 +76,39 @@ export async function closeSignupBox() {
     document.getElementById("signup-email").value = "";
     document.getElementById("signup-password").value = "";
     document.getElementById("confirm-password").value = "";
-    if (signInform) signUpForm.style.animation = "slideFromDownToTop 0.5s ease forwards";
+    if (signUpForm) signUpForm.style.animation = "slideFromDownToTop 0.5s ease forwards";
     mainContainer?.classList.remove("showLoginBoxMain");
     setTimeout(() => {
-      signUpForm.style.display = "none";
+      if(signUpForm) signUpForm.style.display = "none";
     }, 300);
 }
 
+// OPEN FORGET PASSWORD 
+forgetBtn?.addEventListener("click", () => {
+    console.log("forgot password");
+    closeSigninBox();
+    openForgetBox();
+});
+export async function openForgetBox() {
+    forgetForm.style.display = "flex";
+    forgetForm.style.animation = "slideFromTopToDown 0.5s ease forwards";
+    mainContainer?.classList.add("showLoginBoxMain");
+    forgetForm?.classList.add("showLoginBox");
+}
 
+// CLOSE FORGET PASSWORD 
+closeForgetBtn?.addEventListener("click", closeForgetBox);
+export async function closeForgetBox() {
+    document.getElementById("forget-email").value = "";
+    // document.getElementById("password").value = "";
+
+    if(forgetForm) forgetForm.style.animation = "slideFromDownToTop 0.5s ease forwards";
+    mainContainer?.classList.remove("showLoginBoxMain");
+    setTimeout(() => {
+      if(forgetForm) forgetForm.style.display = "none";
+    }, 300);
+    openSigninBox();
+}
 
 // SHOW PROFILE BOX
 userProfileBox?.addEventListener("click", showProfileBox);

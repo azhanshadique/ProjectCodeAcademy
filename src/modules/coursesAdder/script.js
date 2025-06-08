@@ -1,23 +1,13 @@
-// const scroll = new LocomotiveScroll({
-//   el: document.querySelector('.container'),
-//   smooth: true
-// });
-// Firebase Configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBPACURk0fECwcx7mdnvgKvzoAwFIZ-wfc",
-  authDomain: "authlearn-c0620.firebaseapp.com",
-  projectId: "authlearn-c0620",
-  storageBucket: "authlearn-c0620.appspot.com",
-  messagingSenderId: "1057467852931",
-  appId: "1:1057467852931:web:6b68ef4f55754653c753b6",
-};
+import { firebaseConfig } from "/src/scripts/init.js";
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+
 // Form Submission Logic
-document.getElementById("problemForm").addEventListener("submit", async function (event) {
+document.getElementById("course-btn").addEventListener('click', async function (event) {
+ 
   event.preventDefault(); // Prevent page refresh
 
   // Gather inputs
@@ -50,7 +40,7 @@ document.getElementById("problemForm").addEventListener("submit", async function
     // Set the document with the custom ID
     await docRef.set(problemData);
     alert("Problem added successfully to Firestore!");
-    document.getElementById("problemForm").reset();
+    // document.getElementById("problemForm").reset();
   } catch (error) {
     console.error("Error adding document: ", error);
     alert("Failed to add problem. Please try again.");

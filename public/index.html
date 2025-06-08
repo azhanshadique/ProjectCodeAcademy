@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../src/assets/images/icon.png" type="image/x-icon" />
 
     <!-- Global Styles -->
-    <link rel="stylesheet" href="../src/styles/style.css" />
+    <link rel="stylesheet" href="../src/styles/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -24,7 +24,11 @@
     </div> -->
 
     <div id="main">
+        <!-- Navbar -->
         <div data-include="../src/components/navbar.html"></div>
+
+        <!-- Profile Box -->
+        <div data-include="/src/components/profilebox.html"></div>
 
         <!-- Homepage Sections -->
         <section class="section-1">
@@ -46,11 +50,11 @@
                 </div>
             </div>
 
-            <div id="hero-shape">
+            <!-- <div id="hero-shape">
                 <div id="hero-1"></div>
                 <div id="hero-2"></div>
                 <div id="hero-3"></div>
-            </div>
+            </div> -->
             <!-- <video autoplay loop muted src="./assets/videos/video1.mp4"></video> -->
         </section>
         <section class="section-2">
@@ -142,11 +146,12 @@
                 </div>
             </div>
         </section>
-        <section class="section-4"></section>
+        <!-- <section class="section-4"></section> -->
         <section class="section-5"></section>
 
-        <div data-include="../src/components/footer.html"></div>
     </div>
+    <!-- Footer -->
+    <div data-include="../src/components/footer.html"></div>
 
     <!-- Auth Modals -->
     <div data-include="../src/components/auth-forms.html"></div>
