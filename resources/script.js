@@ -264,56 +264,55 @@ const firebaseConfig = {
   }
   
   async function generateArticle(problemTitle) {
-      const apiKey = "your-openai-api-key"; // Replace with your actual OpenAI API key
-      const url = "https://api.openai.com/v1/chat/completions";
-  
-      const payload = {
-          model: "gpt-3.5-turbo",
-          messages: [
-              {
-                  role: "system",
-                  content: "You are an assistant that writes detailed articles."
-              },
-              {
-                  role: "user",
-                  content: `Write an article on the topic: "${problemTitle}". The article should explain the topic in detail and provide examples.`
-              }
-          ],
-          max_tokens: 600,
-          temperature: 0.7,
-      };
-  
-      try {
-          const response = await fetch(url, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${apiKey}`,
-              },
-              body: JSON.stringify(payload),
-          });
-  
-          if (!response.ok) {
-              const errorData = await response.json();
-              console.error("OpenAI API Error:", errorData);
-              alert(`OpenAI API Error: ${errorData.error.message}`);
-              return;
-          }
-  
-          const data = await response.json();
-          console.log("OpenAI API Response:", data);
-  
-          if (data.choices && data.choices.length > 0) {
-              const article = data.choices[0].message.content.trim();
-              alert(`Generated Article for "${problemTitle}":\n\n${article}`);
-          } else {
-              alert("No article could be generated. Please try again later.");
-          }
-      } catch (error) {
-          console.error("Error generating article:", error);
-          alert(`Error occurred: ${error.message}`);
-      }
-  }
+    const apiKey = "your-openai-api-key"; // ⚠️ DO NOT use this in production frontend
+    const url = "https://api.openai.com/v1/chat/completions";
+
+    const payload = {
+        model: "gpt-3.5-turbo",
+        messages: [
+            {
+                role: "system",
+                content: "You are an assistant that writes detailed articles."
+            },
+            {
+                role: "user",
+                content: `Write an article on the topic: "${problemTitle}". The article should explain the topic in detail and provide examples.`
+            }
+        ],
+        max_tokens: 1000,
+        temperature: 0.7,
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${apiKey}`,
+            },
+            body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.error("OpenAI API Error:", data);
+            alert(`OpenAI API Error: ${data.error?.message || "Unknown error"}`);
+            return;
+        }
+
+        if (data.choices && data.choices.length > 0) {
+            const article = data.choices[0].message.content.trim();
+            alert(`Generated Article for "${problemTitle}":\n\n${article}`);
+        } else {
+            alert("No article could be generated. Please try again later.");
+        }
+    } catch (error) {
+        console.error("Error generating article:", error);
+        alert(`Error occurred: ${error.message}`);
+    }
+}
+
   
 
   
