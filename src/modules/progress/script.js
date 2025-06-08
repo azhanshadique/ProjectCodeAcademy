@@ -82,7 +82,6 @@ function fetchData() {
               
               <h3>Problem Counts by Category:</h3>
               <ul>
-                  <li><strong>School:</strong> ${gfgData.solvedStats.school.count}</li>
                   <li><strong>Basic:</strong> ${gfgData.solvedStats.basic.count}</li>
                   <li><strong>Easy:</strong> ${gfgData.solvedStats.easy.count}</li>
                   <li><strong>Medium:</strong> ${gfgData.solvedStats.medium.count}</li>
