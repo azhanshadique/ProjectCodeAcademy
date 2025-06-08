@@ -71,7 +71,7 @@ function fetchData() {
       .then(data => {
           const gfgData = JSON.parse(data.contents); // The actual GFG API response is in "contents"
           // console.log("GFG Data:", gfgData);
-
+          
           // Render GFG Data
           document.getElementById("gfgData").innerHTML = `
               <p><strong>User Name:</strong> ${gfgData.info.userName}</p>
@@ -82,19 +82,20 @@ function fetchData() {
               
               <h3>Problem Counts by Category:</h3>
               <ul>
-                  <li><strong>Basic:</strong> ${gfgData.solvedStats.basic.count}</li>
-                  <li><strong>Easy:</strong> ${gfgData.solvedStats.easy.count}</li>
-                  <li><strong>Medium:</strong> ${gfgData.solvedStats.medium.count}</li>
-                  <li><strong>Hard:</strong> ${gfgData.solvedStats.hard.count}</li>
+                <li><strong>School:</strong> ${gfgData.solvedStats.school?.count || 0}</li>
+                <li><strong>Basic:</strong> ${gfgData.solvedStats.basic?.count || 0}</li>
+                <li><strong>Easy:</strong> ${gfgData.solvedStats.easy?.count || 0}</li>
+                <li><strong>Medium:</strong> ${gfgData.solvedStats.medium?.count || 0}</li>
+                <li><strong>Hard:</strong> ${gfgData.solvedStats.hard?.count || 0}</li>
               </ul>
           `;
 
           // Calculate totals from GFG data
-          totalBasicSolved += gfgData.solvedStats.basic.count;
-          totalEasySolved += gfgData.solvedStats.easy.count;
-          totalMediumSolved += gfgData.solvedStats.medium.count;
-          totalHardSolved += gfgData.solvedStats.hard.count;
-          totalProblemsSolved += Number(gfgData.info.totalProblemsSolved); // Ensure it's treated as a number
+          totalBasicSolved += gfgData.solvedStats.basic?.count || 0;
+          totalEasySolved += gfgData.solvedStats.easy?.count || 0;
+          totalMediumSolved += gfgData.solvedStats.medium?.count || 0;
+          totalHardSolved += gfgData.solvedStats.hard?.count || 0;
+          totalProblemsSolved += Number(gfgData.info.totalProblemsSolved || 0); // Ensure it's treated as a number
 
       })
       .catch(error => {

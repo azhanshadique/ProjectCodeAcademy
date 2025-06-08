@@ -6,6 +6,7 @@
     background-color: #ffff;
     padding: 4vw 0;
     position: relative;
+    
 }
 
 .moving-text {
@@ -69,6 +70,7 @@
     font-size: 4vw;
     width: 65%;
     line-height: 4vw;
+
 }
 
 .section-about-bottom-part2 {

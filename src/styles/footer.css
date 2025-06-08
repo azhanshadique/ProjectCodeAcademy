@@ -106,6 +106,7 @@
 #footerlower h1 {
     font-size: 15vw;
     border-bottom: 0.8px solid #d3cdc173;
+    /* font-weight: 300; */
 }
 
 #footerlower div {
@@ -116,6 +117,6 @@
 }
 
 #footerlower div h5 {
-    font-size: 1.1vw;
+    font-size: 0.8vw;
     font-weight: 200;
 }

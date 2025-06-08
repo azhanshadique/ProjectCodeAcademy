@@ -1,4 +1,5 @@
-const JUDGE0_BASE_URL = 'http://192.168.138.7:2358';
+// const JUDGE0_BASE_URL = 'http://192.168.138.7:2358';
+const JUDGE0_BASE_URL = 'http://192.168.46.7:2358';
 
 
 // Outer horizontal split (left and right)

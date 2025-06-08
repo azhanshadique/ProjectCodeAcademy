@@ -130,3 +130,20 @@ window.onclick = function(event) {
     }
 }
 
+
+if (window.location.pathname.includes("public")) {
+    document.getElementById("home-page").classList.add("current-nav");
+}
+else if (window.location.pathname.includes("resources")) {
+    document.getElementById("resource-page").classList.add("current-nav");
+}
+else if (window.location.pathname.includes("OnlineCompiler")) {
+    document.getElementById("compiler-page").classList.add("current-nav");
+}
+else if (window.location.pathname.includes("about")) {
+    document.getElementById("about-page").classList.add("current-nav");
+}
+else if (window.location.pathname.includes("contact")) {
+    document.getElementById("contact-page").classList.add("current-nav");
+}
+

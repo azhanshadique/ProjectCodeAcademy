@@ -7,9 +7,8 @@ header{
     z-index: 100;
     position: fixed;
     overflow-x: hidden;
-}
-header {
-    border-bottom: 1px solid #e5e7eb;
+
+    /* border-bottom: 1px solid #e5e7eb; */
 }
 
 .header-content{

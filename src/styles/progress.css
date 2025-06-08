@@ -66,7 +66,7 @@
 /* --------------------------- */
 
 
-  .form {
+.section-profile  .form {
     width: 100%;
     /* margin: 0 auto; */
     text-align: left;
@@ -110,12 +110,12 @@
   .form .leetcode-div input {
     padding-left: 185px;
   }
-  .form .gfg-div input:focus {
+  .section-profile .form .gfg-div input:focus {
     border: 2px solid orangered;
     padding: 5px 0px;
     padding-left: 273px;
   }
-  .form .leetcode-div input:focus {
+    .section-profile .form .leetcode-div input:focus {
     border: 2px solid orangered;
     padding: 5px 0px;
     padding-left: 184px;
@@ -246,7 +246,7 @@
 .section-tracker #leetCodeOutput{
     height: 100%;
     width: 520px;
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
     border-radius: 10px;
     border: 1px solid rgba(179, 179, 179, 0.65);
     padding: 0.8vw 1vw;
@@ -258,6 +258,8 @@
     justify-content: center;
     align-items: start;
     gap: 0.5rem;
+    background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%); 
+
 }
 
 .section-tracker #gfgOutput {
@@ -275,6 +277,8 @@
     justify-content: center;
     align-items: start;
     gap: 0.5rem;
+    background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%); 
+
 }
 
 #totalProgress {
@@ -292,6 +296,8 @@
     justify-content: center;
     align-items: start;
     gap: 0.5rem;
+    background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%); 
+
 }
 
 #leetCodeOutput h2, #gfgOutput h2, #totalProgress h2 {
@@ -306,7 +312,9 @@
     border: 1px solid rgba(179, 179, 179, 0.65);
     width: 490px;
     padding: 2vw 3vw;
-    background-color: rgba(128, 185, 142, .08);
+    /* background-color: rgba(128, 185, 142, .08); */
+    background-color: #fff9de;
+    
 }
 
 #totalProgressData {
@@ -314,7 +322,8 @@
     border: 1px solid rgba(179, 179, 179, 0.65);
     width: 100%;
     padding: 2vw 3vw;
-    background-color: #ffd68a39;
+    /* background-color: #ffd68a39; */
+    background-color: #fff9de;
 }
 
 #gfgData p, #totalProgressData p {
