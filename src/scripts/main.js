@@ -232,8 +232,13 @@ forgetBtn?.addEventListener("click", () => {
 logoutBtn?.addEventListener("click", () => {
   signOut(auth).then(() => {
     document.querySelector('#main').classList.remove('showLoginBoxMain');
-    document.querySelector('.user-profile').style.display = "none";
-    document.querySelector('.nav-list2').style.display = "flex";
+
+    // document.querySelector('.user-profile').style.display = "none";
+    // document.querySelector('.nav-list2').style.display = "flex";
+
+    document.querySelector(".user-profile").style.visibility = "hidden";
+    document.querySelector(".nav-list2").style.visibility = "visible";
+
     document.getElementById('user-profile-name').value = "";
     document.querySelector('.user-image').src = null;
     document.getElementById('user-profile-email').value = "";
@@ -251,14 +256,18 @@ logoutBtn?.addEventListener("click", () => {
 function logoutUser() {
   signOut(auth).then(() => {
     document.querySelector('#main').classList.remove('showLoginBoxMain');
-    document.querySelector('.user-profile').style.display = "none";
-    document.querySelector('.nav-list2').style.display = "flex";
+    // document.querySelector('.user-profile').style.display = "none";
+    // document.querySelector('.nav-list2').style.display = "flex";
+
+    document.querySelector(".user-profile").style.visibility = "hidden";
+    document.querySelector(".nav-list2").style.visibility = "visible";
+
     document.getElementById('user-profile-name').value = "";
     document.querySelector('.user-image').src = null;
     document.getElementById('user-profile-email').value = "";
     document.querySelector('.user-profile-box').style.display = "none";
     document.querySelector('.course-adder').style.display = "none";
-    window.history.go(-10);
+    // window.history.go(-10);
 
   })
     .catch((error) => {
@@ -270,8 +279,10 @@ function logoutUser() {
 // AUTH STATE
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    document.querySelector(".user-profile").style.display = "flex";
-    document.querySelector(".nav-list2").style.display = "none";
+    // document.querySelector(".user-profile").style.display = "flex";
+    // document.querySelector(".nav-list2").style.display = "none";
+    document.querySelector(".nav-list2").style.visibility = "hidden";
+    document.querySelector(".user-profile").style.visibility = "visible";
 
     closeSigninBox();
     closeSignupBox();
@@ -279,7 +290,8 @@ onAuthStateChanged(auth, (user) => {
     getUserData(user.uid, user.photoURL);
   } else {
     document.querySelector(".user-profile-box").style.display = "none";
-    document.querySelector(".nav-list2").style.display = "flex";
+    document.querySelector(".user-profile").style.visibility = "hidden";
+    document.querySelector(".nav-list2").style.visibility = "visible";
   }
 });
 

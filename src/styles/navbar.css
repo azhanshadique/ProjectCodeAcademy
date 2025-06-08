@@ -76,6 +76,11 @@ header{
     cursor: pointer;
 }
 
+.nav-list2 {
+    z-index: 10;
+    background-color: var(--background-color);
+    visibility: hidden;
+}
 .courseAdder {
     display: none;
 }
@@ -151,11 +156,15 @@ nav h3 {
 }
 
 .user-profile {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
+    top: 1rem;
+    right: 0;
     gap: 0.1rem;
+    z-index: 9;
+    visibility: hidden;
 }
 
 .user-profile h5 input, .user-profile-name input, .user-profile-email input {
