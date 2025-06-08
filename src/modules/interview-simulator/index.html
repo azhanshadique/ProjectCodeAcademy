@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Simulator - CodeAcademy</title>
+
+  <!-- Global Styles & Fonts -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="main">
+    <!-- Navbar -->
+    <div data-include="/src/components/navbar.html"></div>
+
+    <!-- Profile Box -->
+    <div data-include="/src/components/profilebox.html"></div>
+
+    <!-- Interview Simulator Section -->
+    <div class="simulator-container">
+      <div class="simulator-header">
+        <h1>Technical Interview Simulator</h1>
+        <p>Practice coding interviews with realistic questions and time constraints</p>
+        
+        <div class="simulator-controls">
+          <div class="control-group">
+            <label for="difficultySelect">Difficulty:</label>
+            <select id="difficultySelect">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="hard">Hard</option>
+              <option value="mixed">Mixed</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label for="categorySelect">Category:</label>
+            <select id="categorySelect">
+              <option value="all">All Topics</option>
+              <option value="arrays">Arrays & Strings</option>
+              <option value="linked-lists">Linked Lists</option>
+              <option value="trees">Trees & Graphs</option>
+              <option value="dynamic-programming">Dynamic Programming</option>
+              <option value="system-design">System Design</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label for="timeLimit">Time Limit:</label>
+            <select id="timeLimit">
+              <option value="30">30 minutes</option>
+              <option value="45" selected>45 minutes</option>
+              <option value="60">60 minutes</option>
+              <option value="90">90 minutes</option>
+            </select>
+          </div>
+          
+          <button id="startInterview" class="btn btn-primary">
+            <span class="material-symbols-outlined">play_arrow</span>
+            Start Interview
+          </button>
+        </div>
+      </div>
+
+      <!-- Interview Statistics -->
+      <div class="interview-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">quiz</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="totalInterviews">0</div>
+            <div class="stat-label">Interviews Completed</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">check_circle</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="successRate">0%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">schedule</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="averageTime">0m</div>
+            <div class="stat-label">Average Time</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">trending_up</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="currentStreak">0</div>
+            <div class="stat-label">Current Streak</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interview Session -->
+      <div class="interview-session" id="interviewSession" style="display: none;">
+        <div class="session-header">
+          <div class="session-info">
+            <h3 id="questionTitle">Loading question...</h3>
+            <div class="question-meta">
+              <span class="difficulty-badge" id="questionDifficulty">Medium</span>
+              <span class="category-badge" id="questionCategory">Arrays</span>
+            </div>
+          </div>
+          
+          <div class="session-controls">
+            <div class="timer" id="timer">
+              <span class="material-symbols-outlined">timer</span>
+              <span id="timeRemaining">45:00</span>
+            </div>
+            <button id="endInterview" class="btn btn-outline">End Interview</button>
+          </div>
+        </div>
+        
+        <div class="session-content">
+          <div class="question-panel">
+            <div class="question-description" id="questionDescription">
+              <!-- Question content will be loaded here -->
+            </div>
+            
+            <div class="question-examples" id="questionExamples">
+              <!-- Examples will be loaded here -->
+            </div>
+            
+            <div class="question-constraints" id="questionConstraints">
+              <!-- Constraints will be loaded here -->
+            </div>
+          </div>
+          
+          <div class="solution-panel">
+            <div class="panel-header">
+              <h4>Your Solution</h4>
+              <div class="solution-controls">
+                <select id="languageSelect">
+                  <option value="javascript">JavaScript</option>
+                  <option value="python">Python</option>
+                  <option value="java">Java</option>
+                  <option value="cpp">C++</option>
+                </select>
+                <button id="runCode" class="btn btn-secondary">
+                  <span class="material-symbols-outlined">play_arrow</span>
+                  Run
+                </button>
+                <button id="submitSolution" class="btn btn-primary">
+                  <span class="material-symbols-outlined">send</span>
+                  Submit
+                </button>
+              </div>
+            </div>
+            
+            <div class="code-editor-container">
+              <textarea id="codeEditor" placeholder="Write your solution here..."></textarea>
+            </div>
+            
+            <div class="test-results" id="testResults">
+              <!-- Test results will appear here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interview Results -->
+      <div class="interview-results" id="interviewResults" style="display: none;">
+        <div class="results-header">
+          <h3>Interview Complete!</h3>
+          <div class="overall-score" id="overallScore">
+            <div class="score-circle">
+              <span id="scorePercentage">85%</span>
+            </div>
+            <div class="score-label">Overall Score</div>
+          </div>
+        </div>
+        
+        <div class="results-breakdown">
+          <div class="breakdown-item">
+            <div class="breakdown-label">Time Efficiency</div>
+            <div class="breakdown-bar">
+              <div class="breakdown-fill" id="timeEfficiencyBar"></div>
+            </div>
+            <div class="breakdown-score" id="timeEfficiencyScore">80%</div>
+          </div>
+          
+          <div class="breakdown-item">
+            <div class="breakdown-label">Code Quality</div>
+            <div class="breakdown-bar">
+              <div class="breakdown-fill" id="codeQualityBar"></div>
+            </div>
+            <div class="breakdown-score" id="codeQualityScore">90%</div>
+          </div>
+          
+          <div class="breakdown-item">
+            <div class="breakdown-label">Problem Solving</div>
+            <div class="breakdown-bar">
+              <div class="breakdown-fill" id="problemSolvingBar"></div>
+            </div>
+            <div class="breakdown-score" id="problemSolvingScore">85%</div>
+          </div>
+          
+          <div class="breakdown-item">
+            <div class="breakdown-label">Test Cases Passed</div>
+            <div class="breakdown-bar">
+              <div class="breakdown-fill" id="testCasesBar"></div>
+            </div>
+            <div class="breakdown-score" id="testCasesScore">8/10</div>
+          </div>
+        </div>
+        
+        <div class="results-feedback">
+          <h4>Feedback & Suggestions</h4>
+          <div class="feedback-content" id="feedbackContent">
+            <!-- Feedback will be generated here -->
+          </div>
+        </div>
+        
+        <div class="results-actions">
+          <button id="reviewSolution" class="btn btn-secondary">Review Solution</button>
+          <button id="startNewInterview" class="btn btn-primary">Start New Interview</button>
+          <button id="saveResults" class="btn btn-outline">Save Results</button>
+        </div>
+      </div>
+
+      <!-- Interview History -->
+      <div class="interview-history">
+        <div class="section-header">
+          <h3>Interview History</h3>
+          <div class="history-filters">
+            <select id="historyFilter">
+              <option value="all">All Interviews</option>
+              <option value="completed">Completed</option>
+              <option value="incomplete">Incomplete</option>
+            </select>
+            <button id="exportHistory" class="btn btn-outline">Export</button>
+          </div>
+        </div>
+        
+        <div class="history-content" id="historyContent">
+          <!-- Interview history will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Performance Analytics -->
+      <div class="performance-analytics">
+        <div class="section-header">
+          <h3>Performance Analytics</h3>
+          <div class="analytics-period">
+            <button class="period-btn active" data-period="week">This Week</button>
+            <button class="period-btn" data-period="month">This Month</button>
+            <button class="period-btn" data-period="year">This Year</button>
+          </div>
+        </div>
+        
+        <div class="analytics-content">
+          <div class="analytics-chart">
+            <canvas id="performanceChart" width="400" height="200"></canvas>
+          </div>
+          
+          <div class="analytics-insights">
+            <h4>Key Insights</h4>
+            <div class="insights-list" id="insightsList">
+              <!-- Insights will be generated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-5"></section>
+  </div>
+
+  <!-- Footer -->
+  <div data-include="/src/components/footer.html"></div>
+
+  <!-- Auth Forms -->
+  <div data-include="/src/components/auth-forms.html"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="./script.js"></script>
+
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include'))
+        .then(res => res.text())
+        .then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>

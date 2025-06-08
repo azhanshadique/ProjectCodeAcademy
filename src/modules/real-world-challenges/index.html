@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-World Challenges - CodeAcademy</title>
+
+  <!-- Global Styles & Fonts -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="main">
+    <!-- Navbar -->
+    <div data-include="/src/components/navbar.html"></div>
+
+    <!-- Profile Box -->
+    <div data-include="/src/components/profilebox.html"></div>
+
+    <!-- Real-World Challenges Section -->
+    <div class="challenges-container">
+      <div class="challenges-header">
+        <h1>Real-World Programming Challenges</h1>
+        <p>Solve practical problems that developers face in their daily work</p>
+        
+        <div class="challenges-filters">
+          <div class="filter-group">
+            <label for="difficultyFilter">Difficulty:</label>
+            <select id="difficultyFilter">
+              <option value="all">All Levels</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+              <option value="web-development">Web Development</option>
+              <option value="data-processing">Data Processing</option>
+              <option value="algorithms">Algorithms</option>
+              <option value="api-integration">API Integration</option>
+              <option value="database">Database</option>
+              <option value="security">Security</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="languageFilter">Language:</label>
+            <select id="languageFilter">
+              <option value="all">All Languages</option>
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="cpp">C++</option>
+              <option value="sql">SQL</option>
+            </select>
+          </div>
+          
+          <button id="clearFilters" class="btn btn-outline">Clear Filters</button>
+        </div>
+      </div>
+
+      <!-- Progress Overview -->
+      <div class="progress-overview">
+        <div class="progress-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <div class="stat-info">
+              <div class="stat-number" id="solvedChallenges">0</div>
+              <div class="stat-label">Challenges Solved</div>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <span class="material-symbols-outlined">trending_up</span>
+            </div>
+            <div class="stat-info">
+              <div class="stat-number" id="totalPoints">0</div>
+              <div class="stat-label">Points Earned</div>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <span class="material-symbols-outlined">emoji_events</span>
+            </div>
+            <div class="stat-info">
+              <div class="stat-number" id="currentRank">Novice</div>
+              <div class="stat-label">Current Rank</div>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <span class="material-symbols-outlined">local_fire_department</span>
+            </div>
+            <div class="stat-info">
+              <div class="stat-number" id="currentStreak">0</div>
+              <div class="stat-label">Day Streak</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenges Grid -->
+      <div class="challenges-grid" id="challengesGrid">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container">
+        <button id="loadMoreBtn" class="btn btn-outline">Load More Challenges</button>
+      </div>
+    </div>
+
+    <!-- Challenge Detail Modal -->
+    <div class="challenge-modal" id="challengeModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="challengeTitle">Challenge Title</h3>
+          <button id="closeModal" class="btn btn-outline">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="challenge-info">
+            <div class="challenge-meta">
+              <span class="difficulty-badge" id="challengeDifficulty">Intermediate</span>
+              <span class="category-badge" id="challengeCategory">Web Development</span>
+              <span class="points-badge" id="challengePoints">50 points</span>
+            </div>
+            
+            <div class="challenge-description" id="challengeDescription">
+              Challenge description will appear here...
+            </div>
+            
+            <div class="challenge-requirements">
+              <h4>Requirements:</h4>
+              <ul id="challengeRequirements">
+                <!-- Dynamic requirements list -->
+              </ul>
+            </div>
+            
+            <div class="challenge-examples">
+              <h4>Examples:</h4>
+              <div id="challengeExamples">
+                <!-- Dynamic examples -->
+              </div>
+            </div>
+            
+            <div class="challenge-hints" id="challengeHints">
+              <h4>Hints:</h4>
+              <div class="hints-container">
+                <!-- Dynamic hints -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="challenge-actions">
+            <button id="startChallenge" class="btn btn-primary">
+              <span class="material-symbols-outlined">play_arrow</span>
+              Start Challenge
+            </button>
+            <button id="viewSolution" class="btn btn-secondary" style="display: none;">
+              <span class="material-symbols-outlined">lightbulb</span>
+              View Solution
+            </button>
+            <button id="submitSolution" class="btn btn-success" style="display: none;">
+              <span class="material-symbols-outlined">send</span>
+              Submit Solution
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solution Modal -->
+    <div class="solution-modal" id="solutionModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Solution Explanation</h3>
+          <button id="closeSolutionModal" class="btn btn-outline">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="solution-content" id="solutionContent">
+            <!-- Dynamic solution content -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard Section -->
+    <div class="leaderboard-section">
+      <div class="section-header">
+        <h3>Leaderboard</h3>
+        <div class="leaderboard-filters">
+          <button class="filter-btn active" data-period="weekly">Weekly</button>
+          <button class="filter-btn" data-period="monthly">Monthly</button>
+          <button class="filter-btn" data-period="all-time">All Time</button>
+        </div>
+      </div>
+      
+      <div class="leaderboard-content" id="leaderboardContent">
+        <!-- Dynamic leaderboard content -->
+      </div>
+    </div>
+
+    <section class="section-5"></section>
+  </div>
+
+  <!-- Footer -->
+  <div data-include="/src/components/footer.html"></div>
+
+  <!-- Auth Forms -->
+  <div data-include="/src/components/auth-forms.html"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="./script.js"></script>
+
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include'))
+        .then(res => res.text())
+        .then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>

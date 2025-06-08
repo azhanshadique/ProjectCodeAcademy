@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Code Debugger - CodeAcademy</title>
+
+  <!-- Global Styles & Fonts -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="main">
+    <!-- Navbar -->
+    <div data-include="/src/components/navbar.html"></div>
+
+    <!-- Profile Box -->
+    <div data-include="/src/components/profilebox.html"></div>
+
+    <!-- Visual Debugger Section -->
+    <div class="debugger-container">
+      <div class="debugger-header">
+        <h1>Visual Code Execution Simulator</h1>
+        <p>Step through your code line by line and visualize variable states</p>
+      </div>
+
+      <div class="debugger-layout">
+        <!-- Code Input Panel -->
+        <div class="code-panel">
+          <div class="panel-header">
+            <h3>Code Input</h3>
+            <div class="controls">
+              <select id="languageSelect">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+              </select>
+              <button id="loadExample" class="btn btn-outline">Load Example</button>
+            </div>
+          </div>
+          <div class="code-editor-container">
+            <div class="line-numbers" id="lineNumbers"></div>
+            <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+          </div>
+        </div>
+
+        <!-- Execution Controls -->
+        <div class="execution-panel">
+          <div class="panel-header">
+            <h3>Execution Controls</h3>
+          </div>
+          <div class="control-buttons">
+            <button id="startExecution" class="btn btn-primary">
+              <span class="material-symbols-outlined">play_arrow</span>
+              Start
+            </button>
+            <button id="stepForward" class="btn btn-secondary" disabled>
+              <span class="material-symbols-outlined">skip_next</span>
+              Step
+            </button>
+            <button id="stepBack" class="btn btn-secondary" disabled>
+              <span class="material-symbols-outlined">skip_previous</span>
+              Back
+            </button>
+            <button id="resetExecution" class="btn btn-outline" disabled>
+              <span class="material-symbols-outlined">refresh</span>
+              Reset
+            </button>
+          </div>
+          <div class="execution-info">
+            <div class="current-line">
+              <span>Current Line: </span>
+              <span id="currentLineNumber">-</span>
+            </div>
+            <div class="execution-speed">
+              <label for="speedSlider">Speed:</label>
+              <input type="range" id="speedSlider" min="1" max="10" value="5">
+              <span id="speedValue">5</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variable State Panel -->
+        <div class="variables-panel">
+          <div class="panel-header">
+            <h3>Variable States</h3>
+            <button id="clearVariables" class="btn btn-outline">Clear</button>
+          </div>
+          <div class="variables-container" id="variablesContainer">
+            <div class="no-variables">No variables to display</div>
+          </div>
+        </div>
+
+        <!-- Memory Visualization -->
+        <div class="memory-panel">
+          <div class="panel-header">
+            <h3>Memory Visualization</h3>
+          </div>
+          <div class="memory-container" id="memoryContainer">
+            <div class="memory-stack">
+              <h4>Call Stack</h4>
+              <div id="callStack" class="stack-container"></div>
+            </div>
+            <div class="memory-heap">
+              <h4>Heap Memory</h4>
+              <div id="heapMemory" class="heap-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Panel -->
+        <div class="output-panel">
+          <div class="panel-header">
+            <h3>Output</h3>
+            <button id="clearOutput" class="btn btn-outline">Clear</button>
+          </div>
+          <div class="output-container" id="outputContainer">
+            <div class="no-output">No output yet</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-5"></section>
+  </div>
+
+  <!-- Footer -->
+  <div data-include="/src/components/footer.html"></div>
+
+  <!-- Auth Forms -->
+  <div data-include="/src/components/auth-forms.html"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="./script.js"></script>
+
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include'))
+        .then(res => res.text())
+        .then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>
