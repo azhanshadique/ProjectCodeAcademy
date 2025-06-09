@@ -136,7 +136,7 @@ console.log(window.location.pathname);
 // }
 // else 
 
-if (window.location.pathname.includes("/")) {
+if (window.location.pathname.endsWith("app")) {
     document.getElementById("home-page").classList.add("current-nav");
 }
 else if (window.location.pathname.includes("resources")) {
