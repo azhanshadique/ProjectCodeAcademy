@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (window.location.pathname.includes("resources")) {
         document.getElementById("resource-page").classList.add("current-nav");
     }
-    else if (window.location.pathname.includes("OnlineCompiler")) {
+    else if (window.location.pathname.includes("compiler")) {
         document.getElementById("compiler-page").classList.add("current-nav");
     }
     else if (window.location.pathname.includes("about")) {
