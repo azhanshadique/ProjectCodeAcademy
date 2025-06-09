@@ -10,7 +10,7 @@
   <!-- <link rel="stylesheet" href="./style.css" /> -->
 
 
-  <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="public/src/assets/images/icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
@@ -19,10 +19,10 @@
 
   <div id="main">
     <!-- Navbar -->
-    <div data-include="/src/components/navbar.html"></div>
+    <div data-include="public/src/components/navbar.html"></div>
 
     <!-- Profile Box -->
-    <div data-include="/src/components/profilebox.html"></div>
+    <div data-include="public/src/components/profilebox.html"></div>
 
     <!-- Contact Section -->
     <div class="section-contact">
@@ -70,15 +70,15 @@
   </div>
 
   <!-- Footer -->
-  <div data-include="/src/components/footer.html"></div>
+  <div data-include="public/src/components/footer.html"></div>
 
   <!-- Auth Forms (Signin / Signup) -->
-  <div data-include="/src/components/auth-forms.html"></div>
+  <div data-include="public/src/components/auth-forms.html"></div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="public/src/scripts/main.js"></script>
   <script>
     
     document.querySelectorAll('[data-include]').forEach(el => {
