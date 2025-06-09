@@ -130,7 +130,8 @@ window.onclick = function(event) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async function (event) {
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("link : "+ window.location.pathname);
     if (window.location.pathname.includes("public")) {
         document.getElementById("home-page").classList.add("current-nav");
     }
