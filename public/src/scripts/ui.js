@@ -131,8 +131,7 @@ window.onclick = function(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("link : "+ window.location.pathname);
-    if (window.location.pathname.includes("public")) {
+    if (window.location.pathname === "/") {
         document.getElementById("home-page").classList.add("current-nav");
     }
     else if (window.location.pathname.includes("resources")) {
