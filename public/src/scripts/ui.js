@@ -130,7 +130,7 @@ window.onclick = function(event) {
     }
 }
 
-
+console.log(window.location.pathname);
 if (window.location.pathname.includes("public")) {
     document.getElementById("home-page").classList.add("current-nav");
 }
@@ -150,4 +150,3 @@ else if (window.location.pathname.includes("contact")) {
     document.getElementById("contact-page").classList.add("current-nav");
 }
 
-console.log(window.location.pathname);
