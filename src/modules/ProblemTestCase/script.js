@@ -1,5 +1,5 @@
 // const JUDGE0_BASE_URL = 'http://192.168.138.7:2358';
-const JUDGE0_BASE_URL = 'http://192.168.46.7:2358';
+const JUDGE0_BASE_URL = 'http://192.168.187.7:2358';
 
 
 // Outer horizontal split (left and right)
@@ -84,7 +84,8 @@ const testcases = [
 ];
 
 submitBtn.addEventListener('click', async () => {
-  const sourceCode = document.getElementById('code-editor').value.trim();
+  const sourceCode = x + document.getElementById('code-editor').value.trim() + y;
+  console.log(sourceCode);
   const languageId = document.getElementById('language-select').value;
 
   if (!sourceCode) {
@@ -127,6 +128,46 @@ submitBtn.addEventListener('click', async () => {
   }
 });
 
+const javaFirst = `import java.util.*;
+
+class Node {
+    int val;
+    Node next;
+    Node(int val) {
+        this.val = val;
+    }
+}
+
+public class Main {
+    static Node buildLinkedList(List<Integer> vals) {
+        if (vals.isEmpty()) return null;
+        Node head = new Node(vals.get(0));
+        Node current = head;
+        for (int i = 1; i < vals.size(); i++) {
+            current.next = new Node(vals.get(i));
+            current = current.next;
+        }
+        return head;
+    }
+
+    static void printLinkedList(Node head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }`;
+
+const javaLast = `public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> vals = new ArrayList<>();
+        while (sc.hasNextInt()) {
+            vals.add(sc.nextInt());
+        }
+        Node head = buildLinkedList(vals);
+        head = reverseLinkedList(head);
+        printLinkedList(head);
+    }
+}`;
 const boilerplates = {
   63: `class Node {
     constructor(val) {
@@ -268,51 +309,10 @@ int main() {
     return 0;
 }
 `,
-  62: `import java.util.*;
-
-class Node {
-    int val;
-    Node next;
-    Node(int val) {
-        this.val = val;
-    }
-}
-
-public class Main {
-    static Node buildLinkedList(List<Integer> vals) {
-        if (vals.isEmpty()) return null;
-        Node head = new Node(vals.get(0));
-        Node current = head;
-        for (int i = 1; i < vals.size(); i++) {
-            current.next = new Node(vals.get(i));
-            current = current.next;
-        }
-        return head;
-    }
-
-    static void printLinkedList(Node head) {
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
-        }
-    }
-    
+  62: `
     static Node reverseLinkedList(Node head) {
-        
         // YOUR CODE HERE
     }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        List<Integer> vals = new ArrayList<>();
-        while (sc.hasNextInt()) {
-            vals.add(sc.nextInt());
-        }
-        Node head = buildLinkedList(vals);
-        head = reverseLinkedList(head);
-        printLinkedList(head);
-    }
-}
 `,
   71: `import sys
 
