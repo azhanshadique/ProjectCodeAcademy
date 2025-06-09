@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generated Article</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #article-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      line-height: 1.6;
+    }
+
+    .chunk {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      margin-bottom: 12px;
+    }
+
+    .chunk.visible {
+      opacity: 1;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="article-title">Loading...</h1>
+  <div id="article-box"></div>
+
+  <script>
+    const title = localStorage.getItem("articleTitle");
+    const content = localStorage.getItem("generatedArticle");
+
+    document.getElementById("article-title").textContent = title || "Untitled Article";
+
+    const articleBox = document.getElementById("article-box");
+
+    function streamMarkdown(html, delay = 120) {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = html;
+
+      const elements = Array.from(tempDiv.childNodes).filter(node => node.nodeType === 1); // Only element nodes
+
+      let index = 0;
+
+      function showNext() {
+        if (index >= elements.length) return;
+
+        const el = elements[index];
+        const clone = el.cloneNode(true);
+        clone.classList.add("chunk");
+        articleBox.appendChild(clone);
+
+        // Force reflow to trigger animation
+        void clone.offsetWidth;
+        clone.classList.add("visible");
+
+        index++;
+        setTimeout(showNext, delay);
+      }
+
+      showNext();
+    }
+
+    if (content) {
+      const html = marked.parse(content);
+      streamMarkdown(html, 120); // 120ms delay per block
+    } else {
+      articleBox.textContent = "No article content found.";
+    }
+  </script>
+</body>
+</html>

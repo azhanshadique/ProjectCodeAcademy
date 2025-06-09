@@ -264,54 +264,57 @@ const firebaseConfig = {
   }
   
   async function generateArticle(problemTitle) {
-    const apiKey = "your-openai-api-key"; // ⚠️ DO NOT use this in production frontend
-    const url = "https://api.openai.com/v1/chat/completions";
+    const apiKey = "AIzaSyCNOwZ57YqeMfoL76lUeCusGWUWnKouQ5w"; // ⚠️ Never expose this in production
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
     const payload = {
-        model: "gpt-3.5-turbo",
-        messages: [
-            {
-                role: "system",
-                content: "You are an assistant that writes detailed articles."
-            },
+        contents: [
             {
                 role: "user",
-                content: `Write an article on the topic: "${problemTitle}". The article should explain the topic in detail and provide examples.`
+                parts: [
+                    {
+                        text: `Write an article on the topic: "${problemTitle}". The article should explain the topic in detail and provide examples.`
+                    }
+                ]
             }
-        ],
-        max_tokens: 1000,
-        temperature: 0.7,
+        ]
     };
 
     try {
         const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${apiKey}`,
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify(payload),
+            body: JSON.stringify(payload)
         });
 
         const data = await response.json();
 
-        if (!response.ok) {
-            console.error("OpenAI API Error:", data);
-            alert(`OpenAI API Error: ${data.error?.message || "Unknown error"}`);
+        if (!response.ok || data.error) {
+            console.error("Gemini API Error:", data);
+            alert(`Gemini API Error: ${data.error?.message || "Unknown error"}`);
             return;
         }
 
-        if (data.choices && data.choices.length > 0) {
-            const article = data.choices[0].message.content.trim();
-            alert(`Generated Article for "${problemTitle}":\n\n${article}`);
+        const article = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (article) {
+            // Save article to localStorage and redirect
+            localStorage.setItem("generatedArticle", article);
+            localStorage.setItem("articleTitle", problemTitle);
+            window.location.href = "/resources/article.html"; // ← Make sure this page exists
         } else {
             alert("No article could be generated. Please try again later.");
         }
     } catch (error) {
-        console.error("Error generating article:", error);
+        console.error("Error generating article with Gemini:", error);
         alert(`Error occurred: ${error.message}`);
     }
 }
+
+
+
 
   
 
