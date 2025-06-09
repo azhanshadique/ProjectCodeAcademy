@@ -1,0 +1,364 @@
+/* SECTION PROFILE STARTS */
+
+.section-profile-tracker {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--background-color);
+
+}
+
+.left-profile-tracker {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: var(--background-color);
+}
+
+
+.section-profile {
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    margin: 10vw 5vw;
+    margin-bottom: 3vw;
+    height: 100%;
+    width: 80%;
+    padding: 5vw 0;
+    position: relative;
+    z-index: 9;
+    /* background: blue; */
+    padding: 4vw 3vw;
+    /* gap: 5vw; */
+  
+}
+
+.profile-heading {
+    /* background: red; */
+    width: 100%;
+    /* padding-top: 4.5vw; */
+    padding-bottom: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    /* margin: 0 auto; */
+    gap: 0.25vw;
+
+}
+
+.profile-heading h2 {
+    font-size: 3vw;
+    font-weight: 400;
+}
+.profile-heading p{
+    font-family: 'Poppins';
+    font-size: 0.95vw;
+    font-weight: 400;
+    text-align: center;
+    color:#000000bb;
+}
+
+
+/* --------------------------- */
+
+
+.section-profile  .form {
+    width: 100%;
+    /* margin: 0 auto; */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+  }
+  .form .name-div, .email-div, .subject-div, .message-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0px;
+  }
+  .form .name-div label, .email-div label, .subject-div label, .message-div label{
+    font-family: 'Poppins';
+    font-size: 0.95vw;
+    font-weight: 400;
+  }
+
+  .form .gfg-div input, .form .leetcode-div input {
+    font-family: 'Poppins';
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    padding: 6px 0;
+    padding-left: 274px;
+    outline: none;
+    border: 1px solid rgba(179, 179, 179, 0.5);
+    border-radius: 7px;
+    height: 3rem;
+    background: #F9FAFB;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--dark-gray);
+    
+  }
+  .form .gfg-div input::placeholder, .form .leetcode-div input::placeholder {
+    color: #C0C0C0;
+  }
+  .form .leetcode-div input {
+    padding-left: 185px;
+  }
+  .section-profile .form .gfg-div input:focus {
+    border: 2px solid orangered;
+    padding: 5px 0px;
+    padding-left: 273px;
+  }
+    .section-profile .form .leetcode-div input:focus {
+    border: 2px solid orangered;
+    padding: 5px 0px;
+    padding-left: 184px;
+  }
+
+
+.submit-div {
+    display: flex;
+    justify-content: end;
+    margin-top: -5px;
+}
+.submit-div h4 a {
+    font-size: 0.95vw;
+}
+/* .submit-div h4::after {
+    background: linear-gradient(to top,orange,orangered);
+    background-color: orangered;
+} */
+
+/* ------------------ */
+
+
+.section-profile #moving-circle {
+    z-index: -1;
+    height: 25vw;
+    width: 25vw;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+
+    top: 15%;
+    left: 20%;
+    filter: blur(20px);
+    animation-name: moving-circle;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+
+}
+
+@keyframes moving-circle {
+    from {
+        filter: blur(20px);
+        transform: translate(10%, -10%) skew(0);
+    }
+
+    to {
+        filter: blur(30px);
+        transform: translate(-10%, 10%) skew(-12deg);
+    }
+}
+
+
+.section-2 #moving-circle {
+    height: 32vw;
+    width: 32vw;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+
+    top: 25%;
+    left: 25%;
+    filter: blur(20px);
+    animation-name: moving-circle;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+
+}
+
+@keyframes moving-circle {
+    from {
+        filter: blur(20px);
+        transform: translate(10%, -10%) skew(0);
+    }
+
+    to {
+        filter: blur(30px);
+        transform: translate(-10%, 10%) skew(-12deg);
+    }
+}
+
+
+/* SECTION TRACKER  */
+.relative {
+    &:before {
+        content: attr(data-placeholder);
+        position: absolute;
+        color: var(--dark-gray);
+        width: fit-content;
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 0.85rem;
+        /* padding: 10px; */
+        /* background-color: red; */
+        padding: 1.2rem;
+
+    }
+}
+/* .gfg-input-field {
+    padding-left: 1700px;
+} */
+
+.section-tracker {
+    /* background: red; */
+    /* height: 100vh;
+    width: 50%;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    padding: 4vw 3vw;
+    margin: 10vw 5vw; */
+    width: 50%;
+    height: 100%;
+    /* background: black; */
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+}
+
+/* PLATFORM OUTPUTS  */
+
+/* LEETCODE OUTPUT  */
+
+.section-tracker #leetCodeOutput{
+    height: 100%;
+    width: 520px;
+    /* background-color: var(--background-color); */
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    padding: 0.8vw 1vw;
+    padding-top: 3vw;
+    margin: 3vw 5vw;
+    margin-bottom: 10vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
+    background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%); 
+
+}
+
+.section-tracker #gfgOutput {
+    height: 100%;
+    width: 520px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    padding: 1vw 1vw;
+    padding-top: 3vw;
+    margin: 0vw 5vw;
+    margin-top: 10vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
+    background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%); 
+
+}
+
+#totalProgress {
+    height: 100%;
+    width: 80%;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    padding: 1vw 1vw;
+    padding-top: 3vw;
+    margin: 0vw 5vw;
+    margin-bottom: 10vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
+    background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%); 
+
+}
+
+#leetCodeOutput h2, #gfgOutput h2, #totalProgress h2 {
+    font-size: 2vw;
+    font-weight: 400;
+        /* color: var(--text-color); */
+
+}
+
+#gfgData {
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    width: 490px;
+    padding: 2vw 3vw;
+    /* background-color: rgba(128, 185, 142, .08); */
+    background-color: #fff9de;
+    
+}
+
+#totalProgressData {
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    width: 100%;
+    padding: 2vw 3vw;
+    /* background-color: #ffd68a39; */
+    background-color: #fff9de;
+}
+
+#gfgData p, #totalProgressData p {
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: var(--gray);
+
+}
+#gfgData ul li {
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: var(--gray);
+
+}
+#totalProgressData ul li {
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: var(--gray);
+    padding: 0.25rem;
+
+}
+#gfgData h3 {
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: var(--text-gray);
+    
+}
+#totalProgress h2 {
+    font-size: 2vw;
+    
+}
+#gfgData strong, #totalProgressData strong {
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: var(--text-color);
+    /* margin-left: 10px; */
+
+}

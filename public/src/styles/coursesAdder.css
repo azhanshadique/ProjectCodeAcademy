@@ -1,0 +1,138 @@
+/* PROBLEM ADDER FORM  */
+
+.course-form {
+    /* z-index: 100; */
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    /* padding: 25rem 0; */
+}
+
+.form-box, .course-form-box{ 
+    margin-top: 2.5rem;
+    width: 500px;
+    display: flex;
+    justify-content:left; 
+    border-radius: 10px;
+    border: 1px solid rgba(179, 179, 179, 0.65);
+    /* background-image: linear-gradient(135deg, #efeae3 0%, rgba(226, 209, 195, 0.8) 100%);  */
+    /* background-image: linear-gradient(135deg, #ffffff 0%, rgba(226, 209, 195, 0.8) 100%);  */
+    background-color: #F8F9FA;
+}
+
+.course-form .form {
+    width: 100%;
+    padding: 25px 30px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.form .login-div, .course-form .course-div, .forget-form .forget-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 8px;
+}
+
+.course-form .course-text {
+    font-family: 'Poppins';
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: -6px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(179, 179, 179, 0.5);
+}
+
+
+
+.form .title-div input, .form .order-div input, .course-form input, .course-form select {
+    font-family: 'Poppins';
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgba(179, 179, 179, 0.5);
+    border-radius: 6px;
+    height: 3rem;
+    background: #ffff;
+    font-size: 0.8rem;
+}
+
+.course-form select option {
+    font-family: 'Poppins';
+}
+.course-form input {
+    height: 2.8rem;
+}
+
+.form .title-div input:focus, .form .order-div input:focus, .course-form input:focus{
+    border: 2px solid orangered;
+    padding: 9px;
+}
+
+.course-form .course-name {
+    display: flex;
+    gap: 10px;
+}
+
+.title-text, .order-text, .name-text, .problem-text, .link-text {
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+    margin-bottom: -2px;
+    font-weight: 400;
+}
+
+.course-form .name-div {
+    margin-top: 10px;
+}
+
+.course-form .link-div {
+    margin-bottom: 10px;
+}
+
+
+.form .form-button h4 {
+    width: 100%;
+    text-align: center;
+}
+
+
+.form button.login-btn:hover{
+    background: transparent;
+    color: orangered;
+    border: 1px solid orangered;
+}
+
+
+.course-form .button h4 {
+    padding: 10px;
+}
+
+.form .button h4 a {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.course-form .button h4 a {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+}
