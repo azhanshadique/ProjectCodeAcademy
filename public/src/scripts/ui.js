@@ -134,6 +134,9 @@ window.onclick = function(event) {
 if (window.location.pathname.includes("public")) {
     document.getElementById("home-page").classList.add("current-nav");
 }
+else if (window.location.pathname.includes("/")) {
+    document.getElementById("home-page").classList.add("current-nav");
+}
 else if (window.location.pathname.includes("resources")) {
     document.getElementById("resource-page").classList.add("current-nav");
 }
@@ -147,3 +150,4 @@ else if (window.location.pathname.includes("contact")) {
     document.getElementById("contact-page").classList.add("current-nav");
 }
 
+console.log(window.location.pathname);
