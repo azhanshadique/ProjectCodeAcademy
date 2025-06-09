@@ -130,13 +130,8 @@ window.onclick = function(event) {
     }
 }
 
-console.log(window.location.pathname);
-// if (window.location.pathname.includes("public")) {
-//     document.getElementById("home-page").classList.add("current-nav");
-// }
-// else 
 
-if (window.location.pathname.endsWith("app")) {
+if (window.location.pathname.includes("public")) {
     document.getElementById("home-page").classList.add("current-nav");
 }
 else if (window.location.pathname.includes("resources")) {
