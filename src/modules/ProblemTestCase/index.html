@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeAcademy</title>
+    <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <style>
+        header {
+            border-bottom: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <!-- Navbar -->
+        <div data-include="/src/components/navbar.html"></div>
+
+        <!-- Profile Box -->
+        <div data-include="/src/components/profilebox.html"></div>
+
+        <!-- Problem Test Case Section -->
+        <div class="split">
+            <div id="split-0">
+            <div class="tab">Description</div>
+            <div class="content">
+                <h2 class="title">Reversing a Linked List</h2>
+                <div class="problem-difficulty easy">Easy</div>
+
+                <p class="task-description">
+                The task is to reverse a linked list and return the reversed head.
+                </p>
+
+                <div class="example-card">
+                <pre>
+        <strong>Input:</strong> head: 1 -> 2 -> 3 -> 4 -> NULL
+        <strong>Output:</strong> head: 4 -> 3 -> 2 -> 1 -> NULL
+        <strong>Explaination:</strong> Since head was at 1 it came at 4 after reversing
+                </pre>
+                </div>
+                <div class="example-card">
+                <pre>
+        <strong>Input:</strong> head: 2 -> 7 -> 10 -> 9 -> 8 -> NULL
+        <strong>Output:</strong> head: 8 -> 9 -> 10 -> 7 -> 2 -> NULL
+        <strong>Explaination:</strong> Since head was at 2 it came at 8 after reversing
+
+                </pre>
+                </div>
+                <div class="constraints">
+                <p><strong>Constraints:</strong></p>
+                <ul>
+                    <li>1 <= number of nodes, data of nodes <=105</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+
+            <div id="split-1">
+            <div id="split-1-top">
+                <div class="toolbar">
+                <div class="left-label">
+                    <label for="language-select" >Choose Language:</label>
+                    <select id="language-select" >
+                        <option value="63">JavaScript (Node.js)</option>
+                        <option value="52">C++ (GCC 9.2.0)</option>
+                        <option value="54">C (GCC 9.2.0)</option>
+                        <option value="62">Java (OpenJDK 13)</option>
+                        <option value="71">Python (3.8.1)</option>
+                    </select>
+                </div>
+
+                <button class="preferenceBtn group" id="fullscreen-btn">
+                    <div class="icon" id="fullscreen-icon">🖵</div>
+                    <div class="preferenceBtn-tooltip">Full Screen</div>
+                </button>
+                </div>
+
+                <!-- Code editor -->
+                <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+            </div>
+
+
+
+            <div id="split-1-bottom">
+                <!-- Content for the bottom-right panel -->
+                <!-- <p style="padding: 10px; color: #ccc;">Bottom right panel content goes here.</p> -->
+                <div class="testcases-container">
+                <div class="testcases-heading">
+                    <div class="heading-label">Testcases</div>
+                    <hr class="heading-underline" />
+                </div>
+
+                <!-- ADD TEST CASES HERE -->
+
+                <div class="testcase-buttons">
+                    <div class="testcase-button" data-case="1">Case 1</div>
+                    <div class="testcase-button" data-case="2">Case 2</div>
+                </div>
+
+                <!-- Example cards for test cases, hidden initially -->
+                <div class="example-card hidden" data-case="1">
+                    <pre>
+        <strong>Input:</strong> 1 2 3 4
+            </pre>
+                </div>
+                <div class="example-card hidden" data-case="1">
+                    <pre>
+        <strong>Output:</strong> 4 3 2 1
+            </pre>
+                </div>
+
+                <div class="example-card hidden" data-case="2">
+                    <pre>
+        <strong>Input:</strong> 2 7 10 9 8
+            </pre>
+                </div>
+                <div class="example-card hidden" data-case="2">
+                    <pre>
+        <strong>Output:</strong> 8 9 10 7 2
+            </pre>
+                </div>
+                    <button id="submit-btn">Submit</button>
+                    <div id="output"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- <section class="section-5"></section> -->
+
+    </div>
+    <!-- Footer -->
+    <!-- <div data-include="/src/components/footer.html"></div> -->
+
+    <!-- Auth Modals -->
+    <div data-include="/src/components/auth-forms.html"></div>
+
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="/src/scripts/main.js"></script>
+
+    <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        document.querySelectorAll('[data-include]').forEach(el => {
+            fetch(el.getAttribute('data-include'))
+                .then(res => res.text())
+                .then(data => el.innerHTML = data);
+        });
+    </script>
+</body>
+
+</html>

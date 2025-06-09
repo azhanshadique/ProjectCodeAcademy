@@ -1,0 +1,117 @@
+/* section-about STARTS */
+
+.section-about {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffff;
+    padding: 4vw 0;
+    position: relative;
+    
+}
+
+.moving-text {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 5vw 0;
+}
+
+.moving-text::-webkit-scrollbar {
+    display: none;
+}
+
+.cls {
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: move;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.moving-text h1 {
+    font-weight: 500;
+    font-size: 8vw;
+    display: inline-block;
+    font-family: 'Montserrat';
+}
+
+#dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #FE320A;
+    margin: 2vw 2vw;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.section-about-bottom {
+    height: 80vh;
+    width: 100%;
+    padding: 4.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 9;
+    margin-bottom: 10vw;
+}
+
+.section-about-bottom h1 {
+    font-size: 4vw;
+    width: 65%;
+    line-height: 4vw;
+
+}
+
+.section-about-bottom-part2 {
+    width: 20%;
+}
+
+.section-about-bottom-part2 img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.section-about-bottom-part2 p {
+    font-weight: 200;
+    margin-top: 2vw;
+    font-size: 1vw;
+}
+
+.section-about #moving-circle {
+    height: 32vw;
+    width: 32vw;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+    top: 20%;
+    left: 25%;
+    filter: blur(20px);
+    animation-name: moving-circle;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes moving-circle {
+    from {
+        filter: blur(20px);
+        transform: translate(10%, -10%) skew(0);
+    }
+
+    to {
+        filter: blur(30px);
+        transform: translate(-10%, 10%) skew(-12deg);
+    }
+}
