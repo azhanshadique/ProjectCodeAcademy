@@ -44,7 +44,7 @@
 .course-form .course-text {
     /* font-family: 'Poppins'; */
     font-family: 'DM Sans';
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     margin-top: -6px;
     padding-bottom: 15px;
@@ -137,10 +137,4 @@
     align-items: center;
     gap: 10px;
     font-size: 0.85rem;
-}
-
-.course-form .course-div .course-text {
-    /* font-family: 'Poppins'; */
-    font-family: 'DM Sans';
-    font-weight: 800;
 }
