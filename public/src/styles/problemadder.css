@@ -138,3 +138,9 @@
     gap: 10px;
     font-size: 0.85rem;
 }
+
+.course-form .course-div .course-text {
+    /* font-family: 'Poppins'; */
+    font-family: 'DM Sans';
+    font-weight: 800;
+}
