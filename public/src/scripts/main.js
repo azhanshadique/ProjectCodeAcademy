@@ -296,7 +296,7 @@ onAuthStateChanged(auth, (user) => {
 });
 
 courseAdder?.addEventListener("click", () => {
-  window.location.href = "/src/modules/coursesAdder/index.html";
+  window.location.href = "/src/modules/problemadder/index.html";
 });
 
 viewProfile?.addEventListener("click", () => {

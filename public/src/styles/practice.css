@@ -183,8 +183,10 @@ strong {
 
 /* Tab Styles */
 .tab {
-  background: linear-gradient(135deg, var(--orange-dot), #ff4500);
-  color: white;
+  /* background: linear-gradient(135deg, var(--orange-dot), #ff4500); */
+  background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+  /* color: white; */
+  color: #333333;
   padding: var(--space-lg) var(--space-xl);
   margin: 0;
   font-weight: 600;

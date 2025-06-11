@@ -52,7 +52,8 @@
 
 .profile-heading h2 {
     font-size: 3vw;
-    font-weight: 400;
+    font-weight: 800;
+    font-family: 'DM Sans';
 }
 .profile-heading p{
     font-family: 'Poppins';

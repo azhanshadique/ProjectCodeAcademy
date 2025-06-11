@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeAcademy</title>
-    <link rel="shortcut icon" href="../src/assets/images/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
 
     <!-- Global Styles -->
-    <link rel="stylesheet" href="../src/styles/main.css" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -26,10 +26,10 @@
 
     <div id="main">
         <!-- Navbar -->
-        <div data-include="../src/components/navbar.html"></div>
+        <div data-include="./src/components/navbar.html"></div>
 
         <!-- Profile Box -->
-        <div data-include="/src/components/profilebox.html"></div>
+        <div data-include="./src/components/profilebox.html"></div>
 
         <!-- Homepage Sections -->
         <section class="section-1">
@@ -85,7 +85,7 @@
                 </h1>
 
                 <div class="section2-bottom-part2">
-                    <img src="/src/assets/images/img.png" alt="Team working on projects" />
+                    <img src="./src/assets/images/img.png" alt="Team working on projects" />
                     <p>
                         We love to create, we love to solve, and we love to turn amazing ideas into reality. Our mission
                         is to
@@ -152,15 +152,15 @@
 
     </div>
     <!-- Footer -->
-    <div data-include="../src/components/footer.html"></div>
+    <div data-include="./src/components/footer.html"></div>
 
     <!-- Auth Modals -->
-    <div data-include="../src/components/auth-forms.html"></div>
+    <div data-include="./src/components/auth-forms.html"></div>
 
     <!-- JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="module" src="../src/scripts/main.js"></script>
+    <script type="module" src="./src/scripts/main.js"></script>
     <script>
         document.querySelectorAll('[data-include]').forEach(el => {
             fetch(el.getAttribute('data-include'))
