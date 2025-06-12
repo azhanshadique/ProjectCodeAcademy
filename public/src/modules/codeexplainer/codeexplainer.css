@@ -392,7 +392,9 @@ p {
 .tab-content.active {
   display: block;
 }
-
+.line-numbers, .analysis-section, .breakdown-section{
+  display: none;
+}
 /* Saved Explanations */
 .saved-explanations-section {
   margin-top: 2rem;
