@@ -6,26 +6,27 @@
   <title>CodeAcademy</title>
 
   <!-- Global Styles & Fonts -->
-  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="/public/src/styles/main.css" />
+  <link rel="stylesheet" href="/public/src/styles/resources.css" />
 
-  <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="/public/src/assets/images/icon.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
-  <style>
+  <!-- <style>
     header {
         border-bottom: 1px solid #e5e7eb;
     }
-  </style>
+  </style> -->
 </head>
 <body>
 
   <div id="main">
     <!-- Navbar -->
-    <div data-include="/src/components/navbar.html"></div>
+    <div data-include="/public/src/components/navbar.html"></div>
 
     <!-- Profile Box -->
-    <div data-include="/src/components/profilebox.html"></div>
+    <div data-include="/public/src/components/profilebox.html"></div>
 
     <!-- Resources Section -->     
     <div class="topics-display">
@@ -53,7 +54,7 @@
                 <div class="sub-course-content-list">
                     <span class="material-symbols-outlined sub-course-folder-icon">folder</span>
                     <span class="material-symbols-outlined sub-course-openfolder-icon">folder_open</span>
-                    <div class="">Tree</div>
+                    <div class="" id="">Tree</div>
                     <!-- <a href="#title-tree">Tree</a> -->
 
                     
@@ -129,15 +130,15 @@
                 <!-- <div class="step-header" onclick="toggleDropdown('step1-content')">
                     <pre class="step-title">Data Structure & Algorithm  </pre>
                     <span class="progress"></span>
-                    <span class="dropdown-btn">▶</span>
+                    <span class="dropdown-btn">📁</span>
                 </div> -->
 
                 <!-- Subsection Array -->
                 <div class="dropdown-content hidden" id="step1-content">
                     <div class="lecture-header" onclick="toggleDropdown('lec1-content')">
-                        <span class="lecture-title" id="title-array">Arrays</span>
+                        <span class="lecture-title" id="title-array">Array</span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                         <!-- <span class="material-symbols-outlined  new-forward-dropdown">keyboard_arrow_right</span> -->
                         <!-- <span class="material-symbols-outlined sub-course-downward-icon .new-downward-dropdown">keyboard_arrow_down</span> -->
                         <!-- <span class="dropdown-btn">&gt</span> -->
@@ -148,7 +149,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec2-content')">
                         <span class="lecture-title" id="title-tree">Tree</span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec2-content"></div>
 
@@ -156,7 +157,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec3-content')">
                         <span class="lecture-title">Linked List</span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec3-content"></div>
 
@@ -164,7 +165,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec4-content')">
                         <span class="lecture-title">Stack & Queue</span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec4-content"></div>
 
@@ -172,7 +173,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec5-content')">
                         <span class="lecture-title">Recursion</span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec5-content"></div>
 
@@ -180,7 +181,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec6-content')">
                         <span class="lecture-title">Binary Search Tree</span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec6-content"></div>
                     
@@ -188,7 +189,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec7-content')">
                         <span class="lecture-title"> Greedy Algorithm </span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec7-content"></div>
 
@@ -196,7 +197,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec8-content')">
                         <span class="lecture-title"> Dynamic Programming </span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec8-content"></div>
 
@@ -204,7 +205,7 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec9-content')">
                         <span class="lecture-title"> String </span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec9-content"></div>
 
@@ -212,9 +213,12 @@
                     <div class="lecture-header" onclick="toggleDropdown('lec10-content')">
                         <span class="lecture-title"> Graph </span>
                         <span class="progress"></span>
-                        <span class="dropdown-btn">▶</span>
+                        <span class="dropdown-btn">📁</span>
                     </div>
                     <div class="dropdown-content hidden" id="lec10-content"></div>
+                    
+ 
+
 
                 </div>
             </div>
@@ -227,11 +231,29 @@
     <section class="section-5"></section>
   </div>
 
+    <div id="loader" style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: #333333;
+        font-weight: 700;
+        font-family: 'Poppins';
+        ">
+        Loading article...
+    </div>
   <!-- Footer -->
-  <div data-include="/src/components/footer.html"></div>
+  <div data-include="/public/src/components/footer.html"></div>
 
   <!-- Auth Forms (Signin / Signup) -->
-  <div data-include="/src/components/auth-forms.html"></div>
+  <div data-include="/public/src/components/auth-forms.html"></div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
@@ -243,10 +265,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <!-- Firebase END-->
 
-  <script type="module" src="/src/scripts/main.js"></script>
-  <script type="module" src="/src/modules/resources/script.js"></script>
-  <!-- <script src="/src/scripts/includeLoader.js"></script> This will auto-load include tags -->
-  <script>
+  <script type="module" src="/public/src/scripts/main.js"></script>
+  <script type="module" src="/public/src/modules/resources/script.js"></script>
+  <script type="module" src="../../scripts/loader.js"></script>
+  <!-- <script>
     
     document.querySelectorAll('[data-include]').forEach(el => {
     fetch(el.getAttribute('data-include'))
@@ -254,7 +276,7 @@
         .then(data => el.innerHTML = data);
     });
     
-  </script>
+  </script> -->
   
 </body>
 </html>

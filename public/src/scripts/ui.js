@@ -1,62 +1,71 @@
 import { auth } from "./init.js";
 import { getUserData } from "./auth.js";
 
-const signInForm = document.getElementById("signin-form");
-const signUpForm = document.getElementById("signup-form");
-const forgetForm = document.getElementById("forget-form");
-const mainContainer = document.getElementById("main");
+// const signInForm = document.getElementById("signin-form");
+// const signUpForm = document.getElementById("signup-form");
+// const forgetForm = document.getElementById("forget-form");
+// const mainContainer = document.getElementById("main");
 
-const closeSigninBtn = document.querySelector(".signin-form-close");
-const closeSignupBtn = document.querySelector(".signup-form-close");
-const closeForgetBtn = document.querySelector(".forget-form-close");
+// const closeSigninBtn = document.querySelector(".signin-form-close");
+// const closeSignupBtn = document.querySelector(".signup-form-close");
+// const closeForgetBtn = document.querySelector(".forget-form-close");
 
-const signupBtn = document.getElementById("signup-button");
-const signinBtn = document.getElementById("signin-button");
+// const signupBtn = document.getElementById("signup-button");
+// const signinBtn = document.getElementById("signin-button");
 
-const signupHereBtn = document.getElementById("signup-here");
-const signinHereBtn = document.getElementById("signin-here");
-const forgetSigninHereBtn = document.getElementById("forget-signin-here");
+// const signupHereBtn = document.getElementById("signup-here");
+// const signinHereBtn = document.getElementById("signin-here");
+// const forgetSigninHereBtn = document.getElementById("forget-signin-here");
 
-const userProfileBox = document.querySelector('.dropdown-profile-arrow');
-const forgetBtn = document.getElementById("forget-link");
+// const userProfileBox = document.querySelector('.dropdown-profile-arrow');
+// const forgetBtn = document.getElementById("forget-link");
 
 
 // OPEN SIGNIN
-signinBtn?.addEventListener("click", openSigninBox);
+// if(signinBtn) signinBtn?.addEventListener("click", openSigninBox);
 export async function openSigninBox() {
+    const signInForm = document.getElementById("signin-form");
+    const mainContainer = document.getElementById("main");
+
     signInForm.style.display = "flex";
     signInForm.style.animation = "slideFromTopToDown 0.5s ease forwards";
     mainContainer?.classList.add("showLoginBoxMain");
     signInForm?.classList.add("showLoginBox");
 }
 
-signinHereBtn?.addEventListener("click", () => {
-    closeSignupBox();
-    openSigninBox();
-});
+// signinHereBtn?.addEventListener("click", () => {
+//     closeSignupBox();
+//     openSigninBox();
+// });
 
-forgetSigninHereBtn?.addEventListener("click", () => {
-    closeForgetBox();
-    openSigninBox();
-});
+// forgetSigninHereBtn?.addEventListener("click", () => {
+//     closeForgetBox();
+//     openSigninBox();
+// });
 
 // OPEN SIGNUP
-signupBtn?.addEventListener("click", openSignupBox);
+// if(signupBtn) signupBtn?.addEventListener("click", openSignupBox);
 export async function openSignupBox() {
+    const mainContainer = document.getElementById("main");
+    const signUpForm = document.getElementById("signup-form");
+
     signUpForm.style.display = "flex";
     signUpForm.style.animation = "slideFromTopToDown 0.5s ease forwards";
     mainContainer?.classList.add("showLoginBoxMain");
     signUpForm?.classList.add("showLoginBox");
 }
 
-signupHereBtn?.addEventListener("click", () => {
-    closeSigninBox();
-    openSignupBox();
-});
+// signupHereBtn?.addEventListener("click", () => {
+//     closeSigninBox();
+//     openSignupBox();
+// });
 
 // CLOSE SIGNIN
-closeSigninBtn?.addEventListener("click", closeSigninBox);
+// closeSigninBtn?.addEventListener("click", closeSigninBox);
 export async function closeSigninBox() {
+    const mainContainer = document.getElementById("main");
+    const signInForm = document.getElementById("signin-form");
+
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
 
@@ -68,8 +77,11 @@ export async function closeSigninBox() {
 }
 
 // CLOSE SIGNUP
-closeSignupBtn?.addEventListener("click", closeSignupBox);
+// closeSignupBtn?.addEventListener("click", closeSignupBox);
 export async function closeSignupBox() {
+    const mainContainer = document.getElementById("main");
+    const signUpForm = document.getElementById("signup-form");
+
     document.getElementById("signup-firstname").value = "";
     document.getElementById("signup-lastname").value = "";
     document.getElementById("signup-username").value = "";
@@ -84,12 +96,15 @@ export async function closeSignupBox() {
 }
 
 // OPEN FORGET PASSWORD 
-forgetBtn?.addEventListener("click", () => {
-    console.log("forgot password");
-    closeSigninBox();
-    openForgetBox();
-});
+// forgetBtn?.addEventListener("click", () => {
+//     console.log("forgot password");
+//     closeSigninBox();
+//     openForgetBox();
+// });
 export async function openForgetBox() {
+    const mainContainer = document.getElementById("main");
+    const forgetForm = document.getElementById("forget-form");
+
     forgetForm.style.display = "flex";
     forgetForm.style.animation = "slideFromTopToDown 0.5s ease forwards";
     mainContainer?.classList.add("showLoginBoxMain");
@@ -97,8 +112,10 @@ export async function openForgetBox() {
 }
 
 // CLOSE FORGET PASSWORD 
-closeForgetBtn?.addEventListener("click", closeForgetBox);
+// closeForgetBtn?.addEventListener("click", closeForgetBox);
 export async function closeForgetBox() {
+    const mainContainer = document.getElementById("main");
+    const forgetForm = document.getElementById("forget-form");
     document.getElementById("forget-email").value = "";
     // document.getElementById("password").value = "";
 
@@ -111,7 +128,7 @@ export async function closeForgetBox() {
 }
 
 // SHOW PROFILE BOX
-userProfileBox?.addEventListener("click", showProfileBox);
+// userProfileBox?.addEventListener("click", showProfileBox);
 export async function showProfileBox() {
     if(document.querySelector('.user-profile-box').style.display == "flex") {
         document.querySelector('.user-profile-box').style.display = "none";
@@ -129,26 +146,4 @@ window.onclick = function(event) {
         document.querySelector('.user-profile-box').style.display = "none";
     }
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.pathname === "/") {
-        document.getElementById("home-page").classList.add("current-nav");
-    }
-    else if (window.location.pathname.includes("resources")) {
-        document.getElementById("resource-page").classList.add("current-nav");
-    }
-    else if (window.location.pathname.includes("compiler")) {
-        document.getElementById("compiler-page").classList.add("current-nav");
-    }
-    else if (window.location.pathname.includes("about")) {
-        document.getElementById("about-page").classList.add("current-nav");
-    }
-    else if (window.location.pathname.includes("contact")) {
-        document.getElementById("contact-page").classList.add("current-nav");
-    }  
-});
-
-
-
-
 

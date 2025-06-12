@@ -22,7 +22,7 @@ import { closeSignupBox, openSigninBox, closeSigninBox, closeForgetBox } from ".
 document.addEventListener('DOMContentLoaded', function() {
   const scroll = new LocomotiveScroll({
     el: document.querySelector('#main'),
-    smooth: true
+    smooth: false
   });
 });
 
@@ -40,7 +40,8 @@ const courseAdder = document.querySelector('.course-adder');
 const viewProfile = document.querySelector('.view-profile');
 
 // SIGNIN
-signinBtn?.addEventListener("click", () => {
+// signinBtn?.addEventListener("click", () => {
+export function SignInWithEmail() {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
 
@@ -67,11 +68,12 @@ signinBtn?.addEventListener("click", () => {
         console.error("Invalid login attempt:", error);
       });
   }
-});
+}
 
 
 // SIGNUP
-signupBtn?.addEventListener("click", () => {
+// signupBtn?.addEventListener("click", () => {
+export function SignUpWithEmail() {
   const firstname = document.querySelector('#signup-firstname').value;
   const lastname = document.querySelector('#signup-lastname').value;
   const username = document.querySelector('#signup-username').value;
@@ -129,11 +131,11 @@ signupBtn?.addEventListener("click", () => {
         alert("Error Signing Up now:" + error.message);
       });
   }
-});
+}
 
 
 // GOOGLE
-function GoogleSignIn() {
+export function GoogleSignIn() {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider).then((result) => {
     // const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -170,7 +172,7 @@ document.getElementById("gmail-signup-btn")?.addEventListener("click", GoogleSig
 
 
 // FACEBOOK
-function FacebookSignIn() {
+export function FacebookSignIn() {
   const provider = new FacebookAuthProvider();
   signInWithPopup(auth, provider).then((result) => {
     // const credential = FacebookAuthProvider.credentialFromResult(result);
@@ -202,8 +204,8 @@ function FacebookSignIn() {
   })
 }
 
-document.getElementById("fb-login-btn")?.addEventListener("click", FacebookSignIn);
-document.getElementById("signup-fb-login-btn")?.addEventListener("click", FacebookSignIn);
+// document.getElementById("fb-login-btn")?.addEventListener("click", FacebookSignIn);
+// document.getElementById("signup-fb-login-btn")?.addEventListener("click", FacebookSignIn);
 
 // fbBtn?.addEventListener("click", () => {
 //   const provider = new FacebookAuthProvider();
@@ -220,16 +222,18 @@ document.getElementById("signup-fb-login-btn")?.addEventListener("click", Facebo
 
 
 // FORGET PASSWORD
-forgetBtn?.addEventListener("click", () => {
+// forgetBtn?.addEventListener("click", () => {
+export function HandleForgotPassword() {
   const email = document.getElementById("forget-email").value;
   closeForgetBox();
   sendPasswordResetEmail(auth, email)
     .then(() => alert("Reset email sent!"))
     .catch((error) => alert(error.message));
-});
+}
 
 // LOGOUT
-logoutBtn?.addEventListener("click", () => {
+// logoutBtn?.addEventListener("click", () => {
+export function SignoutUser() {
   signOut(auth).then(() => {
     document.querySelector('#main').classList.remove('showLoginBoxMain');
 
@@ -251,7 +255,7 @@ logoutBtn?.addEventListener("click", () => {
       console.log(error.message);
       alert("Sign Out failed: " + error.message);
     })
-});
+}
 
 function logoutUser() {
   signOut(auth).then(() => {
@@ -277,31 +281,41 @@ function logoutUser() {
 }
 
 // AUTH STATE
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // document.querySelector(".user-profile").style.display = "flex";
-    // document.querySelector(".nav-list2").style.display = "none";
-    document.querySelector(".nav-list2").style.visibility = "hidden";
-    document.querySelector(".user-profile").style.visibility = "visible";
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // document.querySelector(".user-profile").style.display = "flex";
+        // document.querySelector(".nav-list2").style.display = "none";
+        document.querySelector(".nav-list2").style.visibility = "hidden";
+        document.querySelector(".user-profile").style.visibility = "visible";
 
-    closeSigninBox();
-    closeSignupBox();
+        closeSigninBox();
+        closeSignupBox();
 
-    getUserData(user.uid, user.photoURL);
-  } else {
-    document.querySelector(".user-profile-box").style.display = "none";
-    document.querySelector(".user-profile").style.visibility = "hidden";
-    document.querySelector(".nav-list2").style.visibility = "visible";
-  }
+        getUserData(user.uid, user.photoURL);
+      } else {
+        const profile = document.querySelector(".user-profile-box");
+        if(profile){
+          profile.style.display = "none";
+          document.querySelector(".user-profile").style.visibility = "hidden";
+          document.querySelector(".nav-list2").style.visibility = "visible";
+        }
+      }
+    });
+  }, 100); // give includes time to load
 });
 
-courseAdder?.addEventListener("click", () => {
-  window.location.href = "/src/modules/problemadder/index.html";
-});
 
-viewProfile?.addEventListener("click", () => {
-  window.location.href = "/src/modules/progress/index.html";
-});
+
+
+// courseAdder?.addEventListener("click", () => {
+//   window.location.href = "public/src/modules/problemadder/index.html";
+// });
+
+// viewProfile?.addEventListener("click", () => {
+//   window.location.href = "public/src/modules/progress/index.html";
+// });
 
 // document.addEventListener('DOMContentLoaded', function() {
 //   var loader = document.querySelector("#loader")

@@ -1,7 +1,9 @@
 /* Code Editor Styles */
 @import './styles.css';
 
-
+ header {
+        border-bottom: 1px solid #e5e7eb;
+}
 .editor-container {
   flex: 1;
   display: flex;
@@ -20,21 +22,47 @@
 
 .editor-header {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  /* gap: var(--space-4); */
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: var(--space-4);
-  padding: var(--space-4);
+  /* padding: var(--space-4); */
   background-color: var(--white);
-  border-radius: 15px;
+  /* border-radius: 15px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border: 1px solid rgba(179, 179, 179, 0.65);
+  border: 1px solid rgba(179, 179, 179, 0.65); */
+}
+
+.editor-container {
+  padding: 100px 2rem 2rem;
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+.editor-header {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.editor-header h2 {
+  font-size: 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+.editor-header p {
+  font-size: 1.1rem;
+  color: var(--gray);
+  font-family: 'Poppins', sans-serif;
 }
 
 .editor-title {
   margin-bottom: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: 'DM Sans', sans-serif;
   font-weight: 800;
   color: var(--text-color);
@@ -130,7 +158,9 @@
   color: var(--text-color);
   transition: border-color var(--transition-fast);
 }
-
+.toolbar-select option {
+  font-family: 'Poppins', sans-serif;
+}
 .toolbar-select:focus {
   border: 2px solid var(--orange-dot);
   outline: none;

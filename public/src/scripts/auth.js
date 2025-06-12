@@ -74,7 +74,7 @@ export async function getUserData(uid, img_src) {
         document.getElementById('user-profile-email').value = useremail;
 
         if (img_src == null) {
-            document.querySelector('.user-image').src = "/src/assets/images/user6.png";
+            document.querySelector('.user-image').src = "/public/src/assets/images/user6.png";
         }
         else {
             document.querySelector('.user-image').src = img_src;

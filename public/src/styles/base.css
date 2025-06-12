@@ -4,31 +4,31 @@
 @font-face {
     font-family: 'neu';
     font-weight: 500;
-    src: url(/src/assets/fonts/NeueHaasDisplayBlack.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayBlack.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 400;
-    src: url(/src/assets/fonts/NeueHaasDisplayBold.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayBold.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 300;
-    src: url(/src/assets/fonts/NeueHaasDisplayMediu.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayMediu.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 100;
-    src: url(/src/assets/fonts/NeueHaasDisplayLight.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayLight.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 200;
-    src: url(/src/assets/fonts/NeueHaasDisplayRoman.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayRoman.ttf);
 }
 
 :root {
@@ -165,3 +165,159 @@ html, body {
     }
 }
 
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  border: 1px solid #0000003c;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 1rem;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  bottom: -100%;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+}
+
+.btn:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+.btn:focus {
+  outline: 2px solid var(--nav-text-color);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: #000000bb;
+  border: 1px solid #0000003c;
+}
+
+.btn-primary:hover {
+  color: #fff;
+}
+
+.btn-primary a {
+  color: inherit;
+  position: relative;
+  z-index: 9;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #000000bb;
+  border: 1px solid #0000003c;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+}
+
+.btn-secondary a {
+  color: inherit;
+  position: relative;
+  z-index: 9;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #000000bb;
+  border: 1px solid #0000003c;
+}
+
+.btn-outline:hover {
+  color: #fff;
+}
+
+.btn-outline a {
+  color: inherit;
+  position: relative;
+  z-index: 9;
+}
+
+.btn-large {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+
+/* --------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  border: 1px solid #0000003c;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 1rem;
+  color: #000; /* default text color */
+  z-index: 1;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  bottom: -100%;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+  z-index: 0;
+}
+
+.btn:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+/* Ensure text stays on top of the dark overlay */
+.btn span, .btn a {
+  position: relative;
+  z-index: 2;
+  transition: color 0.4s ease;
+}
+
+/* Make text white on hover */
+.btn:hover span,
+.btn:hover a {
+  color: white;
+}
+
+/* For buttons using text directly */
+.btn:hover {
+  color: white;
+}

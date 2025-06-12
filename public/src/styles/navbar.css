@@ -37,7 +37,8 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.91rem;
+    /* gap: 0.91rem; */
+    gap: 1rem;
     cursor: pointer;
 }
 
@@ -55,6 +56,7 @@ header{
     font-family: 'Poppins';
     font-weight: 600;
     font-size: 0.91rem;
+    /* font-size: 1rem; */
 }
 
 .nav-list1 h4 a:hover {
@@ -72,7 +74,8 @@ header{
 .nav-list2, .button {
     display: flex;
     align-items: center;
-    gap: 0.91rem;
+    /* gap: 0.91rem; */
+    gap: 1rem;
     cursor: pointer;
 }
 

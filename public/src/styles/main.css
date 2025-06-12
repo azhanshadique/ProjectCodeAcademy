@@ -5,11 +5,12 @@
 @import './footer.css';
 @import './form.css';
 @import './about.css';
-@import './problemadder.css';
-@import './resources.css';
+/* @import './problemadder.css'; */
+/* @import './resources.css'; */
 @import './progress.css';
 @import './contact.css';
 @import './practice.css';
+/* @import './article.css'; */
 
 
 
@@ -276,6 +277,8 @@
     font-size: 3vw;
     position: relative;
     z-index: 9;
+    font-family: 'DM Sans';
+    font-weight: 300;
 }
 
 .element .overlay {

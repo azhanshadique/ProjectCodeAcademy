@@ -1,7 +1,14 @@
 // import { getApps } from "firebase/app";
 import { getApps } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { codeTemplates, executeCodeUsingJudge0,  judge0LanguageIds } from "./judge0.js";
-import { auth } from "/src/scripts/auth.js";
+import { auth } from "../../scripts/auth.js";
+import { dbFirestore } from "../../scripts/init.js";
+import {
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
 
 document.addEventListener("DOMContentLoaded", function () {
   if (getApps().length === 0) {
@@ -217,22 +224,18 @@ document.addEventListener("DOMContentLoaded", function () {
       autoSaveStatus.textContent = 'Saving...';
     }
     
-    // Reference to user's auto-save document
-    const autoSaveRef = db.collection('auto-saves').doc(user.uid);
-    
-    // Save code
-    autoSaveRef.set({
+    // new code added
+    const autoSaveRef = doc(dbFirestore, 'auto-saves', user.uid);
+    setDoc(autoSaveRef, {
       code: code,
       language: language,
-      lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+      lastUpdated: serverTimestamp()
     })
     .then(function() {
       isEdited = false;
-      
+
       if (autoSaveStatus) {
         autoSaveStatus.textContent = 'Saved';
-        
-        // Clear "Saved" message after 3 seconds
         setTimeout(function() {
           autoSaveStatus.textContent = '';
         }, 3000);
@@ -240,16 +243,50 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(function(error) {
       console.error('Error auto-saving code:', error);
-      
+
       if (autoSaveStatus) {
         autoSaveStatus.textContent = 'Error saving';
-        
-        // Clear error message after 3 seconds
         setTimeout(function() {
           autoSaveStatus.textContent = '';
         }, 3000);
       }
     });
+
+
+
+    // Reference to user's auto-save document
+    // const autoSaveRef = dbFirestore.collection('auto-saves').doc(user.uid);
+    
+    // Save code
+    // autoSaveRef.set({
+    //   code: code,
+    //   language: language,
+    //   lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+    // })
+    // .then(function() {
+    //   isEdited = false;
+      
+    //   if (autoSaveStatus) {
+    //     autoSaveStatus.textContent = 'Saved';
+        
+    //     // Clear "Saved" message after 3 seconds
+    //     setTimeout(function() {
+    //       autoSaveStatus.textContent = '';
+    //     }, 3000);
+    //   }
+    // })
+    // .catch(function(error) {
+    //   console.error('Error auto-saving code:', error);
+      
+    //   if (autoSaveStatus) {
+    //     autoSaveStatus.textContent = 'Error saving';
+        
+    //     // Clear error message after 3 seconds
+    //     setTimeout(function() {
+    //       autoSaveStatus.textContent = '';
+    //     }, 3000);
+    //   }
+    // });
   }
 
   // Save code as snippet
@@ -267,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // If we have a current snippet ID, update it
     if (currentSnippetId) {
-      db.collection('snippets').doc(currentSnippetId).update({
+      dbFirestore.collection('snippets').doc(currentSnippetId).update({
         title: title || 'Untitled Snippet',
         code: code,
         language: language,
@@ -296,7 +333,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     } else {
       // Create new snippet
-      db.collection('snippets').add({
+      dbFirestore.collection('snippets').add({
         userId: user.uid,
         title: title || 'Untitled Snippet',
         code: code,
@@ -367,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
     snippetsList.innerHTML = '<div class="loader"></div>';
     
     // Fetch snippets from Firestore
-    db.collection('snippets')
+    dbFirestore.collection('snippets')
       .where('userId', '==', user.uid)
       .orderBy('lastUpdated', 'desc')
       .get()
@@ -441,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     // Fetch snippet data from Firestore
-    db.collection('snippets').doc(snippetId).get()
+    dbFirestore.collection('snippets').doc(snippetId).get()
       .then(function(doc) {
         if (doc.exists) {
           const snippet = doc.data();

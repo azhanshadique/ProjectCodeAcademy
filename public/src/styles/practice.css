@@ -91,7 +91,7 @@ body, html {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: var(--font-size-base);
   /* line-height: 1.6; */
-  overflow: hidden;
+  /* overflow: hidden; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

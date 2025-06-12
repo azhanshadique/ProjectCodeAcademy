@@ -4,31 +4,31 @@
 @font-face {
     font-family: 'neu';
     font-weight: 500;
-    src: url(/src/assets/fonts/NeueHaasDisplayBlack.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayBlack.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 400;
-    src: url(/src/assets/fonts/NeueHaasDisplayBold.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayBold.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 300;
-    src: url(/src/assets/fonts/NeueHaasDisplayMediu.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayMediu.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 100;
-    src: url(/src/assets/fonts/NeueHaasDisplayLight.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayLight.ttf);
 }
 
 @font-face {
     font-family: 'neu';
     font-weight: 200;
-    src: url(/src/assets/fonts/NeueHaasDisplayRoman.ttf);
+    src: url(/public/src/assets/fonts/NeueHaasDisplayRoman.ttf);
 }
 
 :root {
@@ -303,151 +303,6 @@ p {
   width: 100%;
 }
 
-/* Header & Navigation */
-/* .header {
-  background: var(--background-color);
-  padding: 0 2vw;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  position: fixed;
-  overflow-x: hidden;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.nav {
-  padding: 1vw 0vw;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 100;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  color: transparent;
-  background: linear-gradient(to left, orange, orangered);
-  background-clip: text;
-  -webkit-background-clip: text;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-}
-
-.logo-icon {
-  font-size: var(--font-size-xl);
-  margin-right: var(--space-2);
-}
-
-.logo-text {
-  font-size: var(--font-size-lg);
-}
-
-.nav-links {
-  display: flex;
-  gap: 0.91rem;
-}
-
-.nav-links h4 {
-  padding: 10px 20px;
-  font-weight: 300;
-  transition: all ease 0.4s;
-  position: relative;
-  font-size: 18px;
-  overflow: hidden;
-}
-
-.nav-links h4 a {
-  color: #000000bb;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 0.91rem;
-  transition: color var(--transition-fast);
-}
-
-.nav-links h4 a:hover {
-  color: var(--orange-dot);
-}
-
-.nav-links a.active {
-  color: var(--orange-dot);
-}
-
-.nav-links .current-nav {
-  color: var(--orange-dot);
-}
-
-.auth-buttons {
-  display: flex;
-  gap: 0.91rem;
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-2);
-}
-
-.mobile-menu-btn span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--text-color);
-  margin: 6px 0;
-  transition: all var(--transition-normal);
-} */
-
-/* Footer */
-/* .footer {
-  background-color: #000;
-  color: #fff;
-  padding: var(--space-12) 0 var(--space-6);
-  position: relative;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: var(--space-6);
-  border-top: 1px solid #333;
-  font-size: var(--font-size-sm);
-  color: #ccc;
-} */
-
-/* Form Elements */
-/* .form-group {
-  margin-bottom: var(--space-4);
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: var(--space-2);
-  font-weight: 500;
-  color: var(--text-color);
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;
-}
-
-.form-group input, .form-group select, .form-group textarea {
-  width: 100%;
-  padding: var(--space-3);
-  border: 1px solid rgba(179, 179, 179, 0.5);
-  border-radius: 7px;
-  font-size: var(--font-size-base);
-  transition: border-color var(--transition-fast);
-  background: var(--white);
-  font-family: 'Poppins', sans-serif;
-}
-
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  outline: none;
-  border: 2px solid var(--orange-dot);
-  padding: calc(var(--space-3) - 1px);
-} */
 
 /* Loader */
 .loader-container {
