@@ -84,7 +84,7 @@ const testcases = [
 ];
 
 submitBtn.addEventListener('click', async () => {
-  const sourceCode = x + document.getElementById('code-editor').value.trim() + y;
+  const sourceCode = javaFirst + document.getElementById('code-editor').value.trim() + javaLast;
   console.log(sourceCode);
   const languageId = document.getElementById('language-select').value;
 
