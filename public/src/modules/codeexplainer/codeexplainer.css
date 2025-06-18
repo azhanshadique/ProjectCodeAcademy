@@ -400,7 +400,9 @@ p {
   margin-top: 2rem;
   margin: 0 9rem;
 }
-
+#languageSelect {
+  margin-top: 1rem;
+}
 .saved-explanations-grid {
   padding: 1.5rem;
   display: grid;

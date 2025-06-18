@@ -114,5 +114,7 @@ function highlightCurrentNav() {
         document.getElementById("contact-page")?.classList.add("current-nav");
     } else if (path.includes("codeexplainer")) {
         document.getElementById("code-explainer")?.classList.add("current-nav");
+    } else if (path.includes("challenges")) {
+        document.getElementById("challenges")?.classList.add("current-nav");
     }
 }

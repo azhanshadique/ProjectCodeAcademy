@@ -209,7 +209,7 @@ html, body {
 
 .btn-primary {
   background-color: transparent;
-  color: #000000bb;
+  /* color: #000000bb; */
   border: 1px solid #0000003c;
 }
 
@@ -282,7 +282,7 @@ html, body {
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
   margin-top: 1rem;
-  color: #000; /* default text color */
+  /* color: #000; default text color */
   z-index: 1;
 }
 
