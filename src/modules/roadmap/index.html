@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Roadmap - CodeAcademy</title>
+
+  <!-- Global Styles & Fonts -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="main">
+    <!-- Navbar -->
+    <div data-include="/src/components/navbar.html"></div>
+
+    <!-- Profile Box -->
+    <div data-include="/src/components/profilebox.html"></div>
+
+    <!-- Learning Roadmap Section -->
+    <div class="roadmap-container">
+      <div class="roadmap-header">
+        <h1>Learning Path Tracker</h1>
+        <p>Follow your personalized learning journey and track your progress</p>
+        
+        <div class="roadmap-controls">
+          <select id="pathSelect">
+            <option value="frontend">Frontend Development</option>
+            <option value="backend">Backend Development</option>
+            <option value="fullstack">Full Stack Development</option>
+            <option value="datastructures">Data Structures & Algorithms</option>
+            <option value="mobile">Mobile Development</option>
+          </select>
+          <button id="resetProgress" class="btn btn-outline">
+            <span class="material-symbols-outlined">refresh</span>
+            Reset Progress
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Overview -->
+      <div class="progress-overview">
+        <div class="progress-stats">
+          <div class="stat-item">
+            <div class="stat-number" id="completedTopics">0</div>
+            <div class="stat-label">Completed Topics</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="totalTopics">0</div>
+            <div class="stat-label">Total Topics</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="progressPercentage">0%</div>
+            <div class="stat-label">Progress</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="currentStreak">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+        </div>
+        
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-text" id="progressText">0% Complete</div>
+        </div>
+      </div>
+
+      <!-- Learning Path Visualization -->
+      <div class="roadmap-visualization">
+        <div class="roadmap-path" id="roadmapPath">
+          <!-- Dynamic content will be inserted here -->
+        </div>
+      </div>
+
+      <!-- Topic Details Panel -->
+      <div class="topic-details-panel" id="topicDetailsPanel">
+        <div class="panel-header">
+          <h3 id="topicTitle">Select a topic to view details</h3>
+          <button id="closePanel" class="btn btn-outline">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        
+        <div class="panel-content" id="panelContent">
+          <div class="no-topic-selected">
+            <span class="material-symbols-outlined">touch_app</span>
+            <p>Click on any topic in the roadmap to view details and resources</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievement System -->
+      <div class="achievements-section">
+        <div class="section-header">
+          <h3>Achievements</h3>
+          <button id="viewAllAchievements" class="btn btn-outline">View All</button>
+        </div>
+        
+        <div class="achievements-grid" id="achievementsGrid">
+          <!-- Dynamic achievements will be inserted here -->
+        </div>
+      </div>
+
+      <!-- Study Schedule -->
+      <div class="schedule-section">
+        <div class="section-header">
+          <h3>Study Schedule</h3>
+          <button id="customizeSchedule" class="btn btn-outline">Customize</button>
+        </div>
+        
+        <div class="schedule-calendar" id="scheduleCalendar">
+          <!-- Calendar will be generated here -->
+        </div>
+      </div>
+    </div>
+
+    <section class="section-5"></section>
+  </div>
+
+  <!-- Achievement Modal -->
+  <div class="achievement-modal" id="achievementModal">
+    <div class="modal-content">
+      <div class="achievement-celebration">
+        <span class="material-symbols-outlined">emoji_events</span>
+        <h2 id="achievementTitle">Achievement Unlocked!</h2>
+        <p id="achievementDescription">You've completed your first topic!</p>
+        <button id="closeAchievement" class="btn btn-primary">Continue Learning</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule Customization Modal -->
+  <div class="schedule-modal" id="scheduleModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Customize Study Schedule</h3>
+        <button id="closeScheduleModal" class="btn btn-outline">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      
+      <div class="schedule-form">
+        <div class="form-group">
+          <label for="studyDuration">Daily Study Duration (minutes)</label>
+          <input type="range" id="studyDuration" min="15" max="180" value="60" step="15">
+          <span id="durationValue">60 minutes</span>
+        </div>
+        
+        <div class="form-group">
+          <label>Study Days</label>
+          <div class="days-selector">
+            <label class="day-checkbox">
+              <input type="checkbox" value="monday" checked>
+              <span>Mon</span>
+            </label>
+            <label class="day-checkbox">
+              <input type="checkbox" value="tuesday" checked>
+              <span>Tue</span>
+            </label>
+            <label class="day-checkbox">
+              <input type="checkbox" value="wednesday" checked>
+              <span>Wed</span>
+            </label>
+            <label class="day-checkbox">
+              <input type="checkbox" value="thursday" checked>
+              <span>Thu</span>
+            </label>
+            <label class="day-checkbox">
+              <input type="checkbox" value="friday" checked>
+              <span>Fri</span>
+            </label>
+            <label class="day-checkbox">
+              <input type="checkbox" value="saturday">
+              <span>Sat</span>
+            </label>
+            <label class="day-checkbox">
+              <input type="checkbox" value="sunday">
+              <span>Sun</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="reminderTime">Daily Reminder Time</label>
+          <input type="time" id="reminderTime" value="09:00">
+        </div>
+        
+        <div class="form-actions">
+          <button id="saveSchedule" class="btn btn-primary">Save Schedule</button>
+          <button id="cancelSchedule" class="btn btn-outline">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-include="/src/components/footer.html"></div>
+
+  <!-- Auth Forms -->
+  <div data-include="/src/components/auth-forms.html"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="./script.js"></script>
+
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include'))
+        .then(res => res.text())
+        .then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>

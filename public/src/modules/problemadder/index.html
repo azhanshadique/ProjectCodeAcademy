@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeAcademy</title>
+
+  <!-- Global Styles & Fonts -->
+  <link rel="stylesheet" href="/public/src/styles/main.css" />
+  <link rel="stylesheet" href="/public/src/styles/problemadder.css" />
+  
+  <link rel="shortcut icon" href="/public/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="main">
+    <!-- Navbar -->
+    <div data-include="/public/src/components/navbar.html"></div>
+
+    <!-- Profile Box -->
+    <div data-include="/public/src/components/profilebox.html"></div>
+
+
+
+    <!--Course Adder Form -->
+    <div class="course-form" id="problemForm">
+      <div class="course-form-box">
+        <div class="form">
+          <div class="course-div">
+            <div class="course-text">Problem Input Form</div>
+          </div>
+          <div class="problem-div">
+            <div for="id" class="problem-text">Problem ID</div>
+            <input type="text" placeholder="Enter problem ID (e.g., two-sum)" id="id" name="id" required />
+          </div>
+          <div class="title-div">
+            <div for="title" class="title-text">Title:</div>
+            <input type="text" placeholder="Enter problem title" id="title" name="title" required />
+          </div>
+          <div class="title-div">
+            <div for="difficulty" class="title-text">Difficulty:</div>
+            <select id="difficulty" name="difficulty" required>
+              <option value="" disabled selected>Select difficulty</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
+          <div class="title-div">
+            <div for="difficulty" class="title-text">Category:</div>
+            <select id="category" name="category" required>
+              <option value="" disabled selected>Select category</option>
+              <option value="Array">Array</option>
+              <option value="Tree">Tree</option>
+              <option value="Linked List">Linked List</option>
+              <option value="Stack & Queue">Stack & Queue</option>
+              <option value="Recursion">Recursion</option>
+              <option value="BST">BST</option>
+              <option value="Greedy Algo">Greedy Algo</option>
+              <option value="DP">DP</option>
+              <option value="String">String</option>
+              <option value="Graph">Graph</option>
+            </select>
+          </div>
+        
+          <div for="order" class="order-div">
+            <div class="order-text">Order:</div>
+            <input type="number" placeholder="Enter order (e.g., 1)" id="order" name="order" required/>
+          </div>
+          <div for="link" class="link-div">
+            <div class="link-text">Practice Link (optional):</div>
+            <input type="url" placeholder="Enter URL" id="link" name="link" required/>
+          </div>
+    
+          <div class="button form-button">
+            <h4 class="form-sigup-button course" id="course-btn"><a href="#">Submit</a></h4>
+          </div>
+   
+        </div>
+      </div>
+    </div>
+
+ 
+
+    <section class="section-5"></section>
+  </div>
+
+  <!-- Footer -->
+  <div data-include="/public/src/components/footer.html"></div>
+
+  <!-- Auth Forms (Signin / course) -->
+  <div data-include="/public/src/components/auth-forms.html"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Firebase START-->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <!-- Firebase END-->
+
+  <script type="module" src="/public/src/scripts/main.js"></script>
+  <script type="module" src="/public/src/modules/problemadder/script.js"></script>
+  <!-- <script src="/public/src/scripts/includeLoader.js"></script> This will auto-load include tags -->
+  <script type="module" src="../../scripts/loader.js"></script>
+
+  <!-- <script>
+    
+    document.querySelectorAll('[data-include]').forEach(el => {
+    fetch(el.getAttribute('data-include'))
+        .then(res => res.text())
+        .then(data => el.innerHTML = data);
+    });
+    
+  </script> -->
+  
+</body>
+</html>

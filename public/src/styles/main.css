@@ -1,0 +1,350 @@
+/* Main CSS - Import all modules */
+@import './base.css';
+/* @import './layout.css'; */
+@import './navbar.css';
+@import './footer.css';
+@import './form.css';
+@import './about.css';
+/* @import './problemadder.css'; */
+/* @import './resources.css'; */
+@import './progress.css';
+@import './contact.css';
+@import './practice.css';
+/* @import './article.css'; */
+
+
+
+/* SECTION-1 STARTS */
+
+.section-1 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffff;
+    position: relative;
+    padding: 0 2vw;
+}
+
+#center {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid #0000003c;
+    padding-bottom: 5.5vw;
+}
+
+#left h3 {
+    width: 30vw;
+    font-size: 2vw;
+    line-height: 2vw;
+}
+
+#center h1 {
+    font-family: 'DM Sans';
+    font-size: 12vw;
+    text-align: right;
+    line-height: 9.3vw;
+    font-weight: 500;
+    letter-spacing: 10px;
+}
+
+#center h2 {
+    font-size: 3vw;
+    text-align: right;
+    color: #FE320A;  
+}
+
+.section-1 video {
+    position: relative;
+    border-radius: 30px;
+    margin-top: 4vw;
+    width: 100%;
+}
+
+#hero-shape {
+    position: absolute;
+    width: 50vw;
+    height: 36vw;
+    right: -10px;
+    top: 80vh;
+}
+
+#hero-1 {
+    background-color: #FE320A;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    filter: blur(20px);
+    position: absolute;
+    opacity: 80%;
+}
+
+#hero-2 {
+    background: linear-gradient(#FE320A, #fe3f0a);
+    opacity: 80%;
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+    position: absolute;
+    animation-name: anime2;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    filter: blur(25px);
+}
+
+#hero-3 {
+    background: linear-gradient(#FE320A, #fe3f0a);
+    height: 30vw;
+    position: absolute;
+    width: 30vw;
+    border-radius: 50%;
+    filter: blur(25px);
+    animation-name: anime1;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes anime1 {
+    from {
+        transform: translate(55%, -3%);
+    }
+
+    to {
+        transform: translate(0%, 10%);
+    }
+}
+
+@keyframes anime2 {
+    from {
+        transform: translate(5%, -5%);
+    }
+
+    to {
+        transform: translate(-20%, 30%);
+    }
+}
+
+#change-text{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    transition: all ease 0.7s;   
+}
+
+#change-text h1::before {
+    font-size: 12vw;
+    text-align: right;
+    line-height: 9.3vw;
+    font-weight: 500;
+    letter-spacing: 5px;
+    content: "EMPOWER";
+    color: transparent;
+    transition: all ease 0.7s;
+    background: linear-gradient(to right,orange,#ff4500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 1;
+    animation-name: loading;
+    animation-duration: 10s;
+    animation-delay: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+    0%{
+        content: "EMPOWER";
+    }
+    25%{
+        content: "CODE"
+    }
+    50%{
+        content: "BUILD";
+    }
+    75%{
+        content: "SHAPE";
+    }
+}
+
+/* SECTION-2 STARTS */
+
+.section-2 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffff;
+    padding: 8vw 0;
+    position: relative;
+}
+
+.section2-bottom {
+    height: 80vh;
+    width: 100%;
+    padding: 4.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 9;
+    margin-bottom: 10vw;
+}
+
+.section2-bottom h1 {
+    font-size: 4vw;
+    width: 65%;
+    line-height: 4vw;
+}
+
+.section2-bottom-part2 {
+    width: 20%;
+}
+
+.section2-bottom-part2 img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.section2-bottom-part2 p {
+    font-weight: 200;
+    margin-top: 2vw;
+    font-size: 0.91rem;
+}
+
+.section-2 #moving-circle {
+    height: 32vw;
+    width: 32vw;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+    top: 58%;
+    left: 25%;
+    filter: blur(20px);
+    animation-name: moving-circle;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+/* SECTION-3 STARTS */
+
+.section-3{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffff;
+    padding: 6vw 0;
+}
+
+.element-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.element-heading h2 {
+    font-weight: 100;
+    font-size: 0.91rem;
+    margin-left: -1.5vw;
+}
+
+#small-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #FE320A;
+    margin: 0.91rem 2vw;
+}
+
+.element {
+    height: 150px;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #38383864;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 2vw;
+}
+
+.element h2 {
+    font-size: 3vw;
+    position: relative;
+    z-index: 9;
+    font-family: 'DM Sans';
+    font-weight: 300;
+}
+
+.element .overlay {
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    top: -100%;
+    transition: all ease 0.25s;
+}
+
+.element:hover .overlay {
+    top: 0;
+}
+
+/* SECTION-4 STARTS */
+
+.section-4 {
+    height: 70vh;
+    width: 100%;
+    background-color: var(--background-color);
+    padding: 10vw 2vw;  
+    margin-top: -1px;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider {
+    width: 30%;
+    height: 200px;
+    border-left: 1px solid #aeadad;
+    padding: 0 2vw; 
+}
+
+/* SECTION-5 STARTS */
+
+.section-5 {
+    height: 100vh;
+    width: 100%;
+}
+
+#full-scr {
+    height: 100vh;
+    width: 100%;
+    background-color: #00000070;
+    position: fixed;
+    z-index: 99;
+    top: -100%;
+    transition: all ease 0.5s;
+}
+
+#full-div1 {
+    height: 50%;
+    width: 100%;
+    background-color: #EFEAE3;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

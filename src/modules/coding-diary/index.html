@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Diary - CodeAcademy</title>
+
+  <!-- Global Styles & Fonts -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="shortcut icon" href="/src/assets/images/icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="main">
+    <!-- Navbar -->
+    <div data-include="/src/components/navbar.html"></div>
+
+    <!-- Profile Box -->
+    <div data-include="/src/components/profilebox.html"></div>
+
+    <!-- Coding Diary Section -->
+    <div class="diary-container">
+      <div class="diary-header">
+        <h1>Developer Notes & Coding Diary</h1>
+        <p>Document your learning journey, insights, and code snippets</p>
+        
+        <div class="diary-controls">
+          <button id="newEntryBtn" class="btn btn-primary">
+            <span class="material-symbols-outlined">add</span>
+            New Entry
+          </button>
+          <div class="search-container">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="searchInput" placeholder="Search entries...">
+          </div>
+          <div class="filter-container">
+            <select id="tagFilter">
+              <option value="all">All Tags</option>
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="algorithms">Algorithms</option>
+              <option value="debugging">Debugging</option>
+              <option value="learning">Learning</option>
+              <option value="project">Project</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics Overview -->
+      <div class="diary-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">article</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="totalEntries">0</div>
+            <div class="stat-label">Total Entries</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">local_fire_department</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="currentStreak">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">tag</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="totalTags">0</div>
+            <div class="stat-label">Unique Tags</div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <span class="material-symbols-outlined">flag</span>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number" id="reviewCount">0</div>
+            <div class="stat-label">Flagged for Review</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entry Editor -->
+      <div class="entry-editor" id="entryEditor" style="display: none;">
+        <div class="editor-header">
+          <h3 id="editorTitle">New Entry</h3>
+          <div class="editor-controls">
+            <button id="saveEntry" class="btn btn-primary">
+              <span class="material-symbols-outlined">save</span>
+              Save
+            </button>
+            <button id="cancelEntry" class="btn btn-outline">
+              <span class="material-symbols-outlined">close</span>
+              Cancel
+            </button>
+          </div>
+        </div>
+        
+        <div class="editor-content">
+          <div class="entry-meta">
+            <div class="meta-group">
+              <label for="entryTitle">Title:</label>
+              <input type="text" id="entryTitle" placeholder="Enter entry title...">
+            </div>
+            
+            <div class="meta-group">
+              <label for="entryTags">Tags:</label>
+              <div class="tags-input-container">
+                <input type="text" id="entryTags" placeholder="Add tags (press Enter)...">
+                <div class="tags-display" id="tagsDisplay"></div>
+              </div>
+            </div>
+            
+            <div class="meta-group">
+              <label>
+                <input type="checkbox" id="flagForReview">
+                Flag for review
+              </label>
+            </div>
+          </div>
+          
+          <div class="editor-toolbar">
+            <button class="toolbar-btn" data-action="bold" title="Bold">
+              <span class="material-symbols-outlined">format_bold</span>
+            </button>
+            <button class="toolbar-btn" data-action="italic" title="Italic">
+              <span class="material-symbols-outlined">format_italic</span>
+            </button>
+            <button class="toolbar-btn" data-action="underline" title="Underline">
+              <span class="material-symbols-outlined">format_underlined</span>
+            </button>
+            <div class="toolbar-separator"></div>
+            <button class="toolbar-btn" data-action="insertUnorderedList" title="Bullet List">
+              <span class="material-symbols-outlined">format_list_bulleted</span>
+            </button>
+            <button class="toolbar-btn" data-action="insertOrderedList" title="Numbered List">
+              <span class="material-symbols-outlined">format_list_numbered</span>
+            </button>
+            <div class="toolbar-separator"></div>
+            <button class="toolbar-btn" id="insertCodeBlock" title="Code Block">
+              <span class="material-symbols-outlined">code</span>
+            </button>
+            <button class="toolbar-btn" id="insertLink" title="Insert Link">
+              <span class="material-symbols-outlined">link</span>
+            </button>
+          </div>
+          
+          <div class="editor-main">
+            <div id="richTextEditor" contenteditable="true" class="rich-editor" placeholder="Start writing your entry..."></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entries List -->
+      <div class="entries-section">
+        <div class="section-header">
+          <h3>Your Entries</h3>
+          <div class="view-controls">
+            <button class="view-btn active" data-view="grid">
+              <span class="material-symbols-outlined">grid_view</span>
+            </button>
+            <button class="view-btn" data-view="list">
+              <span class="material-symbols-outlined">view_list</span>
+            </button>
+          </div>
+        </div>
+        
+        <div class="entries-container" id="entriesContainer">
+          <!-- Entries will be dynamically loaded here -->
+        </div>
+        
+        <div class="load-more-container">
+          <button id="loadMoreEntries" class="btn btn-outline" style="display: none;">
+            Load More Entries
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Notes -->
+      <div class="quick-notes-section">
+        <div class="section-header">
+          <h3>Quick Notes</h3>
+          <button id="clearQuickNotes" class="btn btn-outline">Clear All</button>
+        </div>
+        
+        <div class="quick-notes-container">
+          <textarea id="quickNotesArea" placeholder="Jot down quick thoughts, code snippets, or reminders..."></textarea>
+          <div class="quick-notes-actions">
+            <button id="saveQuickNote" class="btn btn-secondary">
+              <span class="material-symbols-outlined">note_add</span>
+              Save as Entry
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tags Cloud -->
+      <div class="tags-cloud-section">
+        <div class="section-header">
+          <h3>Tags Cloud</h3>
+        </div>
+        
+        <div class="tags-cloud" id="tagsCloud">
+          <!-- Tags will be dynamically generated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Entry Detail Modal -->
+    <div class="entry-modal" id="entryModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalEntryTitle">Entry Title</h3>
+          <div class="modal-actions">
+            <button id="editEntry" class="btn btn-secondary">
+              <span class="material-symbols-outlined">edit</span>
+              Edit
+            </button>
+            <button id="deleteEntry" class="btn btn-outline">
+              <span class="material-symbols-outlined">delete</span>
+              Delete
+            </button>
+            <button id="closeModal" class="btn btn-outline">
+              <span class="material-symbols-outlined">close</span>
+              Close
+            </button>
+          </div>
+        </div>
+        
+        <div class="modal-body">
+          <div class="entry-meta-display">
+            <div class="meta-item">
+              <span class="meta-label">Created:</span>
+              <span id="modalEntryDate">Date</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Tags:</span>
+              <div id="modalEntryTags" class="tags-display"></div>
+            </div>
+            <div class="meta-item" id="modalReviewFlag" style="display: none;">
+              <span class="review-flag">
+                <span class="material-symbols-outlined">flag</span>
+                Flagged for Review
+              </span>
+            </div>
+          </div>
+          
+          <div class="entry-content" id="modalEntryContent">
+            <!-- Entry content will be displayed here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-5"></section>
+  </div>
+
+  <!-- Footer -->
+  <div data-include="/src/components/footer.html"></div>
+
+  <!-- Auth Forms -->
+  <div data-include="/src/components/auth-forms.html"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="./script.js"></script>
+
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include'))
+        .then(res => res.text())
+        .then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>

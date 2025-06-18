@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 500;
+    src: url(/public/src/assets/fonts/NeueHaasDisplayBlack.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 400;
+    src: url(/public/src/assets/fonts/NeueHaasDisplayBold.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 300;
+    src: url(/public/src/assets/fonts/NeueHaasDisplayMediu.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 100;
+    src: url(/public/src/assets/fonts/NeueHaasDisplayLight.ttf);
+}
+
+@font-face {
+    font-family: 'neu';
+    font-weight: 200;
+    src: url(/public/src/assets/fonts/NeueHaasDisplayRoman.ttf);
+}
+
+:root {
+    --primary-color: #6366F1;
+    --accent-color: #3f83f8;
+    --text-color: #333333;
+    --link-color: #2563eb;
+    --light-gray: #f0f0f0;
+    --gray: #808080;
+    --dark-gray: #555;
+
+    --background-color: #EFEAE3;
+    --background-color: #F9FAFB;
+    --background-color: #ffff;
+    --nav-text-color: #000000bb;
+    --orange-dot: #FE320A;
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'neu' ,'DM Sans','Inter', sans-serif;
+    text-decoration: none;
+    font-weight: 300;
+    user-select: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.user-profile-icon, .view-profile-icon {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 10
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+
+}
+
+#main {
+    position: relative;
+    z-index: 10;
+}
+
+.show {display: block;}
+
+.hide{
+    display: none;
+}
+
+.visibleOff{
+    visibility: hidden;
+}
+
+.visibleOn{
+    visibility: visible;
+}
+
+/* LOADER PART */
+
+#loader{
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    transition: all ease 0.7s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader h1 {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 3vw;
+    color: transparent;
+    background: linear-gradient(to right,orange,orangered);
+    background-clip: text;
+    -webkit-background-clip: text;
+    position: absolute;
+    opacity: 0;
+    animation-name: load;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+}
+
+.loader-content {
+    display: block;
+
+}
+#loader h1:nth-child(2){
+    animation-delay: 2s;
+}
+
+#loader h1:nth-child(3){
+    animation-delay: 3s;
+}
+
+@keyframes load {
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@media (max-width:600px) {
+    #loader h1{
+        font-size: 9vw;
+      
+    }
+}
+
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  border: 1px solid #0000003c;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 1rem;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  bottom: -100%;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+}
+
+.btn:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+.btn:focus {
+  outline: 2px solid var(--nav-text-color);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: transparent;
+  /* color: #000000bb; */
+  border: 1px solid #0000003c;
+}
+
+.btn-primary:hover {
+  color: #fff;
+}
+
+.btn-primary a {
+  color: inherit;
+  position: relative;
+  z-index: 9;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #000000bb;
+  border: 1px solid #0000003c;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+}
+
+.btn-secondary a {
+  color: inherit;
+  position: relative;
+  z-index: 9;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #000000bb;
+  border: 1px solid #0000003c;
+}
+
+.btn-outline:hover {
+  color: #fff;
+}
+
+.btn-outline a {
+  color: inherit;
+  position: relative;
+  z-index: 9;
+}
+
+.btn-large {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+
+/* --------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  border: 1px solid #0000003c;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 1rem;
+  /* color: #000; default text color */
+  z-index: 1;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  bottom: -100%;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+  z-index: 0;
+}
+
+.btn:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+/* Ensure text stays on top of the dark overlay */
+.btn span, .btn a {
+  position: relative;
+  z-index: 2;
+  transition: color 0.4s ease;
+}
+
+/* Make text white on hover */
+.btn:hover span,
+.btn:hover a {
+  color: white;
+}
+
+/* For buttons using text directly */
+.btn:hover {
+  color: white;
+}
