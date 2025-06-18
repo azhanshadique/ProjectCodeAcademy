@@ -1,6 +1,10 @@
 // const JUDGE0_BASE_URL = 'http://192.168.138.7:2358';
-const JUDGE0_BASE_URL = 'http://192.168.187.7:2358';
+// const JUDGE0_BASE_URL = 'http://192.168.187.7:2358';
 
+const JUDGE0_API_CONFIG = {
+  host: 'judge0-ce.p.rapidapi.com',
+  key: '43c9203bb9msh5b7929b546b2220p1e0216jsn2f65f906b0cb' // 🔑 Replace with your actual RapidAPI key
+};
 
 // Outer horizontal split (left and right)
 Split(['#split-0', '#split-1'], {
@@ -84,8 +88,7 @@ const testcases = [
 ];
 
 submitBtn.addEventListener('click', async () => {
-  const sourceCode = javaFirst + document.getElementById('code-editor').value.trim() + javaLast;
-  console.log(sourceCode);
+    const sourceCode = document.getElementById('code-editor').value.trim();
   const languageId = document.getElementById('language-select').value;
 
   if (!sourceCode) {
@@ -106,14 +109,38 @@ submitBtn.addEventListener('click', async () => {
     };
 
     try {
-      const res = await fetch(`${JUDGE0_BASE_URL}/submissions?base64_encoded=false&wait=true`, {
-  	method: 'POST',
-  	headers: { 'Content-Type': 'application/json' },
-  	body: JSON.stringify(requestBody),
+      // Step 1: Submit code
+      const submitRes = await fetch('https://judge0-ce.p.rapidapi.com/submissions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-RapidAPI-Host': JUDGE0_API_CONFIG.host,
+          'X-RapidAPI-Key': JUDGE0_API_CONFIG.key
+        },
+        body: JSON.stringify(requestBody)
       });
 
-      const data = await res.json();
-      const actualOutput = (data.stdout || data.stderr || '').trim();
+      const submitData = await submitRes.json();
+      const token = submitData.token;
+
+      if (!token) {
+        outputDiv.innerHTML += `❌ Error: No token returned.\n\n`;
+        continue;
+      }
+
+      // Step 2: Poll result
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Optional delay
+
+      const resultRes = await fetch(`https://judge0-ce.p.rapidapi.com/submissions/${token}?base64_encoded=false`, {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host': JUDGE0_API_CONFIG.host,
+          'X-RapidAPI-Key': JUDGE0_API_CONFIG.key
+        }
+      });
+
+      const resultData = await resultRes.json();
+      const actualOutput = (resultData.stdout || resultData.stderr || '').trim();
 
       if (actualOutput === expected.trim()) {
         outputDiv.innerHTML += `✅ Passed\n\n`;
@@ -128,46 +155,6 @@ submitBtn.addEventListener('click', async () => {
   }
 });
 
-const javaFirst = `import java.util.*;
-
-class Node {
-    int val;
-    Node next;
-    Node(int val) {
-        this.val = val;
-    }
-}
-
-public class Main {
-    static Node buildLinkedList(List<Integer> vals) {
-        if (vals.isEmpty()) return null;
-        Node head = new Node(vals.get(0));
-        Node current = head;
-        for (int i = 1; i < vals.size(); i++) {
-            current.next = new Node(vals.get(i));
-            current = current.next;
-        }
-        return head;
-    }
-
-    static void printLinkedList(Node head) {
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
-        }
-    }`;
-
-const javaLast = `public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        List<Integer> vals = new ArrayList<>();
-        while (sc.hasNextInt()) {
-            vals.add(sc.nextInt());
-        }
-        Node head = buildLinkedList(vals);
-        head = reverseLinkedList(head);
-        printLinkedList(head);
-    }
-}`;
 const boilerplates = {
   63: `class Node {
     constructor(val) {
@@ -309,10 +296,51 @@ int main() {
     return 0;
 }
 `,
-  62: `
+  62: `import java.util.*;
+
+class Node {
+    int val;
+    Node next;
+    Node(int val) {
+        this.val = val;
+    }
+}
+
+public class Main {
+    static Node buildLinkedList(List<Integer> vals) {
+        if (vals.isEmpty()) return null;
+        Node head = new Node(vals.get(0));
+        Node current = head;
+        for (int i = 1; i < vals.size(); i++) {
+            current.next = new Node(vals.get(i));
+            current = current.next;
+        }
+        return head;
+    }
+
+    static void printLinkedList(Node head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
+    
     static Node reverseLinkedList(Node head) {
+        
         // YOUR CODE HERE
     }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Integer> vals = new ArrayList<>();
+        while (sc.hasNextInt()) {
+            vals.add(sc.nextInt());
+        }
+        Node head = buildLinkedList(vals);
+        head = reverseLinkedList(head);
+        printLinkedList(head);
+    }
+}
 `,
   71: `import sys
 
@@ -347,7 +375,6 @@ head = reverseLinkedList(head)
 print_linked_list(head)
 `,
 };
-
 
 const languageSelect = document.getElementById('language-select');
 const codeEditor = document.getElementById('code-editor');
